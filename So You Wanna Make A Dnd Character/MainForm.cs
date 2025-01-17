@@ -16,5 +16,10 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

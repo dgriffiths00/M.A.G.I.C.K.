@@ -13,7 +13,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
 
         //stats, created via method
-        private int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, ProficBonus, Level;
+        private int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, ProfisBonus, Level;
         //name and background, name gotten from pdf, background gotten from 
         private string _name, _background;
         //created via inherented class
