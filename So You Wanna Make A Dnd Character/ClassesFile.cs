@@ -13,7 +13,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
 
         //stats, created via method
-        private int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, ProficBonus, Level;
+        private int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, ProfisBonus, Level;
         //name and background, name gotten from pdf, background gotten from 
         private string _name, _background;
         //created via inherented class
@@ -25,7 +25,12 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character() { }
+        public Character() 
+        {
+            
+        }
+
+
 
 
         private int calculatingStats()
@@ -69,7 +74,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
     abstract class DndRace
     {
         //this will be inherented by all the races
-
+        private int _speed, _size;
 
     }
 
