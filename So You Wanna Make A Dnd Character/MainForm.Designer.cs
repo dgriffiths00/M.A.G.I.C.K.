@@ -306,7 +306,7 @@
             this.Controls.Add(this.RaceDropBox);
             this.Controls.Add(this.ClassDropBox);
             this.Name = "MainForm";
-            this.Text = "So You Want To Make A DND Character";
+            this.Text = "Multifaceted Assistant Generating Iconic Characters Kit";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
