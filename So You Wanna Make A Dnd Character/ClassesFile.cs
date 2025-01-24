@@ -120,6 +120,9 @@ namespace So_You_Wanna_Make_A_Dnd_Character
                     break;
             }
 
+            //Both the Class and race has been selected this will then go into calculating the other shit
+
+
         }
 
 

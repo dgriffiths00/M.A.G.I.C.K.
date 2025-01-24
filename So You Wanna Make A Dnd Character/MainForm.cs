@@ -19,7 +19,9 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
+            RaceDropBox.SelectedIndex = 0;
+            ClassDropBox.SelectedIndex = 0;
         }
 
         private void runBtn_Click(object sender, EventArgs e)
@@ -42,32 +44,9 @@ namespace So_You_Wanna_Make_A_Dnd_Character
             */
 
             //RaceDropBox.SelectedIndex selects the index of the dropdown that has been selected, and it functions like an array starting at 0, adding the + 1 so we can have nothing be 0 and create an error guard. Same thing for ClassDropBox
-            //GOTTA FUCKING FIX, YOU CAN UNSELECT THE DROPDOWN AND IT WILL MAKE IT SO YOU CAN'T NOT SELECT NOTHING AFTER SELECTING A RACE/CLASS
-            int SelectedRace;
-            int SelectedClass;
-
-            if (RaceDropBox.SelectedIndex == null)
-            {
-                SelectedRace = 0;
-            }
-            else
-            {
-                SelectedRace = RaceDropBox.SelectedIndex + 1;
-
-            }
+            int SelectedRace = RaceDropBox.SelectedIndex;
+            int SelectedClass = ClassDropBox.SelectedIndex;
             
-            if(ClassDropBox.SelectedIndex == null)
-            {
-                SelectedClass = 0;
-            }
-            else
-            {
-                SelectedClass = ClassDropBox.SelectedIndex + 1;
-            }
-
-
-
-
             Character created = new Character(SelectedRace, SelectedClass);
 
             

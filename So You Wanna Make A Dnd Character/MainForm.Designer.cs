@@ -57,7 +57,7 @@
             this.ClassDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClassDropBox.FormattingEnabled = true;
             this.ClassDropBox.Items.AddRange(new object[] {
-            "Nothing",
+            "Select Option",
             "Fighter",
             "Cleric",
             "Wizard",
@@ -73,6 +73,7 @@
             this.RaceDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RaceDropBox.FormattingEnabled = true;
             this.RaceDropBox.Items.AddRange(new object[] {
+            "Select Option",
             "Human",
             "Elf",
             "Dwarf",
@@ -81,7 +82,7 @@
             this.RaceDropBox.Location = new System.Drawing.Point(12, 250);
             this.RaceDropBox.Name = "RaceDropBox";
             this.RaceDropBox.Size = new System.Drawing.Size(194, 24);
-            this.RaceDropBox.TabIndex = 1;
+            this.RaceDropBox.TabIndex = 0;
             // 
             // RaceLabel
             // 
