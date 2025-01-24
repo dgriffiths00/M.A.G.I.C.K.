@@ -32,7 +32,7 @@
             this.RaceDropBox = new System.Windows.Forms.ComboBox();
             this.RaceLabel = new System.Windows.Forms.Label();
             this.ClassLabel = new System.Windows.Forms.Label();
-            this.NameDropBox = new System.Windows.Forms.TextBox();
+            this.FirstNameTxt = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.EquipmentCheckBox = new System.Windows.Forms.CheckedListBox();
             this.SpellCheckBox = new System.Windows.Forms.CheckedListBox();
@@ -57,6 +57,7 @@
             this.ClassDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClassDropBox.FormattingEnabled = true;
             this.ClassDropBox.Items.AddRange(new object[] {
+            "Nothing",
             "Fighter",
             "Cleric",
             "Wizard",
@@ -76,7 +77,7 @@
             "Elf",
             "Dwarf",
             "Orc",
-            "Dragon"});
+            "Dragonborn"});
             this.RaceDropBox.Location = new System.Drawing.Point(12, 250);
             this.RaceDropBox.Name = "RaceDropBox";
             this.RaceDropBox.Size = new System.Drawing.Size(194, 24);
@@ -100,12 +101,12 @@
             this.ClassLabel.TabIndex = 3;
             this.ClassLabel.Text = "Class";
             // 
-            // NameDropBox
+            // FirstNameTxt
             // 
-            this.NameDropBox.Location = new System.Drawing.Point(12, 95);
-            this.NameDropBox.Name = "NameDropBox";
-            this.NameDropBox.Size = new System.Drawing.Size(100, 22);
-            this.NameDropBox.TabIndex = 4;
+            this.FirstNameTxt.Location = new System.Drawing.Point(12, 95);
+            this.FirstNameTxt.Name = "FirstNameTxt";
+            this.FirstNameTxt.Size = new System.Drawing.Size(100, 22);
+            this.FirstNameTxt.TabIndex = 4;
             // 
             // NameLabel
             // 
@@ -161,9 +162,9 @@
             "you",
             "Can",
             "Pick"});
-            this.FeatCheckBox.Location = new System.Drawing.Point(253, 231);
+            this.FeatCheckBox.Location = new System.Drawing.Point(277, 231);
             this.FeatCheckBox.Name = "FeatCheckBox";
-            this.FeatCheckBox.Size = new System.Drawing.Size(283, 89);
+            this.FeatCheckBox.Size = new System.Drawing.Size(259, 89);
             this.FeatCheckBox.TabIndex = 8;
             // 
             // runBtn
@@ -300,7 +301,7 @@
             this.Controls.Add(this.SpellCheckBox);
             this.Controls.Add(this.EquipmentCheckBox);
             this.Controls.Add(this.NameLabel);
-            this.Controls.Add(this.NameDropBox);
+            this.Controls.Add(this.FirstNameTxt);
             this.Controls.Add(this.ClassLabel);
             this.Controls.Add(this.RaceLabel);
             this.Controls.Add(this.RaceDropBox);
@@ -319,7 +320,7 @@
         private System.Windows.Forms.ComboBox RaceDropBox;
         private System.Windows.Forms.Label RaceLabel;
         private System.Windows.Forms.Label ClassLabel;
-        private System.Windows.Forms.TextBox NameDropBox;
+        private System.Windows.Forms.TextBox FirstNameTxt;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.CheckedListBox EquipmentCheckBox;
         private System.Windows.Forms.CheckedListBox SpellCheckBox;

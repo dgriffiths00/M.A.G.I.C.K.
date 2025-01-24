@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
+
 namespace So_You_Wanna_Make_A_Dnd_Character
 {
     class Character
@@ -25,12 +28,99 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character() 
+        public Character(int SelectedRace, int SelectedClass) 
         {
-            
+
+            /*RaceDropDown
+             * Human
+                Elf
+                Dwarf
+                Orc
+                DragonBorn
+
+            Class DropDown
+            Fighter
+            Cleric
+            Wizard
+            Rogue
+            Bard
+            */
+
+            switch (SelectedRace)
+            {
+                case 1:
+                    Console.WriteLine("Selected Human");
+
+                    _CharRace = new Human();
+
+                    break;
+                case 2:
+                    Console.WriteLine("Selected Elf");
+                    _CharRace = new Elf();
+
+                    break;
+                case 3:
+                    Console.WriteLine("Selected Dwarf");
+                    _CharRace = new Dwarf();
+
+
+                    break;
+                case 4:
+                    Console.WriteLine("Selected Orc");
+                    _CharRace = new Orc();
+
+                    break;
+                case 5:
+                    Console.WriteLine("Selected Dragonborn");
+                    _CharRace = new Dragonborn();
+
+                    break;
+
+                default:
+                    Console.WriteLine("Selected Nothing");
+                    //begin randomly generated stuff
+
+
+
+                    break;
+            }
+
+            switch (SelectedClass)
+            {
+                case 1:
+                    Console.WriteLine("Selected Fighter");
+                    _CharClass = new Fighter();
+
+                    break;
+                case 2:
+                    Console.WriteLine("selected cleric");
+                    _CharClass = new Cleric();
+
+                    break;
+                case 3:
+                    Console.WriteLine("Selected Wizard");
+                    _CharClass = new Wizard();
+
+                    break;
+                case 4:
+                    Console.WriteLine("Selected Rouge");
+                    _CharClass = new Rouge();
+
+                    break;
+                case 5:
+                    Console.WriteLine("Selected Bard");
+                    _CharClass = new Bard();
+
+                    break;
+                default:
+                    Console.WriteLine("Selected Nothing");
+                    //start random generation here
+
+
+                    break;
+            }
+
         }
-
-
 
 
         private int calculatingStats()
@@ -74,32 +164,81 @@ namespace So_You_Wanna_Make_A_Dnd_Character
     abstract class DndRace
     {
         //this will be inherented by all the races
-        private int _speed, _size;
+        protected int _speed;
+        protected string _size;
+        
 
+        public DndRace()
+        {
+            _speed = 30;
+            _size = "medium";
+        }
+
+        public string Speed
+        {
+            get
+            {
+                return _speed.ToString(); ;
+            }
+
+            set
+            {
+                //this will be edited to change spending on the armor/any other affects
+            }
+        }
+        
     }
 
     class Human : DndRace
     {
 
+
+        public Human(): base()
+        {
+
+        }
     }
 
     class Elf : DndRace
     {
 
+
+        public Elf() : base()
+        {
+
+        }
     }
 
     class Dwarf : DndRace
     {
 
+
+       public Dwarf(): base()
+       {
+            _speed = 25;
+       }
     }
 
     class Orc : DndRace
     {
+        
+
+        public Orc(): base()
+        {
+
+        }
 
     }
 
-    class Dragon : DndRace
+    class Dragonborn : DndRace
     {
+
+
+        public Dragonborn(): base()
+        {
+
+
+        }
 
     }
 
