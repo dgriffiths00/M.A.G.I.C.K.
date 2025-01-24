@@ -28,7 +28,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character(int SelectedRace, int SelectedClass) 
+        public Character(int SelectedRace, int SelectedClass, string Name) 
         {
 
             /*RaceDropDown
@@ -38,12 +38,12 @@ namespace So_You_Wanna_Make_A_Dnd_Character
                 Orc
                 DragonBorn
 
-            Class DropDown
-            Fighter
-            Cleric
-            Wizard
-            Rogue
-            Bard
+                Class DropDown
+                Fighter
+                Cleric
+                Wizard
+                Rogue
+                Bard
             */
 
             switch (SelectedRace)
@@ -121,6 +121,19 @@ namespace So_You_Wanna_Make_A_Dnd_Character
             }
 
             //Both the Class and race has been selected this will then go into calculating the other shit
+
+            //if the name is not just a space (if blank)
+            if (Name != " ")
+            {
+                Console.WriteLine("Putting Name Info");
+
+                _name = Name;
+            }else
+            {
+                Console.WriteLine("Genorating Name");
+                //run the ran generator
+            }
+
 
 
         }

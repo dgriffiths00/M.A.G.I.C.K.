@@ -24,6 +24,17 @@ namespace So_You_Wanna_Make_A_Dnd_Character
             ClassDropBox.SelectedIndex = 0;
         }
 
+        //this will change the spells you can pick etc etc based on what you pick
+        private void RaceDropBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClassDropBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
         private void runBtn_Click(object sender, EventArgs e)
         {
             //collecting things to pass into the character builder
@@ -43,14 +54,20 @@ namespace So_You_Wanna_Make_A_Dnd_Character
             Bard
             */
 
-            //RaceDropBox.SelectedIndex selects the index of the dropdown that has been selected, and it functions like an array starting at 0, adding the + 1 so we can have nothing be 0 and create an error guard. Same thing for ClassDropBox
+            //RaceDropBox.SelectedIndex selects the index of the dropdown that has been selected, and it functions like an array starting at 0
             int SelectedRace = RaceDropBox.SelectedIndex;
             int SelectedClass = ClassDropBox.SelectedIndex;
+
+            string Name = FirstNameTxt.Text + " " + SecondNameTxt.Text;
             
-            Character created = new Character(SelectedRace, SelectedClass);
+            Character created = new Character(SelectedRace, SelectedClass, Name);
 
             
+
+            //Ends with opening another form with the information played out more cleanly
 
         }
+
+        
     }
 }

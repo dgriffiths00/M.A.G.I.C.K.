@@ -50,6 +50,8 @@
             this.SMRTlabel = new System.Windows.Forms.Label();
             this.CONLabel = new System.Windows.Forms.Label();
             this.DEXlabel = new System.Windows.Forms.Label();
+            this.NameSLabel = new System.Windows.Forms.Label();
+            this.SecondNameTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ClassDropBox
@@ -67,6 +69,7 @@
             this.ClassDropBox.Name = "ClassDropBox";
             this.ClassDropBox.Size = new System.Drawing.Size(194, 24);
             this.ClassDropBox.TabIndex = 0;
+            this.ClassDropBox.SelectedIndexChanged += new System.EventHandler(this.ClassDropBox_SelectedIndexChanged);
             // 
             // RaceDropBox
             // 
@@ -83,6 +86,7 @@
             this.RaceDropBox.Name = "RaceDropBox";
             this.RaceDropBox.Size = new System.Drawing.Size(194, 24);
             this.RaceDropBox.TabIndex = 0;
+            this.RaceDropBox.SelectedIndexChanged += new System.EventHandler(this.RaceDropBox_SelectedIndexChanged);
             // 
             // RaceLabel
             // 
@@ -104,7 +108,7 @@
             // 
             // FirstNameTxt
             // 
-            this.FirstNameTxt.Location = new System.Drawing.Point(12, 95);
+            this.FirstNameTxt.Location = new System.Drawing.Point(11, 35);
             this.FirstNameTxt.Name = "FirstNameTxt";
             this.FirstNameTxt.Size = new System.Drawing.Size(100, 22);
             this.FirstNameTxt.TabIndex = 4;
@@ -112,11 +116,11 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(12, 63);
+            this.NameLabel.Location = new System.Drawing.Point(11, 16);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(44, 16);
+            this.NameLabel.Size = new System.Drawing.Size(72, 16);
             this.NameLabel.TabIndex = 5;
-            this.NameLabel.Text = "Name";
+            this.NameLabel.Text = "First Name";
             // 
             // EquipmentCheckBox
             // 
@@ -280,11 +284,29 @@
             this.DEXlabel.TabIndex = 21;
             this.DEXlabel.Text = "DEX";
             // 
+            // NameSLabel
+            // 
+            this.NameSLabel.AutoSize = true;
+            this.NameSLabel.Location = new System.Drawing.Point(129, 16);
+            this.NameSLabel.Name = "NameSLabel";
+            this.NameSLabel.Size = new System.Drawing.Size(72, 16);
+            this.NameSLabel.TabIndex = 23;
+            this.NameSLabel.Text = "Last Name";
+            // 
+            // SecondNameTxt
+            // 
+            this.SecondNameTxt.Location = new System.Drawing.Point(129, 35);
+            this.SecondNameTxt.Name = "SecondNameTxt";
+            this.SecondNameTxt.Size = new System.Drawing.Size(131, 22);
+            this.SecondNameTxt.TabIndex = 22;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 648);
+            this.Controls.Add(this.NameSLabel);
+            this.Controls.Add(this.SecondNameTxt);
             this.Controls.Add(this.DEXlabel);
             this.Controls.Add(this.CONLabel);
             this.Controls.Add(this.SMRTlabel);
@@ -339,6 +361,8 @@
         private System.Windows.Forms.Label SMRTlabel;
         private System.Windows.Forms.Label CONLabel;
         private System.Windows.Forms.Label DEXlabel;
+        private System.Windows.Forms.Label NameSLabel;
+        private System.Windows.Forms.TextBox SecondNameTxt;
     }
 }
 
