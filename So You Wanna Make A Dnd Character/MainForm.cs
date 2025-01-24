@@ -88,41 +88,140 @@ namespace M_A_G_I_C_K
             {
                 case 1:
                     //Fighter
-                    EquipmentCheckBox.Items.Add("Items for fighter here!");
-                    FeatCheckBox.Items.Add("fighter");
-                    SpellCheckBox.Items.Add("Fighter");
+                    EquipmentCheckBox.Items.Add("Items for fighter");
 
+                    //second switch statment for each level
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("ONE");
 
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
                     break;
                 case 2:
                     //Cleric
-                    EquipmentCheckBox.Items.Add("Items for Cleric here!");
-                    FeatCheckBox.Items.Add("Cleric");
-                    SpellCheckBox.Items.Add("Cleric");
+                    EquipmentCheckBox.Items.Add("Items for Cleric");
+
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
 
                     break;
 
                 case 3:
                     //Wizard
-                    EquipmentCheckBox.Items.Add("Items for Wizard here!");
-                    FeatCheckBox.Items.Add("Wizard");
-                    SpellCheckBox.Items.Add("Wizard");
+                    EquipmentCheckBox.Items.Add("Items for Wizard");
+
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
 
                     break;
 
                 case 4:
                     //Rouge
-                    EquipmentCheckBox.Items.Add("Items for Rouge here!");
-                    FeatCheckBox.Items.Add("Rouge");
-                    SpellCheckBox.Items.Add("Rouge");
+                    EquipmentCheckBox.Items.Add("Items for Rouge");
+
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
 
                     break;
 
                 case 5:
                     //Bard
-                    EquipmentCheckBox.Items.Add("Items for Barb here!");
-                    FeatCheckBox.Items.Add("Bard");
-                    SpellCheckBox.Items.Add("Bard");
+                    EquipmentCheckBox.Items.Add("Items for Bard");
+
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
 
                     break;
 
