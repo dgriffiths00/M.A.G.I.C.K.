@@ -52,6 +52,9 @@
             this.DEXlabel = new System.Windows.Forms.Label();
             this.NameSLabel = new System.Windows.Forms.Label();
             this.SecondNameTxt = new System.Windows.Forms.TextBox();
+            this.LevelPicker = new System.Windows.Forms.NumericUpDown();
+            this.LevelLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             this.SuspendLayout();
             // 
             // ClassDropBox
@@ -300,11 +303,46 @@
             this.SecondNameTxt.Size = new System.Drawing.Size(131, 22);
             this.SecondNameTxt.TabIndex = 22;
             // 
+            // LevelPicker
+            // 
+            this.LevelPicker.Location = new System.Drawing.Point(313, 61);
+            this.LevelPicker.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.LevelPicker.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.LevelPicker.Name = "LevelPicker";
+            this.LevelPicker.ReadOnly = true;
+            this.LevelPicker.Size = new System.Drawing.Size(40, 22);
+            this.LevelPicker.TabIndex = 24;
+            this.LevelPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LevelPicker.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // LevelLabel
+            // 
+            this.LevelLabel.AutoSize = true;
+            this.LevelLabel.Location = new System.Drawing.Point(313, 39);
+            this.LevelLabel.Name = "LevelLabel";
+            this.LevelLabel.Size = new System.Drawing.Size(40, 16);
+            this.LevelLabel.TabIndex = 25;
+            this.LevelLabel.Text = "Level";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 648);
+            this.Controls.Add(this.LevelLabel);
+            this.Controls.Add(this.LevelPicker);
             this.Controls.Add(this.NameSLabel);
             this.Controls.Add(this.SecondNameTxt);
             this.Controls.Add(this.DEXlabel);
@@ -332,6 +370,7 @@
             this.Name = "MainForm";
             this.Text = "Multifaceted Assistant Generating Iconic Characters Kit";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,6 +402,8 @@
         private System.Windows.Forms.Label DEXlabel;
         private System.Windows.Forms.Label NameSLabel;
         private System.Windows.Forms.TextBox SecondNameTxt;
+        private System.Windows.Forms.NumericUpDown LevelPicker;
+        private System.Windows.Forms.Label LevelLabel;
     }
 }
 

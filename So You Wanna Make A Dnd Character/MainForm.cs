@@ -59,8 +59,11 @@ namespace So_You_Wanna_Make_A_Dnd_Character
             int SelectedClass = ClassDropBox.SelectedIndex;
 
             string Name = FirstNameTxt.Text + " " + SecondNameTxt.Text;
-            
-            Character created = new Character(SelectedRace, SelectedClass, Name);
+
+            int Level = Convert.ToInt32(LevelPicker.Value);
+
+
+            Character created = new Character(SelectedRace, SelectedClass, Name, Level);
 
             
 
