@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
 
-namespace So_You_Wanna_Make_A_Dnd_Character
+
+namespace M_A_G_I_C_K
 {
     class Character
     {
@@ -16,7 +17,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
 
         //stats, created via method
-        private int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, ProfisBonus, Level;
+        protected int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, _ProfisBonus;
         //name and background, name gotten from pdf, background gotten from 
         private string _name, _background;
         //created via inherented class
@@ -28,9 +29,9 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character(int SelectedRace, int SelectedClass) 
+        public Character(int SelectedRace, int SelectedClass, string Name, int Level) 
         {
-
+            
             /*RaceDropDown
              * Human
                 Elf
@@ -38,12 +39,12 @@ namespace So_You_Wanna_Make_A_Dnd_Character
                 Orc
                 DragonBorn
 
-            Class DropDown
-            Fighter
-            Cleric
-            Wizard
-            Rogue
-            Bard
+                Class DropDown
+                Fighter
+                Cleric
+                Wizard
+                Rogue
+                Bard
             */
 
             switch (SelectedRace)
@@ -89,27 +90,27 @@ namespace So_You_Wanna_Make_A_Dnd_Character
             {
                 case 1:
                     Console.WriteLine("Selected Fighter");
-                    _CharClass = new Fighter();
+                    _CharClass = new Fighter(Level);
 
                     break;
                 case 2:
                     Console.WriteLine("selected cleric");
-                    _CharClass = new Cleric();
+                    _CharClass = new Cleric(Level);
 
                     break;
                 case 3:
                     Console.WriteLine("Selected Wizard");
-                    _CharClass = new Wizard();
+                    _CharClass = new Wizard(Level);
 
                     break;
                 case 4:
                     Console.WriteLine("Selected Rouge");
-                    _CharClass = new Rouge();
+                    _CharClass = new Rouge(Level);
 
                     break;
                 case 5:
                     Console.WriteLine("Selected Bard");
-                    _CharClass = new Bard();
+                    _CharClass = new Bard(Level);
 
                     break;
                 default:
@@ -120,14 +121,30 @@ namespace So_You_Wanna_Make_A_Dnd_Character
                     break;
             }
 
+            //Both the Class and race has been selected this will then go into calculating the other shit
+
+            //if the name is not just a space (if blank)
+            if (Name != " ")
+            {
+                Console.WriteLine("Putting Name Info");
+
+                _name = Name;
+            }else
+            {
+                Console.WriteLine("Generating Name");
+                //run the ran generator
+            }
+
+            
+
         }
 
 
-        private int calculatingStats()
+        private void calculatingStats()
         {
 
 
-            return 1;
+            
         }
     }
 
@@ -135,28 +152,56 @@ namespace So_You_Wanna_Make_A_Dnd_Character
     abstract class DndClass
     {
         //this will be inhearented by all the classes
-
+        protected int _Level;
 
     }
 
     class Fighter : DndClass
     {
 
+        public Fighter(int Level) : base()
+        { 
+            _Level = Level;
+        }
     }
 
-    class Cleric : DndClass { 
+    class Cleric : DndClass 
+    {
+
+        public Cleric(int Level) : base()
+        {
+            _Level = Level;
+
+        }
     }
 
     class Wizard : DndClass 
     {
+
+        public Wizard(int Level) : base()
+        {
+            _Level = Level;
+
+        }
     }
 
     class Rouge : DndClass 
     {
+
+        public Rouge(int Level) : base()
+        {
+            _Level = Level;
+
+        }
     }
 
     class Bard : DndClass 
-    { 
+    {
+        public Bard(int Level) : base()
+        {
+            _Level = Level;
+
+        }
     }
 
 

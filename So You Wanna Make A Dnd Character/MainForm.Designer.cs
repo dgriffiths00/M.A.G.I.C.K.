@@ -1,4 +1,4 @@
-﻿namespace So_You_Wanna_Make_A_Dnd_Character
+﻿namespace M_A_G_I_C_K
 {
     partial class MainForm
     {
@@ -50,6 +50,11 @@
             this.SMRTlabel = new System.Windows.Forms.Label();
             this.CONLabel = new System.Windows.Forms.Label();
             this.DEXlabel = new System.Windows.Forms.Label();
+            this.NameSLabel = new System.Windows.Forms.Label();
+            this.SecondNameTxt = new System.Windows.Forms.TextBox();
+            this.LevelPicker = new System.Windows.Forms.NumericUpDown();
+            this.LevelLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             this.SuspendLayout();
             // 
             // ClassDropBox
@@ -57,7 +62,7 @@
             this.ClassDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClassDropBox.FormattingEnabled = true;
             this.ClassDropBox.Items.AddRange(new object[] {
-            "Nothing",
+            "Select Option",
             "Fighter",
             "Cleric",
             "Wizard",
@@ -67,12 +72,14 @@
             this.ClassDropBox.Name = "ClassDropBox";
             this.ClassDropBox.Size = new System.Drawing.Size(194, 24);
             this.ClassDropBox.TabIndex = 0;
+            this.ClassDropBox.SelectedIndexChanged += new System.EventHandler(this.ClassDropBox_SelectedIndexChanged);
             // 
             // RaceDropBox
             // 
             this.RaceDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RaceDropBox.FormattingEnabled = true;
             this.RaceDropBox.Items.AddRange(new object[] {
+            "Select Option",
             "Human",
             "Elf",
             "Dwarf",
@@ -81,7 +88,8 @@
             this.RaceDropBox.Location = new System.Drawing.Point(12, 250);
             this.RaceDropBox.Name = "RaceDropBox";
             this.RaceDropBox.Size = new System.Drawing.Size(194, 24);
-            this.RaceDropBox.TabIndex = 1;
+            this.RaceDropBox.TabIndex = 0;
+            this.RaceDropBox.SelectedIndexChanged += new System.EventHandler(this.RaceDropBox_SelectedIndexChanged);
             // 
             // RaceLabel
             // 
@@ -103,7 +111,7 @@
             // 
             // FirstNameTxt
             // 
-            this.FirstNameTxt.Location = new System.Drawing.Point(12, 95);
+            this.FirstNameTxt.Location = new System.Drawing.Point(11, 35);
             this.FirstNameTxt.Name = "FirstNameTxt";
             this.FirstNameTxt.Size = new System.Drawing.Size(100, 22);
             this.FirstNameTxt.TabIndex = 4;
@@ -111,23 +119,15 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(12, 63);
+            this.NameLabel.Location = new System.Drawing.Point(11, 16);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(44, 16);
+            this.NameLabel.Size = new System.Drawing.Size(72, 16);
             this.NameLabel.TabIndex = 5;
-            this.NameLabel.Text = "Name";
+            this.NameLabel.Text = "First Name";
             // 
             // EquipmentCheckBox
             // 
             this.EquipmentCheckBox.FormattingEnabled = true;
-            this.EquipmentCheckBox.Items.AddRange(new object[] {
-            "This",
-            "Will",
-            "Have",
-            "The ",
-            "equitment ",
-            "you ",
-            "can pick"});
             this.EquipmentCheckBox.Location = new System.Drawing.Point(15, 343);
             this.EquipmentCheckBox.Name = "EquipmentCheckBox";
             this.EquipmentCheckBox.Size = new System.Drawing.Size(231, 293);
@@ -136,15 +136,6 @@
             // SpellCheckBox
             // 
             this.SpellCheckBox.FormattingEnabled = true;
-            this.SpellCheckBox.Items.AddRange(new object[] {
-            "This",
-            "will",
-            "Have",
-            "The",
-            "Spells",
-            "You",
-            "Can",
-            "Pick"});
             this.SpellCheckBox.Location = new System.Drawing.Point(277, 343);
             this.SpellCheckBox.Name = "SpellCheckBox";
             this.SpellCheckBox.Size = new System.Drawing.Size(259, 293);
@@ -153,15 +144,6 @@
             // FeatCheckBox
             // 
             this.FeatCheckBox.FormattingEnabled = true;
-            this.FeatCheckBox.Items.AddRange(new object[] {
-            "This",
-            "Will",
-            "Have",
-            "The",
-            "Feats",
-            "you",
-            "Can",
-            "Pick"});
             this.FeatCheckBox.Location = new System.Drawing.Point(277, 231);
             this.FeatCheckBox.Name = "FeatCheckBox";
             this.FeatCheckBox.Size = new System.Drawing.Size(259, 89);
@@ -279,11 +261,64 @@
             this.DEXlabel.TabIndex = 21;
             this.DEXlabel.Text = "DEX";
             // 
+            // NameSLabel
+            // 
+            this.NameSLabel.AutoSize = true;
+            this.NameSLabel.Location = new System.Drawing.Point(129, 16);
+            this.NameSLabel.Name = "NameSLabel";
+            this.NameSLabel.Size = new System.Drawing.Size(72, 16);
+            this.NameSLabel.TabIndex = 23;
+            this.NameSLabel.Text = "Last Name";
+            // 
+            // SecondNameTxt
+            // 
+            this.SecondNameTxt.Location = new System.Drawing.Point(129, 35);
+            this.SecondNameTxt.Name = "SecondNameTxt";
+            this.SecondNameTxt.Size = new System.Drawing.Size(131, 22);
+            this.SecondNameTxt.TabIndex = 22;
+            // 
+            // LevelPicker
+            // 
+            this.LevelPicker.Location = new System.Drawing.Point(313, 61);
+            this.LevelPicker.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.LevelPicker.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.LevelPicker.Name = "LevelPicker";
+            this.LevelPicker.ReadOnly = true;
+            this.LevelPicker.Size = new System.Drawing.Size(40, 22);
+            this.LevelPicker.TabIndex = 24;
+            this.LevelPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LevelPicker.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // LevelLabel
+            // 
+            this.LevelLabel.AutoSize = true;
+            this.LevelLabel.Location = new System.Drawing.Point(313, 39);
+            this.LevelLabel.Name = "LevelLabel";
+            this.LevelLabel.Size = new System.Drawing.Size(40, 16);
+            this.LevelLabel.TabIndex = 25;
+            this.LevelLabel.Text = "Level";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 648);
+            this.Controls.Add(this.LevelLabel);
+            this.Controls.Add(this.LevelPicker);
+            this.Controls.Add(this.NameSLabel);
+            this.Controls.Add(this.SecondNameTxt);
             this.Controls.Add(this.DEXlabel);
             this.Controls.Add(this.CONLabel);
             this.Controls.Add(this.SMRTlabel);
@@ -309,6 +344,7 @@
             this.Name = "MainForm";
             this.Text = "Multifaceted Assistant Generating Iconic Characters Kit";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,6 +374,10 @@
         private System.Windows.Forms.Label SMRTlabel;
         private System.Windows.Forms.Label CONLabel;
         private System.Windows.Forms.Label DEXlabel;
+        private System.Windows.Forms.Label NameSLabel;
+        private System.Windows.Forms.TextBox SecondNameTxt;
+        private System.Windows.Forms.NumericUpDown LevelPicker;
+        private System.Windows.Forms.Label LevelLabel;
     }
 }
 
