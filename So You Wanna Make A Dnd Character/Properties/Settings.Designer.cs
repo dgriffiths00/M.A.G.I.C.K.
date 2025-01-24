@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace So_You_Wanna_Make_A_Dnd_Character.Properties
+namespace M_A_G_I_C_K.Properties
 {
 
 

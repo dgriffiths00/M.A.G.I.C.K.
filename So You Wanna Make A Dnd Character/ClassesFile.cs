@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
 
 
-namespace So_You_Wanna_Make_A_Dnd_Character
+namespace M_A_G_I_C_K
 {
     class Character
     {
@@ -140,11 +140,11 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         }
 
 
-        private int calculatingStats()
+        private void calculatingStats()
         {
 
 
-            return 1;
+            
         }
     }
 
@@ -161,7 +161,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
         public Fighter(int Level) : base()
         { 
-
+            _Level = Level;
         }
     }
 
@@ -170,6 +170,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
         public Cleric(int Level) : base()
         {
+            _Level = Level;
 
         }
     }
@@ -179,6 +180,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
         public Wizard(int Level) : base()
         {
+            _Level = Level;
 
         }
     }
@@ -188,6 +190,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
 
         public Rouge(int Level) : base()
         {
+            _Level = Level;
 
         }
     }
@@ -196,6 +199,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character
     {
         public Bard(int Level) : base()
         {
+            _Level = Level;
 
         }
     }

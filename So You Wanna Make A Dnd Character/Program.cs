@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace So_You_Wanna_Make_A_Dnd_Character
+namespace M_A_G_I_C_K
 {
     internal static class Program
     {

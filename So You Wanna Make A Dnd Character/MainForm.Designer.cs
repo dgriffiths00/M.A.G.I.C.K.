@@ -1,4 +1,4 @@
-﻿namespace So_You_Wanna_Make_A_Dnd_Character
+﻿namespace M_A_G_I_C_K
 {
     partial class MainForm
     {

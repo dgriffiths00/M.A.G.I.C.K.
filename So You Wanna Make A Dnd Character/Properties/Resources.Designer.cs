@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace So_You_Wanna_Make_A_Dnd_Character.Properties
+namespace M_A_G_I_C_K.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace So_You_Wanna_Make_A_Dnd_Character.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("So_You_Wanna_Make_A_Dnd_Character.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("M_A_G_I_C_K.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace So_You_Wanna_Make_A_Dnd_Character
+namespace M_A_G_I_C_K
 {
     public partial class MainForm : Form
     {
@@ -46,12 +46,12 @@ namespace So_You_Wanna_Make_A_Dnd_Character
                 Orc
                 DragonBorn
 
-            Class DropDown
-            Fighter
-            Cleric
-            Wizard
-            Rogue
-            Bard
+                Class DropDown
+                Fighter
+                Cleric
+                Wizard
+                Rogue
+                Bard
             */
 
             //RaceDropBox.SelectedIndex selects the index of the dropdown that has been selected, and it functions like an array starting at 0
