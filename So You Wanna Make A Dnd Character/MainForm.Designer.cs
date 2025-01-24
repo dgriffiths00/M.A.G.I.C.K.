@@ -128,14 +128,6 @@
             // EquipmentCheckBox
             // 
             this.EquipmentCheckBox.FormattingEnabled = true;
-            this.EquipmentCheckBox.Items.AddRange(new object[] {
-            "This",
-            "Will",
-            "Have",
-            "The ",
-            "equitment ",
-            "you ",
-            "can pick"});
             this.EquipmentCheckBox.Location = new System.Drawing.Point(15, 343);
             this.EquipmentCheckBox.Name = "EquipmentCheckBox";
             this.EquipmentCheckBox.Size = new System.Drawing.Size(231, 293);
@@ -144,15 +136,6 @@
             // SpellCheckBox
             // 
             this.SpellCheckBox.FormattingEnabled = true;
-            this.SpellCheckBox.Items.AddRange(new object[] {
-            "This",
-            "will",
-            "Have",
-            "The",
-            "Spells",
-            "You",
-            "Can",
-            "Pick"});
             this.SpellCheckBox.Location = new System.Drawing.Point(277, 343);
             this.SpellCheckBox.Name = "SpellCheckBox";
             this.SpellCheckBox.Size = new System.Drawing.Size(259, 293);
@@ -161,15 +144,6 @@
             // FeatCheckBox
             // 
             this.FeatCheckBox.FormattingEnabled = true;
-            this.FeatCheckBox.Items.AddRange(new object[] {
-            "This",
-            "Will",
-            "Have",
-            "The",
-            "Feats",
-            "you",
-            "Can",
-            "Pick"});
             this.FeatCheckBox.Location = new System.Drawing.Point(277, 231);
             this.FeatCheckBox.Name = "FeatCheckBox";
             this.FeatCheckBox.Size = new System.Drawing.Size(259, 89);
