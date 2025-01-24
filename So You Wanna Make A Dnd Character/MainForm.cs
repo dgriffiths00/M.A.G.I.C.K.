@@ -134,6 +134,160 @@ namespace M_A_G_I_C_K
 
         }
 
+        private void LevelPicker_ValueChanged(object sender, EventArgs e)
+        {
+            //updating this will be more complicated
+            FeatCheckBox.Items.Clear();
+            SpellCheckBox.Items.Clear();
+
+            /*Class DropDown
+                Fighter
+                Cleric
+                Wizard
+                Rogue
+                Bard
+            */
+
+            //first switch statment for what the class is
+            switch (ClassDropBox.SelectedIndex)
+            {
+                case 1:
+                    //Fighter
+
+                    //second switch statment for each level
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("Fighter");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
+                    break;
+                case 2:
+                    //Cleric
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("Cleric");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
+
+                    break;
+
+                case 3:
+                    //Wizard
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("Wizard");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
+
+                    break;
+
+                case 4:
+                    //Rouge
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("Rouge");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
+
+                    break;
+
+                case 5:
+                    //Bard
+                    switch (LevelPicker.Value)
+                    {
+                        case 1:
+                            FeatCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("ONE");
+
+                            break;
+                        case 2:
+                            FeatCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("TWO");
+
+                            break;
+                        case 3:
+                            FeatCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("Bard");
+                            SpellCheckBox.Items.Add("THREE");
+
+                            break;
+                    }
+
+                    break;
+
+                default:
+                    //nothing change nothing
+
+                    break;
+            }
+        }
+
         private void runBtn_Click(object sender, EventArgs e)
         {
             //collecting things to pass into the character builder
@@ -170,6 +324,5 @@ namespace M_A_G_I_C_K
 
         }
 
-        
     }
 }
