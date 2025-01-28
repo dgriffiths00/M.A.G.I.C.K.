@@ -38,12 +38,6 @@
             this.SpellCheckBox = new System.Windows.Forms.CheckedListBox();
             this.FeatCheckBox = new System.Windows.Forms.CheckedListBox();
             this.runBtn = new System.Windows.Forms.Button();
-            this.STRtxt = new System.Windows.Forms.RichTextBox();
-            this.CONtxt = new System.Windows.Forms.RichTextBox();
-            this.DEXtxt = new System.Windows.Forms.RichTextBox();
-            this.SMRTtxt = new System.Windows.Forms.RichTextBox();
-            this.WIStxt = new System.Windows.Forms.RichTextBox();
-            this.CHAtxt = new System.Windows.Forms.RichTextBox();
             this.STRlabel = new System.Windows.Forms.Label();
             this.CHALabel = new System.Windows.Forms.Label();
             this.WISLabel = new System.Windows.Forms.Label();
@@ -61,7 +55,26 @@
             this.WISCheck = new System.Windows.Forms.CheckedListBox();
             this.CHACheck = new System.Windows.Forms.CheckedListBox();
             this.StatRoll = new System.Windows.Forms.Button();
+            this.InputStatBTN = new System.Windows.Forms.Button();
+            this.STRstats = new System.Windows.Forms.NumericUpDown();
+            this.DEXStats = new System.Windows.Forms.NumericUpDown();
+            this.CONStats = new System.Windows.Forms.NumericUpDown();
+            this.SMRTStats = new System.Windows.Forms.NumericUpDown();
+            this.WISstats = new System.Windows.Forms.NumericUpDown();
+            this.CHAStats = new System.Windows.Forms.NumericUpDown();
+            this.STRbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.DEXbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.CONbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.SMRTbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.WISbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.CHAbonusTxt = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CONStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMRTStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WISstats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHAStats)).BeginInit();
             this.SuspendLayout();
             // 
             // ClassDropBox
@@ -173,64 +186,10 @@
             this.runBtn.UseVisualStyleBackColor = true;
             this.runBtn.Click += new System.EventHandler(this.runBtn_Click);
             // 
-            // STRtxt
-            // 
-            this.STRtxt.Location = new System.Drawing.Point(581, 48);
-            this.STRtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.STRtxt.Name = "STRtxt";
-            this.STRtxt.Size = new System.Drawing.Size(73, 67);
-            this.STRtxt.TabIndex = 10;
-            this.STRtxt.Text = "";
-            // 
-            // CONtxt
-            // 
-            this.CONtxt.Location = new System.Drawing.Point(581, 216);
-            this.CONtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CONtxt.Name = "CONtxt";
-            this.CONtxt.Size = new System.Drawing.Size(73, 67);
-            this.CONtxt.TabIndex = 11;
-            this.CONtxt.Text = "";
-            // 
-            // DEXtxt
-            // 
-            this.DEXtxt.Location = new System.Drawing.Point(581, 134);
-            this.DEXtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DEXtxt.Name = "DEXtxt";
-            this.DEXtxt.Size = new System.Drawing.Size(73, 67);
-            this.DEXtxt.TabIndex = 12;
-            this.DEXtxt.Text = "";
-            // 
-            // SMRTtxt
-            // 
-            this.SMRTtxt.Location = new System.Drawing.Point(581, 302);
-            this.SMRTtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SMRTtxt.Name = "SMRTtxt";
-            this.SMRTtxt.Size = new System.Drawing.Size(73, 67);
-            this.SMRTtxt.TabIndex = 13;
-            this.SMRTtxt.Text = "";
-            // 
-            // WIStxt
-            // 
-            this.WIStxt.Location = new System.Drawing.Point(581, 392);
-            this.WIStxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.WIStxt.Name = "WIStxt";
-            this.WIStxt.Size = new System.Drawing.Size(73, 67);
-            this.WIStxt.TabIndex = 14;
-            this.WIStxt.Text = "";
-            // 
-            // CHAtxt
-            // 
-            this.CHAtxt.Location = new System.Drawing.Point(581, 483);
-            this.CHAtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CHAtxt.Name = "CHAtxt";
-            this.CHAtxt.Size = new System.Drawing.Size(73, 67);
-            this.CHAtxt.TabIndex = 15;
-            this.CHAtxt.Text = "";
-            // 
             // STRlabel
             // 
             this.STRlabel.AutoSize = true;
-            this.STRlabel.Location = new System.Drawing.Point(601, 29);
+            this.STRlabel.Location = new System.Drawing.Point(733, 29);
             this.STRlabel.Name = "STRlabel";
             this.STRlabel.Size = new System.Drawing.Size(35, 16);
             this.STRlabel.TabIndex = 16;
@@ -239,7 +198,7 @@
             // CHALabel
             // 
             this.CHALabel.AutoSize = true;
-            this.CHALabel.Location = new System.Drawing.Point(601, 462);
+            this.CHALabel.Location = new System.Drawing.Point(733, 462);
             this.CHALabel.Name = "CHALabel";
             this.CHALabel.Size = new System.Drawing.Size(35, 16);
             this.CHALabel.TabIndex = 17;
@@ -248,7 +207,7 @@
             // WISLabel
             // 
             this.WISLabel.AutoSize = true;
-            this.WISLabel.Location = new System.Drawing.Point(601, 372);
+            this.WISLabel.Location = new System.Drawing.Point(733, 372);
             this.WISLabel.Name = "WISLabel";
             this.WISLabel.Size = new System.Drawing.Size(32, 16);
             this.WISLabel.TabIndex = 18;
@@ -257,7 +216,7 @@
             // SMRTlabel
             // 
             this.SMRTlabel.AutoSize = true;
-            this.SMRTlabel.Location = new System.Drawing.Point(601, 283);
+            this.SMRTlabel.Location = new System.Drawing.Point(733, 283);
             this.SMRTlabel.Name = "SMRTlabel";
             this.SMRTlabel.Size = new System.Drawing.Size(29, 16);
             this.SMRTlabel.TabIndex = 19;
@@ -266,7 +225,7 @@
             // CONLabel
             // 
             this.CONLabel.AutoSize = true;
-            this.CONLabel.Location = new System.Drawing.Point(601, 201);
+            this.CONLabel.Location = new System.Drawing.Point(733, 201);
             this.CONLabel.Name = "CONLabel";
             this.CONLabel.Size = new System.Drawing.Size(36, 16);
             this.CONLabel.TabIndex = 20;
@@ -275,7 +234,7 @@
             // DEXlabel
             // 
             this.DEXlabel.AutoSize = true;
-            this.DEXlabel.Location = new System.Drawing.Point(601, 118);
+            this.DEXlabel.Location = new System.Drawing.Point(733, 118);
             this.DEXlabel.Name = "DEXlabel";
             this.DEXlabel.Size = new System.Drawing.Size(34, 16);
             this.DEXlabel.TabIndex = 21;
@@ -340,7 +299,7 @@
             "This",
             "Will ",
             "Show adds that can be done"});
-            this.STRCheck.Location = new System.Drawing.Point(660, 48);
+            this.STRCheck.Location = new System.Drawing.Point(858, 48);
             this.STRCheck.Name = "STRCheck";
             this.STRCheck.Size = new System.Drawing.Size(228, 55);
             this.STRCheck.TabIndex = 26;
@@ -352,7 +311,7 @@
             "This",
             "Will ",
             "Show adds that can be done"});
-            this.DEXCheck.Location = new System.Drawing.Point(661, 134);
+            this.DEXCheck.Location = new System.Drawing.Point(858, 134);
             this.DEXCheck.Name = "DEXCheck";
             this.DEXCheck.Size = new System.Drawing.Size(228, 55);
             this.DEXCheck.TabIndex = 27;
@@ -364,7 +323,7 @@
             "This",
             "Will ",
             "Show adds that can be done"});
-            this.CONCheck.Location = new System.Drawing.Point(661, 216);
+            this.CONCheck.Location = new System.Drawing.Point(858, 216);
             this.CONCheck.Name = "CONCheck";
             this.CONCheck.Size = new System.Drawing.Size(228, 55);
             this.CONCheck.TabIndex = 28;
@@ -376,7 +335,7 @@
             "This",
             "Will ",
             "Show adds that can be done"});
-            this.SMRTCheck.Location = new System.Drawing.Point(661, 302);
+            this.SMRTCheck.Location = new System.Drawing.Point(858, 302);
             this.SMRTCheck.Name = "SMRTCheck";
             this.SMRTCheck.Size = new System.Drawing.Size(228, 55);
             this.SMRTCheck.TabIndex = 29;
@@ -388,7 +347,7 @@
             "This",
             "Will ",
             "Show adds that can be done"});
-            this.WISCheck.Location = new System.Drawing.Point(661, 392);
+            this.WISCheck.Location = new System.Drawing.Point(858, 392);
             this.WISCheck.Name = "WISCheck";
             this.WISCheck.Size = new System.Drawing.Size(228, 55);
             this.WISCheck.TabIndex = 30;
@@ -400,25 +359,259 @@
             "This",
             "Will ",
             "Show adds that can be done"});
-            this.CHACheck.Location = new System.Drawing.Point(661, 483);
+            this.CHACheck.Location = new System.Drawing.Point(858, 483);
             this.CHACheck.Name = "CHACheck";
             this.CHACheck.Size = new System.Drawing.Size(228, 55);
             this.CHACheck.TabIndex = 31;
             // 
             // StatRoll
             // 
-            this.StatRoll.Location = new System.Drawing.Point(446, 48);
+            this.StatRoll.Location = new System.Drawing.Point(446, 80);
             this.StatRoll.Name = "StatRoll";
             this.StatRoll.Size = new System.Drawing.Size(100, 23);
             this.StatRoll.TabIndex = 32;
             this.StatRoll.Text = "Roll Stats";
             this.StatRoll.UseVisualStyleBackColor = true;
+            this.StatRoll.Click += new System.EventHandler(this.StatRoll_Click);
+            // 
+            // InputStatBTN
+            // 
+            this.InputStatBTN.Location = new System.Drawing.Point(446, 115);
+            this.InputStatBTN.Name = "InputStatBTN";
+            this.InputStatBTN.Size = new System.Drawing.Size(100, 23);
+            this.InputStatBTN.TabIndex = 34;
+            this.InputStatBTN.Text = "Input Stats";
+            this.InputStatBTN.UseVisualStyleBackColor = true;
+            this.InputStatBTN.Click += new System.EventHandler(this.InputStatBTN_Click);
+            // 
+            // STRstats
+            // 
+            this.STRstats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STRstats.Location = new System.Drawing.Point(718, 54);
+            this.STRstats.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.STRstats.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.STRstats.Name = "STRstats";
+            this.STRstats.ReadOnly = true;
+            this.STRstats.Size = new System.Drawing.Size(62, 32);
+            this.STRstats.TabIndex = 35;
+            this.STRstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STRstats.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.STRstats.ValueChanged += new System.EventHandler(this.STRstats_ValueChanged);
+            // 
+            // DEXStats
+            // 
+            this.DEXStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DEXStats.Location = new System.Drawing.Point(718, 149);
+            this.DEXStats.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.DEXStats.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.DEXStats.Name = "DEXStats";
+            this.DEXStats.ReadOnly = true;
+            this.DEXStats.Size = new System.Drawing.Size(62, 32);
+            this.DEXStats.TabIndex = 36;
+            this.DEXStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DEXStats.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.DEXStats.ValueChanged += new System.EventHandler(this.DEXStats_ValueChanged);
+            // 
+            // CONStats
+            // 
+            this.CONStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CONStats.Location = new System.Drawing.Point(718, 239);
+            this.CONStats.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.CONStats.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.CONStats.Name = "CONStats";
+            this.CONStats.ReadOnly = true;
+            this.CONStats.Size = new System.Drawing.Size(62, 32);
+            this.CONStats.TabIndex = 37;
+            this.CONStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CONStats.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.CONStats.ValueChanged += new System.EventHandler(this.CONStats_ValueChanged);
+            // 
+            // SMRTStats
+            // 
+            this.SMRTStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SMRTStats.Location = new System.Drawing.Point(718, 311);
+            this.SMRTStats.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.SMRTStats.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.SMRTStats.Name = "SMRTStats";
+            this.SMRTStats.ReadOnly = true;
+            this.SMRTStats.Size = new System.Drawing.Size(62, 32);
+            this.SMRTStats.TabIndex = 38;
+            this.SMRTStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SMRTStats.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.SMRTStats.ValueChanged += new System.EventHandler(this.SMRTStats_ValueChanged);
+            // 
+            // WISstats
+            // 
+            this.WISstats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WISstats.Location = new System.Drawing.Point(718, 406);
+            this.WISstats.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.WISstats.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.WISstats.Name = "WISstats";
+            this.WISstats.ReadOnly = true;
+            this.WISstats.Size = new System.Drawing.Size(62, 32);
+            this.WISstats.TabIndex = 39;
+            this.WISstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WISstats.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.WISstats.ValueChanged += new System.EventHandler(this.WISstats_ValueChanged);
+            // 
+            // CHAStats
+            // 
+            this.CHAStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHAStats.Location = new System.Drawing.Point(718, 495);
+            this.CHAStats.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.CHAStats.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.CHAStats.Name = "CHAStats";
+            this.CHAStats.ReadOnly = true;
+            this.CHAStats.Size = new System.Drawing.Size(62, 32);
+            this.CHAStats.TabIndex = 40;
+            this.CHAStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CHAStats.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.CHAStats.ValueChanged += new System.EventHandler(this.CHAStats_ValueChanged);
+            // 
+            // STRbonusTxt
+            // 
+            this.STRbonusTxt.Location = new System.Drawing.Point(803, 54);
+            this.STRbonusTxt.Name = "STRbonusTxt";
+            this.STRbonusTxt.ReadOnly = true;
+            this.STRbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.STRbonusTxt.TabIndex = 41;
+            this.STRbonusTxt.Text = "-2";
+            // 
+            // DEXbonusTxt
+            // 
+            this.DEXbonusTxt.Location = new System.Drawing.Point(803, 146);
+            this.DEXbonusTxt.Name = "DEXbonusTxt";
+            this.DEXbonusTxt.ReadOnly = true;
+            this.DEXbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.DEXbonusTxt.TabIndex = 42;
+            this.DEXbonusTxt.Text = "-2";
+            // 
+            // CONbonusTxt
+            // 
+            this.CONbonusTxt.Location = new System.Drawing.Point(803, 228);
+            this.CONbonusTxt.Name = "CONbonusTxt";
+            this.CONbonusTxt.ReadOnly = true;
+            this.CONbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.CONbonusTxt.TabIndex = 43;
+            this.CONbonusTxt.Text = "-2";
+            // 
+            // SMRTbonusTxt
+            // 
+            this.SMRTbonusTxt.Location = new System.Drawing.Point(803, 311);
+            this.SMRTbonusTxt.Name = "SMRTbonusTxt";
+            this.SMRTbonusTxt.ReadOnly = true;
+            this.SMRTbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.SMRTbonusTxt.TabIndex = 44;
+            this.SMRTbonusTxt.Text = "-2";
+            // 
+            // WISbonusTxt
+            // 
+            this.WISbonusTxt.Location = new System.Drawing.Point(803, 404);
+            this.WISbonusTxt.Name = "WISbonusTxt";
+            this.WISbonusTxt.ReadOnly = true;
+            this.WISbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.WISbonusTxt.TabIndex = 45;
+            this.WISbonusTxt.Text = "-2";
+            // 
+            // CHAbonusTxt
+            // 
+            this.CHAbonusTxt.Location = new System.Drawing.Point(803, 495);
+            this.CHAbonusTxt.Name = "CHAbonusTxt";
+            this.CHAbonusTxt.ReadOnly = true;
+            this.CHAbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.CHAbonusTxt.TabIndex = 46;
+            this.CHAbonusTxt.Text = "-2";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 647);
+            this.ClientSize = new System.Drawing.Size(1098, 647);
+            this.Controls.Add(this.CHAbonusTxt);
+            this.Controls.Add(this.WISbonusTxt);
+            this.Controls.Add(this.SMRTbonusTxt);
+            this.Controls.Add(this.CONbonusTxt);
+            this.Controls.Add(this.DEXbonusTxt);
+            this.Controls.Add(this.STRbonusTxt);
+            this.Controls.Add(this.CHAStats);
+            this.Controls.Add(this.WISstats);
+            this.Controls.Add(this.SMRTStats);
+            this.Controls.Add(this.CONStats);
+            this.Controls.Add(this.DEXStats);
+            this.Controls.Add(this.STRstats);
+            this.Controls.Add(this.InputStatBTN);
             this.Controls.Add(this.StatRoll);
             this.Controls.Add(this.CHACheck);
             this.Controls.Add(this.WISCheck);
@@ -436,12 +629,6 @@
             this.Controls.Add(this.WISLabel);
             this.Controls.Add(this.CHALabel);
             this.Controls.Add(this.STRlabel);
-            this.Controls.Add(this.CHAtxt);
-            this.Controls.Add(this.WIStxt);
-            this.Controls.Add(this.SMRTtxt);
-            this.Controls.Add(this.DEXtxt);
-            this.Controls.Add(this.CONtxt);
-            this.Controls.Add(this.STRtxt);
             this.Controls.Add(this.runBtn);
             this.Controls.Add(this.FeatCheckBox);
             this.Controls.Add(this.SpellCheckBox);
@@ -457,6 +644,12 @@
             this.Text = "Multifaceted Assistant Generating Iconic Characters Kit";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STRstats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CONStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SMRTStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WISstats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHAStats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,12 +667,6 @@
         private System.Windows.Forms.CheckedListBox SpellCheckBox;
         private System.Windows.Forms.CheckedListBox FeatCheckBox;
         private System.Windows.Forms.Button runBtn;
-        private System.Windows.Forms.RichTextBox STRtxt;
-        private System.Windows.Forms.RichTextBox CONtxt;
-        private System.Windows.Forms.RichTextBox DEXtxt;
-        private System.Windows.Forms.RichTextBox SMRTtxt;
-        private System.Windows.Forms.RichTextBox WIStxt;
-        private System.Windows.Forms.RichTextBox CHAtxt;
         private System.Windows.Forms.Label STRlabel;
         private System.Windows.Forms.Label CHALabel;
         private System.Windows.Forms.Label WISLabel;
@@ -497,6 +684,19 @@
         private System.Windows.Forms.CheckedListBox WISCheck;
         private System.Windows.Forms.CheckedListBox CHACheck;
         private System.Windows.Forms.Button StatRoll;
+        private System.Windows.Forms.Button InputStatBTN;
+        private System.Windows.Forms.NumericUpDown STRstats;
+        private System.Windows.Forms.NumericUpDown DEXStats;
+        private System.Windows.Forms.NumericUpDown CONStats;
+        private System.Windows.Forms.NumericUpDown SMRTStats;
+        private System.Windows.Forms.NumericUpDown WISstats;
+        private System.Windows.Forms.NumericUpDown CHAStats;
+        private System.Windows.Forms.RichTextBox STRbonusTxt;
+        private System.Windows.Forms.RichTextBox DEXbonusTxt;
+        private System.Windows.Forms.RichTextBox CONbonusTxt;
+        private System.Windows.Forms.RichTextBox SMRTbonusTxt;
+        private System.Windows.Forms.RichTextBox WISbonusTxt;
+        private System.Windows.Forms.RichTextBox CHAbonusTxt;
     }
 }
 
