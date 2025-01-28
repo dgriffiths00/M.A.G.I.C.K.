@@ -62,6 +62,12 @@
             this.SMRTStats = new System.Windows.Forms.NumericUpDown();
             this.WISstats = new System.Windows.Forms.NumericUpDown();
             this.CHAStats = new System.Windows.Forms.NumericUpDown();
+            this.STRbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.DEXbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.CONbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.SMRTbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.WISbonusTxt = new System.Windows.Forms.RichTextBox();
+            this.CHAbonusTxt = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -402,11 +408,12 @@
             0,
             0,
             0});
+            this.STRstats.ValueChanged += new System.EventHandler(this.STRstats_ValueChanged);
             // 
             // DEXStats
             // 
             this.DEXStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DEXStats.Location = new System.Drawing.Point(728, 149);
+            this.DEXStats.Location = new System.Drawing.Point(718, 149);
             this.DEXStats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -427,6 +434,7 @@
             0,
             0,
             0});
+            this.DEXStats.ValueChanged += new System.EventHandler(this.DEXStats_ValueChanged);
             // 
             // CONStats
             // 
@@ -452,6 +460,7 @@
             0,
             0,
             0});
+            this.CONStats.ValueChanged += new System.EventHandler(this.CONStats_ValueChanged);
             // 
             // SMRTStats
             // 
@@ -477,6 +486,7 @@
             0,
             0,
             0});
+            this.SMRTStats.ValueChanged += new System.EventHandler(this.SMRTStats_ValueChanged);
             // 
             // WISstats
             // 
@@ -502,6 +512,7 @@
             0,
             0,
             0});
+            this.WISstats.ValueChanged += new System.EventHandler(this.WISstats_ValueChanged);
             // 
             // CHAStats
             // 
@@ -527,12 +538,73 @@
             0,
             0,
             0});
+            this.CHAStats.ValueChanged += new System.EventHandler(this.CHAStats_ValueChanged);
+            // 
+            // STRbonusTxt
+            // 
+            this.STRbonusTxt.Location = new System.Drawing.Point(803, 54);
+            this.STRbonusTxt.Name = "STRbonusTxt";
+            this.STRbonusTxt.ReadOnly = true;
+            this.STRbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.STRbonusTxt.TabIndex = 41;
+            this.STRbonusTxt.Text = "-2";
+            // 
+            // DEXbonusTxt
+            // 
+            this.DEXbonusTxt.Location = new System.Drawing.Point(803, 146);
+            this.DEXbonusTxt.Name = "DEXbonusTxt";
+            this.DEXbonusTxt.ReadOnly = true;
+            this.DEXbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.DEXbonusTxt.TabIndex = 42;
+            this.DEXbonusTxt.Text = "-2";
+            // 
+            // CONbonusTxt
+            // 
+            this.CONbonusTxt.Location = new System.Drawing.Point(803, 228);
+            this.CONbonusTxt.Name = "CONbonusTxt";
+            this.CONbonusTxt.ReadOnly = true;
+            this.CONbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.CONbonusTxt.TabIndex = 43;
+            this.CONbonusTxt.Text = "-2";
+            // 
+            // SMRTbonusTxt
+            // 
+            this.SMRTbonusTxt.Location = new System.Drawing.Point(803, 311);
+            this.SMRTbonusTxt.Name = "SMRTbonusTxt";
+            this.SMRTbonusTxt.ReadOnly = true;
+            this.SMRTbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.SMRTbonusTxt.TabIndex = 44;
+            this.SMRTbonusTxt.Text = "-2";
+            // 
+            // WISbonusTxt
+            // 
+            this.WISbonusTxt.Location = new System.Drawing.Point(803, 404);
+            this.WISbonusTxt.Name = "WISbonusTxt";
+            this.WISbonusTxt.ReadOnly = true;
+            this.WISbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.WISbonusTxt.TabIndex = 45;
+            this.WISbonusTxt.Text = "-2";
+            // 
+            // CHAbonusTxt
+            // 
+            this.CHAbonusTxt.Location = new System.Drawing.Point(803, 495);
+            this.CHAbonusTxt.Name = "CHAbonusTxt";
+            this.CHAbonusTxt.ReadOnly = true;
+            this.CHAbonusTxt.Size = new System.Drawing.Size(49, 43);
+            this.CHAbonusTxt.TabIndex = 46;
+            this.CHAbonusTxt.Text = "-2";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 647);
+            this.Controls.Add(this.CHAbonusTxt);
+            this.Controls.Add(this.WISbonusTxt);
+            this.Controls.Add(this.SMRTbonusTxt);
+            this.Controls.Add(this.CONbonusTxt);
+            this.Controls.Add(this.DEXbonusTxt);
+            this.Controls.Add(this.STRbonusTxt);
             this.Controls.Add(this.CHAStats);
             this.Controls.Add(this.WISstats);
             this.Controls.Add(this.SMRTStats);
@@ -619,6 +691,12 @@
         private System.Windows.Forms.NumericUpDown SMRTStats;
         private System.Windows.Forms.NumericUpDown WISstats;
         private System.Windows.Forms.NumericUpDown CHAStats;
+        private System.Windows.Forms.RichTextBox STRbonusTxt;
+        private System.Windows.Forms.RichTextBox DEXbonusTxt;
+        private System.Windows.Forms.RichTextBox CONbonusTxt;
+        private System.Windows.Forms.RichTextBox SMRTbonusTxt;
+        private System.Windows.Forms.RichTextBox WISbonusTxt;
+        private System.Windows.Forms.RichTextBox CHAbonusTxt;
     }
 }
 

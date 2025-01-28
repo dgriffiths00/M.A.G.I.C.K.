@@ -417,6 +417,62 @@ namespace M_A_G_I_C_K
 
         }
 
+        //will add value changed for all the stat nums, to update the profis bounus thingy        
+        private void STRstats_ValueChanged(object sender, EventArgs e)
+        {
+            if (STRstats.Value >= 6 && STRstats.Value < 8) STRbonusTxt.Text = "-2";
+            else if (STRstats.Value >= 8 && STRstats.Value < 10) STRbonusTxt.Text = "-1";
+            else if (STRstats.Value >= 10 && STRstats.Value < 12) STRbonusTxt.Text = "0";
+            else if (STRstats.Value >= 12 && STRstats.Value < 14) STRbonusTxt.Text = "+1";
+            else if (STRstats.Value >= 14) STRbonusTxt.Text = "+2";
+  
+        }
+
+        private void DEXStats_ValueChanged(object sender, EventArgs e)
+        {
+            if (DEXStats.Value >= 6 && DEXStats.Value < 8) DEXbonusTxt.Text = "-2";
+            else if (DEXStats.Value >= 8 && DEXStats.Value < 10) DEXbonusTxt.Text = "-1";
+            else if (DEXStats.Value >= 10 && STRstats.Value < 12) DEXbonusTxt.Text = "0";
+            else if (STRstats.Value >= 12 && DEXStats.Value < 14) DEXbonusTxt.Text = "+1";
+            else if (DEXStats.Value >= 14) DEXbonusTxt.Text = "+2";
+        }
+
+        private void CONStats_ValueChanged(object sender, EventArgs e)
+        {
+            if (CONStats.Value >= 6 && CONStats.Value < 8) CONbonusTxt.Text = "-2";
+            else if (CONStats.Value >= 8 && CONStats.Value < 10) CONbonusTxt.Text = "-1";
+            else if (CONStats.Value >= 10 && CONStats.Value < 12) CONbonusTxt.Text = "0";
+            else if (CONStats.Value >= 12 && CONStats.Value < 14) CONbonusTxt.Text = "+1";
+            else if (CONStats.Value >= 14) CONbonusTxt.Text = "+2";
+        }
+
+        private void SMRTStats_ValueChanged(object sender, EventArgs e)
+        {
+            if (SMRTStats.Value >= 6 && SMRTStats.Value < 8) SMRTbonusTxt.Text = "-2";
+            else if (SMRTStats.Value >= 8 && SMRTStats.Value < 10) SMRTbonusTxt.Text = "-1";
+            else if (SMRTStats.Value >= 10 && SMRTStats.Value < 12) SMRTbonusTxt.Text = "0";
+            else if (SMRTStats.Value >= 12 && SMRTStats.Value < 14) SMRTbonusTxt.Text = "+1";
+            else if (SMRTStats.Value >= 14) SMRTbonusTxt.Text = "+2";
+        }
+
+        private void WISstats_ValueChanged(object sender, EventArgs e)
+        {
+            if (WISstats.Value >= 6 && WISstats.Value < 8) WISbonusTxt.Text = "-2";
+            else if (WISstats.Value >= 8 && WISstats.Value < 10) WISbonusTxt.Text = "-1";
+            else if (WISstats.Value >= 10 && WISstats.Value < 12) WISbonusTxt.Text = "0";
+            else if (WISstats.Value >= 12 && WISstats.Value < 14) WISbonusTxt.Text = "+1";
+            else if (WISstats.Value >= 14) WISbonusTxt.Text = "+2";
+        }
+
+        private void CHAStats_ValueChanged(object sender, EventArgs e)
+        {
+            if (CHAStats.Value >= 6 && CHAStats.Value < 8) CHAbonusTxt.Text = "-2";
+            else if (CHAStats.Value >= 8 && CHAStats.Value < 10) CHAbonusTxt.Text = "-1";
+            else if (CHAStats.Value >= 10 && CHAStats.Value < 12) CHAbonusTxt.Text = "0";
+            else if (CHAStats.Value >= 12 && CHAStats.Value < 14) CHAbonusTxt.Text = "+1";
+            else if (CHAStats.Value >= 14) CHAbonusTxt.Text = "+2";
+        }
+
         private void runBtn_Click(object sender, EventArgs e)
         {
             //collecting things to pass into the character builder
@@ -447,12 +503,10 @@ namespace M_A_G_I_C_K
 
             Character created = new Character(SelectedRace, SelectedClass, Name, Level);
 
-            
+
 
             //Ends with opening another form with the information played out more cleanly
 
         }
-
-        
     }
 }
