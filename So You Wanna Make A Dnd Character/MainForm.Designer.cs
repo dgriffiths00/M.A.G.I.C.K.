@@ -295,10 +295,6 @@
             // STRCheck
             // 
             this.STRCheck.FormattingEnabled = true;
-            this.STRCheck.Items.AddRange(new object[] {
-            "This",
-            "Will ",
-            "Show adds that can be done"});
             this.STRCheck.Location = new System.Drawing.Point(858, 48);
             this.STRCheck.Name = "STRCheck";
             this.STRCheck.Size = new System.Drawing.Size(228, 55);
@@ -307,10 +303,6 @@
             // DEXCheck
             // 
             this.DEXCheck.FormattingEnabled = true;
-            this.DEXCheck.Items.AddRange(new object[] {
-            "This",
-            "Will ",
-            "Show adds that can be done"});
             this.DEXCheck.Location = new System.Drawing.Point(858, 134);
             this.DEXCheck.Name = "DEXCheck";
             this.DEXCheck.Size = new System.Drawing.Size(228, 55);
@@ -319,10 +311,6 @@
             // CONCheck
             // 
             this.CONCheck.FormattingEnabled = true;
-            this.CONCheck.Items.AddRange(new object[] {
-            "This",
-            "Will ",
-            "Show adds that can be done"});
             this.CONCheck.Location = new System.Drawing.Point(858, 216);
             this.CONCheck.Name = "CONCheck";
             this.CONCheck.Size = new System.Drawing.Size(228, 55);
@@ -331,10 +319,6 @@
             // SMRTCheck
             // 
             this.SMRTCheck.FormattingEnabled = true;
-            this.SMRTCheck.Items.AddRange(new object[] {
-            "This",
-            "Will ",
-            "Show adds that can be done"});
             this.SMRTCheck.Location = new System.Drawing.Point(858, 302);
             this.SMRTCheck.Name = "SMRTCheck";
             this.SMRTCheck.Size = new System.Drawing.Size(228, 55);
@@ -343,10 +327,6 @@
             // WISCheck
             // 
             this.WISCheck.FormattingEnabled = true;
-            this.WISCheck.Items.AddRange(new object[] {
-            "This",
-            "Will ",
-            "Show adds that can be done"});
             this.WISCheck.Location = new System.Drawing.Point(858, 392);
             this.WISCheck.Name = "WISCheck";
             this.WISCheck.Size = new System.Drawing.Size(228, 55);
@@ -355,10 +335,6 @@
             // CHACheck
             // 
             this.CHACheck.FormattingEnabled = true;
-            this.CHACheck.Items.AddRange(new object[] {
-            "This",
-            "Will ",
-            "Show adds that can be done"});
             this.CHACheck.Location = new System.Drawing.Point(858, 483);
             this.CHACheck.Name = "CHACheck";
             this.CHACheck.Size = new System.Drawing.Size(228, 55);
