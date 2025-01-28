@@ -35,6 +35,8 @@ namespace M_A_G_I_C_K
         //this will change the spells you can pick etc etc based on what you pick
         private void RaceDropBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Console.WriteLine("This is Bryan's Test");
+
             /*RaceDropDown
              * Human
                 Elf
