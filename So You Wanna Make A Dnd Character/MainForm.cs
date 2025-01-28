@@ -509,7 +509,7 @@ namespace M_A_G_I_C_K
             int Level = Convert.ToInt32(LevelPicker.Value);
 
             //collecting all the stats
-            int[] Stats = new int[5];
+            int[] Stats = new int[6];
 
             Stats[0] = Convert.ToInt32(STRstats.Value);
             Stats[1] = Convert.ToInt32(DEXStats.Value);

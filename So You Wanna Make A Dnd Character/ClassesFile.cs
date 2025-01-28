@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IronPdf;
 
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
@@ -161,6 +162,11 @@ namespace M_A_G_I_C_K
 
 
             
+        }
+
+        public void transferPDF()
+        {
+
         }
     }
 
