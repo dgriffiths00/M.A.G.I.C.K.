@@ -10,6 +10,14 @@ using System.Windows.Forms;
 
 namespace M_A_G_I_C_K
 {
+
+    /*
+     * things to add
+     * 
+     * 
+     * 
+     */
+
     public partial class MainForm : Form
     {
         public MainForm()
