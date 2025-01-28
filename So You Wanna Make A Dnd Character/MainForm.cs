@@ -42,6 +42,12 @@ namespace M_A_G_I_C_K
                 Orc
                 DragonBorn
             */
+            STRCheck.Items.Clear();
+            DEXCheck.Items.Clear();
+            SMRTCheck.Items.Clear();
+            CHACheck.Items.Clear();
+            CONCheck.Items.Clear();
+            WISCheck.Items.Clear();
 
 
             switch (RaceDropBox.SelectedIndex)
@@ -62,7 +68,7 @@ namespace M_A_G_I_C_K
 
                 case 4:
                     //orc
-
+                    STRCheck.Items.Add("+1 by Orc");
                     break;
 
                 case 5:
@@ -500,8 +506,17 @@ namespace M_A_G_I_C_K
 
             int Level = Convert.ToInt32(LevelPicker.Value);
 
+            //collecting all the stats
+            int[] Stats = new int[5];
 
-            Character created = new Character(SelectedRace, SelectedClass, Name, Level);
+            Stats[0] = Convert.ToInt32(STRstats.Value);
+            Stats[1] = Convert.ToInt32(DEXStats.Value);
+            Stats[2] = Convert.ToInt32(SMRTStats.Value);
+            Stats[3] = Convert.ToInt32(CONStats.Value);
+            Stats[4] = Convert.ToInt32(CHAStats.Value);
+            Stats[5] = Convert.ToInt32(WISstats.Value);
+  
+            Character created = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
 
 
 

@@ -29,7 +29,7 @@ namespace M_A_G_I_C_K
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character(int SelectedRace, int SelectedClass, string Name, int Level) 
+        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats) 
         {
             
             /*RaceDropDown
@@ -135,8 +135,24 @@ namespace M_A_G_I_C_K
                 //run the ran generator
             }
 
-            
 
+            /*
+             * 
+             * Stats[0] = STR;
+                Stats[1] = DEX
+                Stats[2] = SMRT
+                Stats[3] = CON;
+                Stats[4] = CHA;
+                Stats[5] = WIS;
+             * 
+             */
+
+            _STR = stats[0];
+            _DEX = stats[1];
+            _SMRT = stats[2];
+            _CON = stats[3];
+            _CHA = stats[4];
+            _WIS = stats[5];
         }
 
 
