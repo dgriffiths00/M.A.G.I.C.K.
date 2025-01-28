@@ -395,6 +395,28 @@ namespace M_A_G_I_C_K
             }
         }
 
+        private void StatRoll_Click(object sender, EventArgs e)
+        {
+            //this will roll the stats or do standard array and will improve it based on the class
+            //can 
+
+            var ran = new Random();
+
+            DEXStats.Value = ran.Next(6, 21);
+            STRstats.Value = ran.Next(6, 21);
+            SMRTStats.Value = ran.Next(6, 21);
+            CHAStats.Value = ran.Next(6, 21);
+            WISstats.Value = ran.Next(6, 21);
+            CONStats.Value = ran.Next(6, 21);
+
+        }
+
+        private void InputStatBTN_Click(object sender, EventArgs e)
+        {
+            //this will allow for you to input the stats
+
+        }
+
         private void runBtn_Click(object sender, EventArgs e)
         {
             //collecting things to pass into the character builder
@@ -431,5 +453,6 @@ namespace M_A_G_I_C_K
 
         }
 
+        
     }
 }
