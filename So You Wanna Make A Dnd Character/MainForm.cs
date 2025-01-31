@@ -481,6 +481,7 @@ namespace M_A_G_I_C_K
             else if (CHAStats.Value >= 14) CHAbonusTxt.Text = "+2";
         }
 
+        //main button click
         private void runBtn_Click(object sender, EventArgs e)
         {
             //collecting things to pass into the character builder
@@ -520,7 +521,7 @@ namespace M_A_G_I_C_K
   
             Character created = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
 
-
+            created.transferPDF();
 
             //Ends with opening another form with the information played out more cleanly
 

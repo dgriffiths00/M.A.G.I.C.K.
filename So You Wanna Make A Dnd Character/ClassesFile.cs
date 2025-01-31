@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.PeerToPeer;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using IronPdf;
@@ -164,8 +166,10 @@ namespace M_A_G_I_C_K
             
         }
 
+        //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
         public void transferPDF()
         {
+            PdfDocument pdf = PdfDocument.FromFile(@"C:\Users\CGodd\OneDrive\Desktop\MajorProject\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
 
         }
     }
