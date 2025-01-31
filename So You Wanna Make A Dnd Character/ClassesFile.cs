@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.PeerToPeer;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using IronPdf;
+
 
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
@@ -134,6 +136,8 @@ namespace M_A_G_I_C_K
             {
                 Console.WriteLine("Generating Name");
                 //run the ran generator
+
+                _name = "TestingPDF";
             }
 
 
@@ -164,9 +168,30 @@ namespace M_A_G_I_C_K
             
         }
 
+        //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
         public void transferPDF()
         {
+            Console.WriteLine("getting into pdf editing");
 
+
+            /*My failed attempt with iron pdf rip <3
+             * //for my pc
+            //PdfDocument pdf = PdfDocument.FromFile(@"C:\Users\CGodd\OneDrive\Desktop\MajorProject\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+
+            //for my laptop
+            PdfDocument pdfBase = PdfDocument.FromFile(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+
+
+            pdfBase.Form.FindFormField("CharacterName").Value = _name;
+            //pdf.Form.FindFormField("ClassLevel").Value = _CharClass.CharClass + " " + _CharClass.Level;
+
+
+            PdfDocument charPdf = pdfBase.CopyPage(0);
+
+            charPdf.SaveAs(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\" + _name + "_CharacterSheet");*/
+
+
+            
         }
     }
 
@@ -175,6 +200,17 @@ namespace M_A_G_I_C_K
     {
         //this will be inhearented by all the classes
         protected int _Level;
+        protected string _CharClass;
+
+        public string CharClass
+        {
+            get { return _CharClass; }
+        }
+
+        public int Level
+        {
+            get { return _Level; }
+        }
 
     }
 
@@ -184,6 +220,7 @@ namespace M_A_G_I_C_K
         public Fighter(int Level) : base()
         { 
             _Level = Level;
+            _CharClass = "Fighter";
         }
     }
 
