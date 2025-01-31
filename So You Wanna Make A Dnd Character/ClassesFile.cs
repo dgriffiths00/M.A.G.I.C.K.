@@ -5,7 +5,7 @@ using System.Net.PeerToPeer;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using IronPdf;
+
 
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
@@ -173,17 +173,22 @@ namespace M_A_G_I_C_K
         {
             Console.WriteLine("getting into pdf editing");
 
-            //for my pc
+
+            /*My failed attempt with iron pdf rip <3
+             * //for my pc
             //PdfDocument pdf = PdfDocument.FromFile(@"C:\Users\CGodd\OneDrive\Desktop\MajorProject\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
 
             //for my laptop
             PdfDocument pdfBase = PdfDocument.FromFile(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
-            PdfDocument charPdf = pdfBase.CopyPage(0);
 
-            charPdf.Form.FindFormField("CharacterName").Value = _name;
+
+            pdfBase.Form.FindFormField("CharacterName").Value = _name;
             //pdf.Form.FindFormField("ClassLevel").Value = _CharClass.CharClass + " " + _CharClass.Level;
 
-            charPdf.SaveAs(_name + "_CharacterSheet");
+
+            PdfDocument charPdf = pdfBase.CopyPage(0);
+
+            charPdf.SaveAs(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\" + _name + "_CharacterSheet");*/
 
 
             
