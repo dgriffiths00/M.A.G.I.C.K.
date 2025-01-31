@@ -212,8 +212,6 @@ namespace M_A_G_I_C_K
             
             //closing the base pdf, will not be used anymore
             basePdf.Close();
-
-            
             CharPdf.Close();
         }
     }
