@@ -136,6 +136,8 @@ namespace M_A_G_I_C_K
             {
                 Console.WriteLine("Generating Name");
                 //run the ran generator
+
+                _name = "TestingPDF";
             }
 
 
@@ -169,8 +171,22 @@ namespace M_A_G_I_C_K
         //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
         public void transferPDF()
         {
-            PdfDocument pdf = PdfDocument.FromFile(@"C:\Users\CGodd\OneDrive\Desktop\MajorProject\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+            Console.WriteLine("getting into pdf editing");
 
+            //for my pc
+            //PdfDocument pdf = PdfDocument.FromFile(@"C:\Users\CGodd\OneDrive\Desktop\MajorProject\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+
+            //for my laptop
+            PdfDocument pdfBase = PdfDocument.FromFile(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+            PdfDocument charPdf = pdfBase.CopyPage(0);
+
+            charPdf.Form.FindFormField("CharacterName").Value = _name;
+            //pdf.Form.FindFormField("ClassLevel").Value = _CharClass.CharClass + " " + _CharClass.Level;
+
+            charPdf.SaveAs(_name + "_CharacterSheet");
+
+
+            
         }
     }
 
@@ -179,6 +195,17 @@ namespace M_A_G_I_C_K
     {
         //this will be inhearented by all the classes
         protected int _Level;
+        protected string _CharClass;
+
+        public string CharClass
+        {
+            get { return _CharClass; }
+        }
+
+        public int Level
+        {
+            get { return _Level; }
+        }
 
     }
 
@@ -188,6 +215,7 @@ namespace M_A_G_I_C_K
         public Fighter(int Level) : base()
         { 
             _Level = Level;
+            _CharClass = "Fighter";
         }
     }
 
