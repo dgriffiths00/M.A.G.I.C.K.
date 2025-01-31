@@ -176,7 +176,7 @@ namespace M_A_G_I_C_K
         }
 
         //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
-        public void transferPDF()
+        public void creatingPdf()
         {
             Console.WriteLine("getting into pdf editing");
 
@@ -212,8 +212,24 @@ namespace M_A_G_I_C_K
             
             //closing the base pdf, will not be used anymore
             basePdf.Close();
+            merger.Close();
             CharPdf.Close();
+
+            //setting up for the documentation filling, will take the fields name from the base but then fill in the character pdf
+            PdfDocument fillingPdf = new PdfDocument(new PdfReader(basePath), new PdfWriter(CreationPath));
+            PdfAcroForm form = PdfFormCreator.GetAcroForm(fillingPdf, true);
+            IDictionary<String, PdfFormField> fields = form.GetAllFormFields();
+
+            //all the fields to fill in are here
+            fields["CharacterName"].SetValue("This is a test please work");
+
+
+
+
+            fillingPdf.Close();
         }
+
+        
     }
 
 

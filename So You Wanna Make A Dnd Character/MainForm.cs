@@ -521,7 +521,7 @@ namespace M_A_G_I_C_K
   
             Character created = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
 
-            created.transferPDF();
+            created.creatingPdf();
 
             //Ends with opening another form with the information played out more cleanly
 
