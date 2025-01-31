@@ -5,6 +5,13 @@ using System.Net.PeerToPeer;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Forms;
+using iText.Forms.Fields;
+using iText.Forms.Fields.Properties;
+using System.IO;
+using iText.Kernel.Utils;
 
 
 
@@ -169,30 +176,60 @@ namespace M_A_G_I_C_K
         }
 
         //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
-        public void transferPDF()
+        public void creatingPdf()
         {
             Console.WriteLine("getting into pdf editing");
 
 
-            /*My failed attempt with iron pdf rip <3
-             * //for my pc
-            //PdfDocument pdf = PdfDocument.FromFile(@"C:\Users\CGodd\OneDrive\Desktop\MajorProject\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+            /*flow of pdf creation
+             * 
+             * creates new pdf https://kb.itextpdf.com/itext/chapter-1-introducing-basic-building-blocks
+             * copy the base pdf form to the new pdf, only first page if not spell caster (still need to figure out a bit but here https://kb.itextpdf.com/itext/chapter-6-reusing-existing-pdf-documents-net)
+             * start adding information to form (https://kb.itextpdf.com/itext/chapter-5-manipulating-an-existing-pdf-document-ne)
+             * 
+             * close form
+             * 
+             */
 
-            //for my laptop
-            PdfDocument pdfBase = PdfDocument.FromFile(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf");
+            //PdfWriter writer = new PdfWriter(dest);
+            //PdfDocument pdf = new PdfDocument(writer);
+            //Document document = new Document(pdf);
 
+            string CreationPath = @"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\" + _name + "CharacterSheet.pdf";
 
-            pdfBase.Form.FindFormField("CharacterName").Value = _name;
-            //pdf.Form.FindFormField("ClassLevel").Value = _CharClass.CharClass + " " + _CharClass.Level;
+            string basePath = @"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf";
 
+            //creating a file at this location
+            using (FileStream fs = File.Create(CreationPath));
 
-            PdfDocument charPdf = pdfBase.CopyPage(0);
+            //setting up the pdf to merge to
+            PdfDocument CharPdf = new PdfDocument(new PdfWriter(CreationPath));
+            PdfMerger merger = new PdfMerger(CharPdf);
 
-            charPdf.SaveAs(@"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\" + _name + "_CharacterSheet");*/
-
-
+            //adding pages from the base document, first creating the pdf link then merging
+            PdfDocument basePdf = new PdfDocument(new PdfReader(basePath));
+            merger.Merge(basePdf, 1, basePdf.GetNumberOfPages());
             
+            //closing the base pdf, will not be used anymore
+            basePdf.Close();
+            merger.Close();
+            CharPdf.Close();
+
+            //setting up for the documentation filling, will take the fields name from the base but then fill in the character pdf
+            PdfDocument fillingPdf = new PdfDocument(new PdfReader(basePath), new PdfWriter(CreationPath));
+            PdfAcroForm form = PdfFormCreator.GetAcroForm(fillingPdf, true);
+            IDictionary<String, PdfFormField> fields = form.GetAllFormFields();
+
+            //all the fields to fill in are here
+            fields["CharacterName"].SetValue("This is a test please work");
+
+
+
+
+            fillingPdf.Close();
         }
+
+        
     }
 
 
@@ -230,7 +267,7 @@ namespace M_A_G_I_C_K
         public Cleric(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Cleric";
         }
     }
 
@@ -240,7 +277,7 @@ namespace M_A_G_I_C_K
         public Wizard(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Wizard";
         }
     }
 
@@ -250,7 +287,7 @@ namespace M_A_G_I_C_K
         public Rouge(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Rouge";
         }
     }
 
@@ -259,7 +296,7 @@ namespace M_A_G_I_C_K
         public Bard(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Bard";
         }
     }
 
@@ -269,7 +306,7 @@ namespace M_A_G_I_C_K
     {
         //this will be inherented by all the races
         protected int _speed;
-        protected string _size;
+        protected string _size, _CharRace;
         
 
         public DndRace()
@@ -290,6 +327,14 @@ namespace M_A_G_I_C_K
                 //this will be edited to change spending on the armor/any other affects
             }
         }
+
+        public string CharRace
+        {
+            get
+            {
+                return _CharRace.ToString(); 
+            }
+        }
         
     }
 
@@ -299,7 +344,7 @@ namespace M_A_G_I_C_K
 
         public Human(): base()
         {
-
+            _CharRace = "Human";
         }
     }
 
@@ -309,8 +354,7 @@ namespace M_A_G_I_C_K
 
         public Elf() : base()
         {
-
-        }
+            _CharRace = "Elf";        }
     }
 
     class Dwarf : DndRace
@@ -320,6 +364,7 @@ namespace M_A_G_I_C_K
        public Dwarf(): base()
        {
             _speed = 25;
+            _CharRace = "Dwarf";
        }
     }
 
@@ -329,7 +374,7 @@ namespace M_A_G_I_C_K
 
         public Orc(): base()
         {
-
+            _CharRace = "Orc";
         }
 
     }
@@ -340,7 +385,7 @@ namespace M_A_G_I_C_K
 
         public Dragonborn(): base()
         {
-
+            _CharRace = "Dragonborn";
 
         }
 
