@@ -5,6 +5,13 @@ using System.Net.PeerToPeer;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Forms;
+using iText.Forms.Fields;
+using iText.Forms.Fields.Properties;
+using System.IO;
+using iText.Kernel.Utils;
 
 
 
@@ -184,9 +191,30 @@ namespace M_A_G_I_C_K
              * 
              */
 
+            //PdfWriter writer = new PdfWriter(dest);
+            //PdfDocument pdf = new PdfDocument(writer);
+            //Document document = new Document(pdf);
 
+            string CreationPath = @"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\" + _name + "CharacterSheet.pdf";
 
+            string basePath = @"C:\Users\Carson\Desktop\So You Wanna Make A Dnd Character\So You Wanna Make A Dnd Character\PDFS\DnD_BaseSheet.pdf";
 
+            //creating a file at this location
+            using (FileStream fs = File.Create(CreationPath));
+
+            //setting up the pdf to merge to
+            PdfDocument CharPdf = new PdfDocument(new PdfWriter(CreationPath));
+            PdfMerger merger = new PdfMerger(CharPdf);
+
+            //adding pages from the base document, first creating the pdf link then merging
+            PdfDocument basePdf = new PdfDocument(new PdfReader(basePath));
+            merger.Merge(basePdf, 1, basePdf.GetNumberOfPages());
+            
+            //closing the base pdf, will not be used anymore
+            basePdf.Close();
+
+            
+            CharPdf.Close();
         }
     }
 
@@ -225,7 +253,7 @@ namespace M_A_G_I_C_K
         public Cleric(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Cleric";
         }
     }
 
@@ -235,7 +263,7 @@ namespace M_A_G_I_C_K
         public Wizard(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Wizard";
         }
     }
 
@@ -245,7 +273,7 @@ namespace M_A_G_I_C_K
         public Rouge(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Rouge";
         }
     }
 
@@ -254,7 +282,7 @@ namespace M_A_G_I_C_K
         public Bard(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Bard";
         }
     }
 
@@ -264,7 +292,7 @@ namespace M_A_G_I_C_K
     {
         //this will be inherented by all the races
         protected int _speed;
-        protected string _size;
+        protected string _size, _CharRace;
         
 
         public DndRace()
@@ -285,6 +313,14 @@ namespace M_A_G_I_C_K
                 //this will be edited to change spending on the armor/any other affects
             }
         }
+
+        public string CharRace
+        {
+            get
+            {
+                return _CharRace.ToString(); 
+            }
+        }
         
     }
 
@@ -294,7 +330,7 @@ namespace M_A_G_I_C_K
 
         public Human(): base()
         {
-
+            _CharRace = "Human";
         }
     }
 
@@ -304,8 +340,7 @@ namespace M_A_G_I_C_K
 
         public Elf() : base()
         {
-
-        }
+            _CharRace = "Elf";        }
     }
 
     class Dwarf : DndRace
@@ -315,6 +350,7 @@ namespace M_A_G_I_C_K
        public Dwarf(): base()
        {
             _speed = 25;
+            _CharRace = "Dwarf";
        }
     }
 
@@ -324,7 +360,7 @@ namespace M_A_G_I_C_K
 
         public Orc(): base()
         {
-
+            _CharRace = "Orc";
         }
 
     }
@@ -335,7 +371,7 @@ namespace M_A_G_I_C_K
 
         public Dragonborn(): base()
         {
-
+            _CharRace = "Dragonborn";
 
         }
 
