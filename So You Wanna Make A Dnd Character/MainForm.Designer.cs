@@ -563,7 +563,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 647);
+            this.ClientSize = new System.Drawing.Size(1110, 669);
             this.Controls.Add(this.CHAbonusTxt);
             this.Controls.Add(this.WISbonusTxt);
             this.Controls.Add(this.SMRTbonusTxt);
