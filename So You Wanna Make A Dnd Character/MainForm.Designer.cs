@@ -106,7 +106,7 @@
             "Dwarf",
             "Orc",
             "Dragonborn"});
-            this.RaceDropBox.Location = new System.Drawing.Point(12, 250);
+            this.RaceDropBox.Location = new System.Drawing.Point(11, 134);
             this.RaceDropBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RaceDropBox.Name = "RaceDropBox";
             this.RaceDropBox.Size = new System.Drawing.Size(193, 24);
@@ -116,7 +116,7 @@
             // RaceLabel
             // 
             this.RaceLabel.AutoSize = true;
-            this.RaceLabel.Location = new System.Drawing.Point(12, 231);
+            this.RaceLabel.Location = new System.Drawing.Point(11, 115);
             this.RaceLabel.Name = "RaceLabel";
             this.RaceLabel.Size = new System.Drawing.Size(40, 16);
             this.RaceLabel.TabIndex = 2;
@@ -177,7 +177,7 @@
             // 
             // runBtn
             // 
-            this.runBtn.Location = new System.Drawing.Point(728, 613);
+            this.runBtn.Location = new System.Drawing.Point(925, 613);
             this.runBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.runBtn.Name = "runBtn";
             this.runBtn.Size = new System.Drawing.Size(161, 23);
@@ -342,7 +342,7 @@
             // 
             // StatRoll
             // 
-            this.StatRoll.Location = new System.Drawing.Point(446, 80);
+            this.StatRoll.Location = new System.Drawing.Point(609, 29);
             this.StatRoll.Name = "StatRoll";
             this.StatRoll.Size = new System.Drawing.Size(100, 23);
             this.StatRoll.TabIndex = 32;
@@ -352,7 +352,7 @@
             // 
             // InputStatBTN
             // 
-            this.InputStatBTN.Location = new System.Drawing.Point(446, 115);
+            this.InputStatBTN.Location = new System.Drawing.Point(609, 64);
             this.InputStatBTN.Name = "InputStatBTN";
             this.InputStatBTN.Size = new System.Drawing.Size(100, 23);
             this.InputStatBTN.TabIndex = 34;
