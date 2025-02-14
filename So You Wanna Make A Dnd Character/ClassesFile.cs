@@ -238,6 +238,7 @@ namespace M_A_G_I_C_K
         //this will be inhearented by all the classes
         protected int _Level;
         protected string _CharClass;
+        protected Boolean _spellCaster;
 
         public string CharClass
         {
@@ -258,6 +259,7 @@ namespace M_A_G_I_C_K
         { 
             _Level = Level;
             _CharClass = "Fighter";
+            _spellCaster = false;
         }
     }
 
@@ -268,6 +270,7 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Cleric";
+            _spellCaster = true;
         }
     }
 
@@ -278,6 +281,7 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Wizard";
+            _spellCaster = true;
         }
     }
 
@@ -288,6 +292,7 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Rouge";
+            _spellCaster = false;
         }
     }
 
@@ -297,6 +302,7 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Bard";
+            _spellCaster = true;
         }
     }
 
