@@ -159,6 +159,7 @@ namespace M_A_G_I_C_K
                     //Wizard
                     EquipmentCheckBox.Items.Add("Items for Wizard");
 
+                    //wizard.spellfiller(LevelPicker.Value, ClassDropBox.index) returns array
                     switch (LevelPicker.Value)
                     {
                         case 1:
@@ -410,6 +411,7 @@ namespace M_A_G_I_C_K
 
             int[] stats = new int[6];
 
+            //change forloop to make more efficant
             stats[0] = ran.Next(6, 21);
             stats[1] = ran.Next(6, 21);
             stats[2] = ran.Next(6, 21);
