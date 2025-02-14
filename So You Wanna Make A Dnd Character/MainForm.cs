@@ -35,8 +35,6 @@ namespace M_A_G_I_C_K
         //this will change the spells you can pick etc etc based on what you pick
         private void RaceDropBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("This is Bryan's Test");
-
             /*RaceDropDown
              * Human
                 Elf
@@ -416,20 +414,31 @@ namespace M_A_G_I_C_K
 
             var ran = new Random();
 
-            DEXStats.Value = ran.Next(6, 21);
-            STRstats.Value = ran.Next(6, 21);
-            SMRTStats.Value = ran.Next(6, 21);
-            CHAStats.Value = ran.Next(6, 21);
-            WISstats.Value = ran.Next(6, 21);
-            CONStats.Value = ran.Next(6, 21);
+            int[] stats = new int[6];
 
+            stats[0] = ran.Next(6, 21);
+            stats[1] = ran.Next(6, 21);
+            stats[2] = ran.Next(6, 21);
+            stats[3] = ran.Next(6, 21);
+            stats[4] = ran.Next(6, 21);
+            stats[5] = ran.Next(6, 21);
+
+
+            if (ClassDropBox.SelectedIndex == 0)
+            {
+                DEXStats.Value = stats[0];
+                STRstats.Value = stats[1];
+                SMRTStats.Value = stats[2];
+                CHAStats.Value = stats[3];
+                WISstats.Value = stats[4];
+                CONStats.Value = stats[5];
+            }
+            else
+            {
+                //randomly generated stats rolled but with preference for the ones needed by the class
+            }
         }
 
-        private void InputStatBTN_Click(object sender, EventArgs e)
-        {
-            //this will allow for you to input the stats
-
-        }
 
         //will add value changed for all the stat nums, to update the profis bounus thingy        
         private void STRstats_ValueChanged(object sender, EventArgs e)
@@ -446,8 +455,8 @@ namespace M_A_G_I_C_K
         {
             if (DEXStats.Value >= 6 && DEXStats.Value < 8) DEXbonusTxt.Text = "-2";
             else if (DEXStats.Value >= 8 && DEXStats.Value < 10) DEXbonusTxt.Text = "-1";
-            else if (DEXStats.Value >= 10 && STRstats.Value < 12) DEXbonusTxt.Text = "0";
-            else if (STRstats.Value >= 12 && DEXStats.Value < 14) DEXbonusTxt.Text = "+1";
+            else if (DEXStats.Value >= 10 && DEXStats.Value < 12) DEXbonusTxt.Text = "0";
+            else if (DEXStats.Value >= 12 && DEXStats.Value < 14) DEXbonusTxt.Text = "+1";
             else if (DEXStats.Value >= 14) DEXbonusTxt.Text = "+2";
         }
 
@@ -487,6 +496,7 @@ namespace M_A_G_I_C_K
             else if (CHAStats.Value >= 14) CHAbonusTxt.Text = "+2";
         }
 
+        //main button click
         private void runBtn_Click(object sender, EventArgs e)
         {
             //collecting things to pass into the character builder
@@ -515,7 +525,7 @@ namespace M_A_G_I_C_K
             int Level = Convert.ToInt32(LevelPicker.Value);
 
             //collecting all the stats
-            int[] Stats = new int[5];
+            int[] Stats = new int[6];
 
             Stats[0] = Convert.ToInt32(STRstats.Value);
             Stats[1] = Convert.ToInt32(DEXStats.Value);
@@ -526,7 +536,7 @@ namespace M_A_G_I_C_K
   
             Character created = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
 
-
+            created.creatingPdf();
 
             //Ends with opening another form with the information played out more cleanly
 

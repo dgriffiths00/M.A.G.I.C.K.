@@ -1,8 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.PeerToPeer;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Forms;
+using iText.Forms.Fields;
+using iText.Forms.Fields.Properties;
+using System.IO;
+using iText.Kernel.Utils;
+
 
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
@@ -133,6 +143,8 @@ namespace M_A_G_I_C_K
             {
                 Console.WriteLine("Generating Name");
                 //run the ran generator
+
+                _name = "TestingPDF";
             }
 
 
@@ -162,6 +174,62 @@ namespace M_A_G_I_C_K
 
             
         }
+
+        //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
+        public void creatingPdf()
+        {
+            Console.WriteLine("getting into pdf editing");
+
+
+            /*flow of pdf creation
+             * 
+             * creates new pdf https://kb.itextpdf.com/itext/chapter-1-introducing-basic-building-blocks
+             * copy the base pdf form to the new pdf, only first page if not spell caster (still need to figure out a bit but here https://kb.itextpdf.com/itext/chapter-6-/reusing-existing-pdf-documents-net)
+             * start adding information to form (https://kb.itextpdf.com/itext/chapter-5-manipulating-an-existing-pdf-document-ne)
+             * 
+             * close form
+             * 
+             */
+      
+
+            //this if for finding the current path
+            string pathToPDFFolder = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\PDFS\";
+
+            string CreationPath = pathToPDFFolder + _name + "CharacterSheet.pdf";
+
+            string basePath = pathToPDFFolder + "DnD_BaseSheet.pdf";
+
+            //creating a file at this location
+            using (FileStream fs = File.Create(CreationPath));
+            
+            //setting up the pdf to merge to
+            PdfDocument CharPdf = new PdfDocument(new PdfWriter(CreationPath));
+            PdfMerger merger = new PdfMerger(CharPdf);
+
+            //adding pages from the base document, first creating the pdf link then merging
+            PdfDocument basePdf = new PdfDocument(new PdfReader(basePath));
+            merger.Merge(basePdf, 1, basePdf.GetNumberOfPages());
+            
+            //closing the pdfs, will not be used anymore
+            basePdf.Close();
+            merger.Close();
+            CharPdf.Close();
+
+            //setting up for the documentation filling, will take the fields name from the base but then fill in the character pdf
+            PdfDocument fillingPdf = new PdfDocument(new PdfReader(basePath), new PdfWriter(CreationPath));
+            PdfAcroForm form = PdfFormCreator.GetAcroForm(fillingPdf, true);
+            IDictionary<String, PdfFormField> fields = form.GetAllFormFields();
+
+            //all the fields to fill in are here
+            fields["CharacterName"].SetValue("This is a test please work");
+
+            fillingPdf.Close();
+
+            //finally asking via pop up if you would like to move the file to your desktop
+
+        }
+
+        
     }
 
 
@@ -169,6 +237,18 @@ namespace M_A_G_I_C_K
     {
         //this will be inhearented by all the classes
         protected int _Level;
+        protected string _CharClass;
+        protected Boolean _spellCaster;
+
+        public string CharClass
+        {
+            get { return _CharClass; }
+        }
+
+        public int Level
+        {
+            get { return _Level; }
+        }
 
     }
 
@@ -178,6 +258,8 @@ namespace M_A_G_I_C_K
         public Fighter(int Level) : base()
         { 
             _Level = Level;
+            _CharClass = "Fighter";
+            _spellCaster = false;
         }
     }
 
@@ -187,7 +269,8 @@ namespace M_A_G_I_C_K
         public Cleric(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Cleric";
+            _spellCaster = true;
         }
     }
 
@@ -197,7 +280,8 @@ namespace M_A_G_I_C_K
         public Wizard(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Wizard";
+            _spellCaster = true;
         }
     }
 
@@ -207,7 +291,8 @@ namespace M_A_G_I_C_K
         public Rouge(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Rouge";
+            _spellCaster = false;
         }
     }
 
@@ -216,7 +301,8 @@ namespace M_A_G_I_C_K
         public Bard(int Level) : base()
         {
             _Level = Level;
-
+            _CharClass = "Bard";
+            _spellCaster = true;
         }
     }
 
@@ -226,7 +312,7 @@ namespace M_A_G_I_C_K
     {
         //this will be inherented by all the races
         protected int _speed;
-        protected string _size;
+        protected string _size, _CharRace;
         
 
         public DndRace()
@@ -247,6 +333,14 @@ namespace M_A_G_I_C_K
                 //this will be edited to change spending on the armor/any other affects
             }
         }
+
+        public string CharRace
+        {
+            get
+            {
+                return _CharRace.ToString(); 
+            }
+        }
         
     }
 
@@ -256,7 +350,7 @@ namespace M_A_G_I_C_K
 
         public Human(): base()
         {
-
+            _CharRace = "Human";
         }
     }
 
@@ -266,8 +360,7 @@ namespace M_A_G_I_C_K
 
         public Elf() : base()
         {
-
-        }
+            _CharRace = "Elf";        }
     }
 
     class Dwarf : DndRace
@@ -277,6 +370,7 @@ namespace M_A_G_I_C_K
        public Dwarf(): base()
        {
             _speed = 25;
+            _CharRace = "Dwarf";
        }
     }
 
@@ -286,7 +380,7 @@ namespace M_A_G_I_C_K
 
         public Orc(): base()
         {
-
+            _CharRace = "Orc";
         }
 
     }
@@ -297,7 +391,7 @@ namespace M_A_G_I_C_K
 
         public Dragonborn(): base()
         {
-
+            _CharRace = "Dragonborn";
 
         }
 
