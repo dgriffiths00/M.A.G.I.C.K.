@@ -28,6 +28,7 @@ namespace M_A_G_I_C_K
 
         //stats, created via method
         protected int _STR, _DEX, _CON, _SMRT, _WIS, _CHA, _ProfisBonus;
+        protected int[] _StatBonus = new int[6];
         //name and background, name gotten from pdf, background gotten from 
         private string _name, _background;
         //created via inherented class
@@ -220,12 +221,48 @@ namespace M_A_G_I_C_K
             PdfAcroForm form = PdfFormCreator.GetAcroForm(fillingPdf, true);
             IDictionary<String, PdfFormField> fields = form.GetAllFormFields();
 
+            if (_CharClass.spellCaster == true)
+            {
+                //this will link to the fillingspells pdf
+                fillingSpellsPdf();
+            }
+            else
+            {
+                fillingPdf.RemovePage(1);
+            }
+
             //all the fields to fill in are here
-            fields["CharacterName"].SetValue("This is a test please work");
+            //sections on the top
+            fields["CharacterName"].SetValue(_name);
+            fields["ClassLevel"].SetValue(_CharClass.CharClass + " " + _CharClass.Level);
+            fields["Race"].SetValue(_CharRace.CharRace);
+
+            //side table for values
+            fields["STR"].SetValue(_STR.ToString());
+            fields["DEX"].SetValue(_DEX.ToString());
+            fields["CON"].SetValue(_CON.ToString());
+            fields["INT"].SetValue(_SMRT.ToString());
+            fields["WIS"].SetValue(_WIS.ToString());
+            fields["CHA"].SetValue(_CHA.ToString());
+
+            fields["STRmod"].SetValue(_StatBonus[0].ToString());
+            fields["DEXmod"].SetValue(_StatBonus[1].ToString());
+            fields["CONmod"].SetValue(_StatBonus[2].ToString());
+            fields["INTmod"].SetValue(_StatBonus[3].ToString());
+            fields["WISmod"].SetValue(_StatBonus[4].ToString());
+            fields["CHAmod"].SetValue(_StatBonus[5].ToString());
+
+            //
+            fields["Speed"].SetValue(_CharRace.Speed);
 
             fillingPdf.Close();
 
             //finally asking via pop up if you would like to move the file to your desktop
+
+        }
+
+        public void fillingSpellsPdf()
+        {
 
         }
 
@@ -248,6 +285,11 @@ namespace M_A_G_I_C_K
         public int Level
         {
             get { return _Level; }
+        }
+
+        public Boolean spellCaster 
+        {
+            get { return _spellCaster; }
         }
 
     }
