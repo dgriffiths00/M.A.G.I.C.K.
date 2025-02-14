@@ -20,7 +20,7 @@ using iText.Kernel.Utils;
 
 namespace M_A_G_I_C_K
 {
-    class Character
+    public class Character
     {
         //this will have all the info for the character
         //it will have a class, race, background, stats etc etc
@@ -252,7 +252,7 @@ namespace M_A_G_I_C_K
             fields["WISmod"].SetValue(_StatBonus[4].ToString());
             fields["CHAmod"].SetValue(_StatBonus[5].ToString());
 
-            //
+            //center thingy
             fields["Speed"].SetValue(_CharRace.Speed);
 
             fillingPdf.Close();
