@@ -289,6 +289,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <AdditionalFiles Include="PDFS\DnD_BaseSheet.pdf" />
     <None Include="packages.config" />
@@ -306,7 +307,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+ FoxBranch
+    <None Include="Resources\Default1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bard2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cleric2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fighter2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rogue2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wizard2.png" />
+
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+ master
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

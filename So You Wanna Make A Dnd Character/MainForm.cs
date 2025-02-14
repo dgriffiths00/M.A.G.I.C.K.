@@ -103,6 +103,7 @@ namespace M_A_G_I_C_K
                 case 1:
                     //Fighter
                     EquipmentCheckBox.Items.Add("Items for fighter");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Fighter.png");
 
                     //second switch statment for each level
                     switch (LevelPicker.Value)
@@ -130,6 +131,7 @@ namespace M_A_G_I_C_K
                 case 2:
                     //Cleric
                     EquipmentCheckBox.Items.Add("Items for Cleric");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Cleric.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -158,6 +160,7 @@ namespace M_A_G_I_C_K
                 case 3:
                     //Wizard
                     EquipmentCheckBox.Items.Add("Items for Wizard");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Wizard.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -186,6 +189,7 @@ namespace M_A_G_I_C_K
                 case 4:
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Rogue.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -214,6 +218,7 @@ namespace M_A_G_I_C_K
                 case 5:
                     //Bard
                     EquipmentCheckBox.Items.Add("Items for Bard");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Bard.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -241,6 +246,7 @@ namespace M_A_G_I_C_K
 
                 default:
                     //nothing change nothing
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Default.png");
 
                     break;
             }
