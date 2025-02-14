@@ -408,14 +408,24 @@ namespace M_A_G_I_C_K
 
             var ran = new Random();
 
+            int[] stats = new int[6];
+
+            stats[0] = ran.Next(6, 21);
+            stats[1] = ran.Next(6, 21);
+            stats[2] = ran.Next(6, 21);
+            stats[3] = ran.Next(6, 21);
+            stats[4] = ran.Next(6, 21);
+            stats[5] = ran.Next(6, 21);
+
+
             if (ClassDropBox.SelectedIndex == 0)
             {
-                DEXStats.Value = ran.Next(6, 21);
-                STRstats.Value = ran.Next(6, 21);
-                SMRTStats.Value = ran.Next(6, 21);
-                CHAStats.Value = ran.Next(6, 21);
-                WISstats.Value = ran.Next(6, 21);
-                CONStats.Value = ran.Next(6, 21);
+                DEXStats.Value = stats[0];
+                STRstats.Value = stats[1];
+                SMRTStats.Value = stats[2];
+                CHAStats.Value = stats[3];
+                WISstats.Value = stats[4];
+                CONStats.Value = stats[5];
             }
             else
             {
@@ -439,8 +449,8 @@ namespace M_A_G_I_C_K
         {
             if (DEXStats.Value >= 6 && DEXStats.Value < 8) DEXbonusTxt.Text = "-2";
             else if (DEXStats.Value >= 8 && DEXStats.Value < 10) DEXbonusTxt.Text = "-1";
-            else if (DEXStats.Value >= 10 && STRstats.Value < 12) DEXbonusTxt.Text = "0";
-            else if (STRstats.Value >= 12 && DEXStats.Value < 14) DEXbonusTxt.Text = "+1";
+            else if (DEXStats.Value >= 10 && DEXStats.Value < 12) DEXbonusTxt.Text = "0";
+            else if (DEXStats.Value >= 12 && DEXStats.Value < 14) DEXbonusTxt.Text = "+1";
             else if (DEXStats.Value >= 14) DEXbonusTxt.Text = "+2";
         }
 
