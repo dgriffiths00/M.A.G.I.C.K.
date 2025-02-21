@@ -531,8 +531,10 @@ namespace M_A_G_I_C_K
             Stats[3] = Convert.ToInt32(CONStats.Value);
             Stats[4] = Convert.ToInt32(CHAStats.Value);
             Stats[5] = Convert.ToInt32(WISstats.Value);
+
+            string Background = "testing string!! uwu";
   
-            Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
+            Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background);
 
             //Opening Form
             this.Hide();
