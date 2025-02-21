@@ -84,6 +84,7 @@
             this.dPercentBtn = new System.Windows.Forms.Button();
             this.rollResultLbl = new System.Windows.Forms.Label();
             this.rollResultTb = new System.Windows.Forms.TextBox();
+            this.oWoBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -748,11 +749,22 @@
             this.rollResultTb.TabIndex = 63;
             this.rollResultTb.Text = "No Die Rolled";
             // 
+            // oWoBtn
+            // 
+            this.oWoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oWoBtn.Location = new System.Drawing.Point(277, 677);
+            this.oWoBtn.Name = "oWoBtn";
+            this.oWoBtn.Size = new System.Drawing.Size(80, 80);
+            this.oWoBtn.TabIndex = 64;
+            this.oWoBtn.Text = "OwO";
+            this.oWoBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 764);
+            this.Controls.Add(this.oWoBtn);
             this.Controls.Add(this.rollResultTb);
             this.Controls.Add(this.rollResultLbl);
             this.Controls.Add(this.dPercentBtn);
@@ -884,6 +896,7 @@
         private System.Windows.Forms.Button dPercentBtn;
         private System.Windows.Forms.Label rollResultLbl;
         private System.Windows.Forms.TextBox rollResultTb;
+        private System.Windows.Forms.Button oWoBtn;
     }
 }
 
