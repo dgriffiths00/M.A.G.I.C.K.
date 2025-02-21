@@ -542,5 +542,10 @@ namespace M_A_G_I_C_K
             show.Show();
             show.Closed += (s, args) => this.Close();
         }
+
+        private void d4btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
