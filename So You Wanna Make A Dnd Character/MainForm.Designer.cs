@@ -174,7 +174,7 @@
             this.EquipmentCheckBox.Location = new System.Drawing.Point(149, 239);
             this.EquipmentCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EquipmentCheckBox.Name = "EquipmentCheckBox";
-            this.EquipmentCheckBox.Size = new System.Drawing.Size(165, 55);
+            this.EquipmentCheckBox.Size = new System.Drawing.Size(165, 72);
             this.EquipmentCheckBox.TabIndex = 6;
             // 
             // SpellCheckBox
@@ -589,9 +589,11 @@
             // 
             // playerIcon
             // 
+            this.playerIcon.Image = global::So_You_Wanna_Make_A_Dnd_Character.Properties.Resources.Default;
             this.playerIcon.Location = new System.Drawing.Point(11, 166);
             this.playerIcon.Name = "playerIcon";
             this.playerIcon.Size = new System.Drawing.Size(128, 128);
+            this.playerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerIcon.TabIndex = 47;
             this.playerIcon.TabStop = false;
             // 
@@ -722,7 +724,7 @@
             // 
             // dPercentBtn
             // 
-            this.dPercentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dPercentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dPercentBtn.Location = new System.Drawing.Point(187, 677);
             this.dPercentBtn.Name = "dPercentBtn";
             this.dPercentBtn.Size = new System.Drawing.Size(80, 80);
@@ -752,7 +754,7 @@
             // 
             // oWoBtn
             // 
-            this.oWoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oWoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oWoBtn.Location = new System.Drawing.Point(277, 677);
             this.oWoBtn.Name = "oWoBtn";
             this.oWoBtn.Size = new System.Drawing.Size(80, 80);
