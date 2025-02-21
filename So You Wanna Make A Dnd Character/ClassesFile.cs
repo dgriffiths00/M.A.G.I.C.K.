@@ -318,8 +318,8 @@ namespace M_A_G_I_C_K
     abstract class DndClass
     {
         //this will be inhearented by all the classes
-        protected int _Level, _hitpoint;
-        protected string _CharClass;
+        protected int _Level, _hitpoints;
+        protected string _CharClass, _hitpointDice;
         protected Boolean _spellCaster;
 
         public string CharClass
@@ -377,6 +377,7 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClass = "Fighter";
             _spellCaster = false;
+            _hitpointDice = "D10";
         }
     }
 
@@ -386,6 +387,8 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Cleric";
+            _hitpointDice = "D8";
+
         }
     }
 
@@ -396,6 +399,8 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Wizard";
+            _hitpointDice = "D6";
+
         }
     }
 
@@ -407,6 +412,8 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClass = "Rouge";
             _spellCaster = false;
+            _hitpointDice = "D8";
+
         }
     }
 
@@ -416,6 +423,7 @@ namespace M_A_G_I_C_K
         {
             _Level = Level;
             _CharClass = "Bard";
+            _hitpointDice = "D8";
         }
     }
 
