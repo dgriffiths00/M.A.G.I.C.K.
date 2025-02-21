@@ -1,4 +1,5 @@
-﻿using System;
+﻿using So_You_Wanna_Make_A_Dnd_Character;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -439,6 +440,7 @@ namespace M_A_G_I_C_K
         //will add value changed for all the stat nums, to update the profis bounus thingy        
         private void STRstats_ValueChanged(object sender, EventArgs e)
         {
+
             if (STRstats.Value >= 6 && STRstats.Value < 8) STRbonusTxt.Text = "-2";
             else if (STRstats.Value >= 8 && STRstats.Value < 10) STRbonusTxt.Text = "-1";
             else if (STRstats.Value >= 10 && STRstats.Value < 12) STRbonusTxt.Text = "0";
@@ -530,12 +532,13 @@ namespace M_A_G_I_C_K
             Stats[4] = Convert.ToInt32(CHAStats.Value);
             Stats[5] = Convert.ToInt32(WISstats.Value);
   
-            Character created = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
+            Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
 
-            created.creatingPdf();
-
-            //Ends with opening another form with the information played out more cleanly
-
+            //Opening Form
+            this.Hide();
+            CharacterShow show = new CharacterShow(createdChar);
+            show.Show();
+            show.Closed += (s, args) => this.Close();
         }
     }
 }
