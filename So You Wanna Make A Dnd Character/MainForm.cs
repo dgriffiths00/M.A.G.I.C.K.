@@ -537,5 +537,10 @@ namespace M_A_G_I_C_K
             //Ends with opening another form with the information played out more cleanly
 
         }
+
+        private void d4btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
