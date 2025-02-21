@@ -16,11 +16,14 @@ namespace So_You_Wanna_Make_A_Dnd_Character
         public CharacterShow(Character created)
         {
             InitializeComponent();
+            
+            //redirecting the btn click to include sending in the created character information
+            CreatePdfBtn.Click += delegate(object sender, EventArgs e) { CreatePdfBtn_Click(sender, e, created); };
         }
 
-        private void CreatePdfBtn_Click(object sender, EventArgs e)
+        private void CreatePdfBtn_Click(object sender, EventArgs e, Character created)
         {
-            
+            created.creatingPdf();
         }
 
         private void MainFormBtn_Click(object sender, EventArgs e)

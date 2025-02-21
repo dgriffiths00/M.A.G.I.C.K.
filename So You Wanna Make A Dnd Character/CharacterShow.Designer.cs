@@ -49,9 +49,7 @@
             this.CreatePdfBtn.Size = new System.Drawing.Size(95, 23);
             this.CreatePdfBtn.TabIndex = 1;
             this.CreatePdfBtn.Text = "Create Pdf";
-            this.CreatePdfBtn.UseVisualStyleBackColor = true;
-            this.CreatePdfBtn.Click += new System.EventHandler(this.CreatePdfBtn_Click);
-            // 
+            this.CreatePdfBtn.UseVisualStyleBackColor = true;            // 
             // MainFormBtn
             // 
             this.MainFormBtn.Location = new System.Drawing.Point(286, 390);
