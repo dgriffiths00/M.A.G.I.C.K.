@@ -85,6 +85,7 @@
             this.rollResultLbl = new System.Windows.Forms.Label();
             this.rollResultTb = new System.Windows.Forms.TextBox();
             this.oWoBtn = new System.Windows.Forms.Button();
+            this.progBarLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -196,10 +197,10 @@
             // 
             // runBtn
             // 
-            this.runBtn.Location = new System.Drawing.Point(470, 425);
+            this.runBtn.Location = new System.Drawing.Point(451, 425);
             this.runBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.runBtn.Name = "runBtn";
-            this.runBtn.Size = new System.Drawing.Size(161, 23);
+            this.runBtn.Size = new System.Drawing.Size(127, 23);
             this.runBtn.TabIndex = 9;
             this.runBtn.Text = "Print Character";
             this.runBtn.UseVisualStyleBackColor = true;
@@ -317,7 +318,7 @@
             this.STRCheck.FormattingEnabled = true;
             this.STRCheck.Location = new System.Drawing.Point(432, 80);
             this.STRCheck.Name = "STRCheck";
-            this.STRCheck.Size = new System.Drawing.Size(199, 38);
+            this.STRCheck.Size = new System.Drawing.Size(146, 38);
             this.STRCheck.TabIndex = 26;
             // 
             // DEXCheck
@@ -325,7 +326,7 @@
             this.DEXCheck.FormattingEnabled = true;
             this.DEXCheck.Location = new System.Drawing.Point(432, 139);
             this.DEXCheck.Name = "DEXCheck";
-            this.DEXCheck.Size = new System.Drawing.Size(199, 38);
+            this.DEXCheck.Size = new System.Drawing.Size(146, 38);
             this.DEXCheck.TabIndex = 27;
             // 
             // CONCheck
@@ -333,7 +334,7 @@
             this.CONCheck.FormattingEnabled = true;
             this.CONCheck.Location = new System.Drawing.Point(432, 199);
             this.CONCheck.Name = "CONCheck";
-            this.CONCheck.Size = new System.Drawing.Size(199, 38);
+            this.CONCheck.Size = new System.Drawing.Size(146, 38);
             this.CONCheck.TabIndex = 28;
             // 
             // SMRTCheck
@@ -341,7 +342,7 @@
             this.SMRTCheck.FormattingEnabled = true;
             this.SMRTCheck.Location = new System.Drawing.Point(432, 261);
             this.SMRTCheck.Name = "SMRTCheck";
-            this.SMRTCheck.Size = new System.Drawing.Size(199, 38);
+            this.SMRTCheck.Size = new System.Drawing.Size(146, 38);
             this.SMRTCheck.TabIndex = 29;
             // 
             // WISCheck
@@ -349,7 +350,7 @@
             this.WISCheck.FormattingEnabled = true;
             this.WISCheck.Location = new System.Drawing.Point(432, 321);
             this.WISCheck.Name = "WISCheck";
-            this.WISCheck.Size = new System.Drawing.Size(199, 38);
+            this.WISCheck.Size = new System.Drawing.Size(146, 38);
             this.WISCheck.TabIndex = 30;
             // 
             // CHACheck
@@ -357,12 +358,12 @@
             this.CHACheck.FormattingEnabled = true;
             this.CHACheck.Location = new System.Drawing.Point(432, 381);
             this.CHACheck.Name = "CHACheck";
-            this.CHACheck.Size = new System.Drawing.Size(199, 38);
+            this.CHACheck.Size = new System.Drawing.Size(146, 38);
             this.CHACheck.TabIndex = 31;
             // 
             // StatRoll
             // 
-            this.StatRoll.Location = new System.Drawing.Point(320, 425);
+            this.StatRoll.Location = new System.Drawing.Point(327, 425);
             this.StatRoll.Name = "StatRoll";
             this.StatRoll.Size = new System.Drawing.Size(123, 23);
             this.StatRoll.TabIndex = 32;
@@ -758,12 +759,23 @@
             this.oWoBtn.TabIndex = 64;
             this.oWoBtn.Text = "OwO";
             this.oWoBtn.UseVisualStyleBackColor = true;
+            this.oWoBtn.Click += new System.EventHandler(this.oWoBtn_Click);
+            // 
+            // progBarLbl
+            // 
+            this.progBarLbl.AutoSize = true;
+            this.progBarLbl.Location = new System.Drawing.Point(397, 476);
+            this.progBarLbl.Name = "progBarLbl";
+            this.progBarLbl.Size = new System.Drawing.Size(120, 16);
+            this.progBarLbl.TabIndex = 65;
+            this.progBarLbl.Text = "[Progressbar here]";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 764);
+            this.ClientSize = new System.Drawing.Size(588, 764);
+            this.Controls.Add(this.progBarLbl);
             this.Controls.Add(this.oWoBtn);
             this.Controls.Add(this.rollResultTb);
             this.Controls.Add(this.rollResultLbl);
@@ -897,6 +909,7 @@
         private System.Windows.Forms.Label rollResultLbl;
         private System.Windows.Forms.TextBox rollResultTb;
         private System.Windows.Forms.Button oWoBtn;
+        private System.Windows.Forms.Label progBarLbl;
     }
 }
 
