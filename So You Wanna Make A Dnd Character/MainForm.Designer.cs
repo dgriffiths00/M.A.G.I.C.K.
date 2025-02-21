@@ -67,7 +67,6 @@
             this.SMRTbonusTxt = new System.Windows.Forms.RichTextBox();
             this.WISbonusTxt = new System.Windows.Forms.RichTextBox();
             this.CHAbonusTxt = new System.Windows.Forms.RichTextBox();
-            this.playerIcon = new System.Windows.Forms.PictureBox();
             this.backgroundTb = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.spellbookLbl = new System.Windows.Forms.Label();
@@ -86,6 +85,7 @@
             this.rollResultTb = new System.Windows.Forms.TextBox();
             this.oWoBtn = new System.Windows.Forms.Button();
             this.progBarLbl = new System.Windows.Forms.Label();
+            this.playerIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -363,9 +363,9 @@
             // 
             // StatRoll
             // 
-            this.StatRoll.Location = new System.Drawing.Point(327, 425);
+            this.StatRoll.Location = new System.Drawing.Point(320, 425);
             this.StatRoll.Name = "StatRoll";
-            this.StatRoll.Size = new System.Drawing.Size(123, 23);
+            this.StatRoll.Size = new System.Drawing.Size(130, 23);
             this.StatRoll.TabIndex = 32;
             this.StatRoll.Text = "Stat Randomizer";
             this.StatRoll.UseVisualStyleBackColor = true;
@@ -587,16 +587,6 @@
             this.CHAbonusTxt.TabIndex = 46;
             this.CHAbonusTxt.Text = "-2";
             // 
-            // playerIcon
-            // 
-            this.playerIcon.Image = global::So_You_Wanna_Make_A_Dnd_Character.Properties.Resources.Default;
-            this.playerIcon.Location = new System.Drawing.Point(11, 166);
-            this.playerIcon.Name = "playerIcon";
-            this.playerIcon.Size = new System.Drawing.Size(128, 128);
-            this.playerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.playerIcon.TabIndex = 47;
-            this.playerIcon.TabStop = false;
-            // 
             // backgroundTb
             // 
             this.backgroundTb.AutoSize = true;
@@ -644,10 +634,10 @@
             // statsLbl
             // 
             this.statsLbl.AutoSize = true;
-            this.statsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statsLbl.Location = new System.Drawing.Point(320, 17);
+            this.statsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statsLbl.Location = new System.Drawing.Point(332, 27);
             this.statsLbl.Name = "statsLbl";
-            this.statsLbl.Size = new System.Drawing.Size(311, 39);
+            this.statsLbl.Size = new System.Drawing.Size(233, 29);
             this.statsLbl.TabIndex = 53;
             this.statsLbl.Text = "Character Statistics";
             // 
@@ -771,6 +761,16 @@
             this.progBarLbl.Size = new System.Drawing.Size(120, 16);
             this.progBarLbl.TabIndex = 65;
             this.progBarLbl.Text = "[Progressbar here]";
+            // 
+            // playerIcon
+            // 
+            this.playerIcon.Image = global::So_You_Wanna_Make_A_Dnd_Character.Properties.Resources.Default;
+            this.playerIcon.Location = new System.Drawing.Point(11, 166);
+            this.playerIcon.Name = "playerIcon";
+            this.playerIcon.Size = new System.Drawing.Size(128, 128);
+            this.playerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playerIcon.TabIndex = 47;
+            this.playerIcon.TabStop = false;
             // 
             // MainForm
             // 

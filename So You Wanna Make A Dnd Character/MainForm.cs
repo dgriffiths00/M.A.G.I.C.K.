@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace M_A_G_I_C_K
@@ -104,6 +98,7 @@ namespace M_A_G_I_C_K
                     //Fighter
                     EquipmentCheckBox.Items.Add("Items for fighter");
                     playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Fighter.png");
+           
 
                     //second switch statment for each level
                     switch (LevelPicker.Value)
@@ -449,7 +444,7 @@ namespace M_A_G_I_C_K
             else if (STRstats.Value >= 10 && STRstats.Value < 12) STRbonusTxt.Text = "0";
             else if (STRstats.Value >= 12 && STRstats.Value < 14) STRbonusTxt.Text = "+1";
             else if (STRstats.Value >= 14) STRbonusTxt.Text = "+2";
-  
+
         }
 
         private void DEXStats_ValueChanged(object sender, EventArgs e)
@@ -534,7 +529,7 @@ namespace M_A_G_I_C_K
             Stats[3] = Convert.ToInt32(CONStats.Value);
             Stats[4] = Convert.ToInt32(CHAStats.Value);
             Stats[5] = Convert.ToInt32(WISstats.Value);
-  
+
             Character created = new Character(SelectedRace, SelectedClass, Name, Level, Stats);
 
             created.creatingPdf();

@@ -308,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\heart.png" />
     <None Include="Resources\Wizard.png" />
     <None Include="Resources\Rogue.png" />
     <None Include="Resources\Fighter.png" />
