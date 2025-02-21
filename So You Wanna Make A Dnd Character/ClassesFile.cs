@@ -175,12 +175,11 @@ namespace M_A_G_I_C_K
 
         private void calculatingStats()
         {
-
+            //ac, hitpoints, etc
 
             
         }
 
-        //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
         public void creatingPdf()
         {
             Console.WriteLine("getting into pdf editing");
