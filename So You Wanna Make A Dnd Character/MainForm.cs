@@ -440,6 +440,7 @@ namespace M_A_G_I_C_K
         //will add value changed for all the stat nums, to update the profis bounus thingy        
         private void STRstats_ValueChanged(object sender, EventArgs e)
         {
+
             if (STRstats.Value >= 6 && STRstats.Value < 8) STRbonusTxt.Text = "-2";
             else if (STRstats.Value >= 8 && STRstats.Value < 10) STRbonusTxt.Text = "-1";
             else if (STRstats.Value >= 10 && STRstats.Value < 12) STRbonusTxt.Text = "0";

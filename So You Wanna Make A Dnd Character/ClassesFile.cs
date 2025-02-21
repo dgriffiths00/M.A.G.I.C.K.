@@ -12,6 +12,7 @@ using iText.Forms.Fields;
 using iText.Forms.Fields.Properties;
 using System.IO;
 using iText.Kernel.Utils;
+using System.Windows.Forms;
 
 
 
@@ -191,7 +192,6 @@ namespace M_A_G_I_C_K
              * close form
              * 
              */
-      
 
             //this if for finding the current path
             string pathToPDFFolder = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\PDFS\";
@@ -236,6 +236,7 @@ namespace M_A_G_I_C_K
             fields["CharacterName"].SetValue(_name);
             fields["ClassLevel"].SetValue(_CharClass.CharClass + " " + _CharClass.Level);
             fields["Race"].SetValue(_CharRace.CharRace);
+            fields["Background"].SetValue(_background); //might need to change later dpeneding on how we do that backgrounds
 
             //side table for values
             fields["STR"].SetValue(_STR.ToString());
@@ -254,11 +255,25 @@ namespace M_A_G_I_C_K
 
             //center thingy
             fields["Speed"].SetValue(_CharRace.Speed);
+            fields["HPMax"].SetValue("");
 
             fillingPdf.Close();
 
             //finally asking via pop up if you would like to move the file to your desktop
+            string message = "Would you like to move the new pdf to your desktop";
+            string title = "Move Pdf?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
 
+            if (result == DialogResult.Yes)
+            {
+                //moving the stuff to desktop
+
+            }
+            else 
+            { 
+
+            }
         }
 
         public void fillingSpellsPdf()
@@ -273,7 +288,7 @@ namespace M_A_G_I_C_K
     abstract class DndClass
     {
         //this will be inhearented by all the classes
-        protected int _Level;
+        protected int _Level, _hitpoint;
         protected string _CharClass;
         protected Boolean _spellCaster;
 
