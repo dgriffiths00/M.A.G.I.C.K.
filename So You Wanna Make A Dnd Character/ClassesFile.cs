@@ -12,6 +12,8 @@ using iText.Forms.Fields;
 using iText.Forms.Fields.Properties;
 using System.IO;
 using iText.Kernel.Utils;
+using System.Windows.Forms;
+using System.Web.UI;
 
 
 
@@ -20,7 +22,7 @@ using iText.Kernel.Utils;
 
 namespace M_A_G_I_C_K
 {
-    class Character
+    public class Character
     {
         //this will have all the info for the character
         //it will have a class, race, background, stats etc etc
@@ -40,7 +42,7 @@ namespace M_A_G_I_C_K
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats) 
+        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background) 
         {
             
             /*RaceDropDown
@@ -166,17 +168,18 @@ namespace M_A_G_I_C_K
             _CON = stats[3];
             _CHA = stats[4];
             _WIS = stats[5];
+
+            _background = Background;
         }
 
 
         private void calculatingStats()
         {
-
+            //ac, hitpoints, etc
 
             
         }
 
-        //NEEDS TO FIX THE PATH TO WORK NO MATTER THE MACHINE IT IS ON
         public void creatingPdf()
         {
             Console.WriteLine("getting into pdf editing");
@@ -191,7 +194,6 @@ namespace M_A_G_I_C_K
              * close form
              * 
              */
-      
 
             //this if for finding the current path
             string pathToPDFFolder = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\PDFS\";
@@ -224,7 +226,7 @@ namespace M_A_G_I_C_K
             if (_CharClass.spellCaster == true)
             {
                 //this will link to the fillingspells pdf
-                fillingSpellsPdf();
+                fillingSpellsPdf(fields);
             }
             else
             {
@@ -232,10 +234,12 @@ namespace M_A_G_I_C_K
             }
 
             //all the fields to fill in are here
+            //using this fields[""].SetValue("");
             //sections on the top
             fields["CharacterName"].SetValue(_name);
             fields["ClassLevel"].SetValue(_CharClass.CharClass + " " + _CharClass.Level);
             fields["Race"].SetValue(_CharRace.CharRace);
+            fields["Background"].SetValue(_background); //might need to change later dpeneding on how we do that backgrounds
 
             //side table for values
             fields["STR"].SetValue(_STR.ToString());
@@ -252,18 +256,58 @@ namespace M_A_G_I_C_K
             fields["WISmod"].SetValue(_StatBonus[4].ToString());
             fields["CHAmod"].SetValue(_StatBonus[5].ToString());
 
-            //
+            fields["Passive"].SetValue("");
+
+            //center thingy
+            fields["AC"].SetValue("");
             fields["Speed"].SetValue(_CharRace.Speed);
+            fields["HPMax"].SetValue("");
+            fields["Initiative"].SetValue("");
+            fields["HDTotal"].SetValue("");
+            fields["HD"].SetValue("");
+
+            //might need to concat a bunch of shit before inputting it
+            fields["Features And Traits"].SetValue("");
+            fields["Equipment"].SetValue("");
+            fields["GD"].SetValue("");
+
+            //weapons
+            fields["Wpn Name"].SetValue("");
+            fields["Wpn1 AtkBonus"].SetValue("");
+            fields["Wpn1 Damage"].SetValue("");
+
 
             fillingPdf.Close();
 
             //finally asking via pop up if you would like to move the file to your desktop
+            //creating the message box
+            string message = "Would you like to move the new pdf to your desktop";
+            string title = "Move Pdf?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
 
+            //managing results
+            if (result == DialogResult.Yes)
+            {
+                //moving the stuff to desktop
+
+            }
+            else 
+            { 
+
+            }
         }
 
-        public void fillingSpellsPdf()
+        public void fillingSpellsPdf(IDictionary<String, PdfFormField> fields)
         {
+            //top section
+            fields["Spellcasting Class 2"].SetValue(_CharClass.CharClass);
+            fields["SpellcastingAbility 2"].SetValue("");
+            fields["SpellSaveDC  2"].SetValue("");
+            fields["SpellAtkBonus 2"].SetValue("");
 
+
+            //loop for cantrips
         }
 
         
@@ -273,8 +317,8 @@ namespace M_A_G_I_C_K
     abstract class DndClass
     {
         //this will be inhearented by all the classes
-        protected int _Level;
-        protected string _CharClass;
+        protected int _Level, _hitpoints;
+        protected string _CharClass, _hitpointDice;
         protected Boolean _spellCaster;
 
         public string CharClass
@@ -294,6 +338,36 @@ namespace M_A_G_I_C_K
 
     }
 
+    abstract class spellCaster : DndClass
+    {
+        protected string _spellAbility, _spellSaveDC, _spellAtkBonus;
+
+        //this will also constain an array of object spells, then a get/set method for that array
+
+
+        public spellCaster()
+        {
+            _spellCaster = true;
+        }
+
+        public string spellAbility
+        {
+            get { return _spellAbility; }
+        }
+
+        public string spellSaveDC
+        {
+            get { return _spellSaveDC; }
+        }
+
+        public string SpellAtkBonus
+        {
+            get { return _spellAtkBonus; }
+        }
+
+    }
+
+
     class Fighter : DndClass
     {
 
@@ -302,28 +376,30 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClass = "Fighter";
             _spellCaster = false;
+            _hitpointDice = "D10";
         }
     }
 
-    class Cleric : DndClass 
+    class Cleric : spellCaster 
     {
-
         public Cleric(int Level) : base()
         {
             _Level = Level;
             _CharClass = "Cleric";
-            _spellCaster = true;
+            _hitpointDice = "D8";
+
         }
     }
 
-    class Wizard : DndClass 
+    class Wizard : spellCaster 
     {
 
         public Wizard(int Level) : base()
         {
             _Level = Level;
             _CharClass = "Wizard";
-            _spellCaster = true;
+            _hitpointDice = "D6";
+
         }
     }
 
@@ -335,16 +411,18 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClass = "Rouge";
             _spellCaster = false;
+            _hitpointDice = "D8";
+
         }
     }
 
-    class Bard : DndClass 
+    class Bard : spellCaster 
     {
         public Bard(int Level) : base()
         {
             _Level = Level;
             _CharClass = "Bard";
-            _spellCaster = true;
+            _hitpointDice = "D8";
         }
     }
 

@@ -269,6 +269,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterShow.Designer.cs">
+      <DependentUpon>CharacterShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassesFile.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -278,6 +284,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CharacterShow.resx">
+      <DependentUpon>CharacterShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
