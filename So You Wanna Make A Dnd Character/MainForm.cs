@@ -1,4 +1,4 @@
-﻿using So_You_Wanna_Make_A_Dnd_Character;
+using So_You_Wanna_Make_A_Dnd_Character;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -104,6 +104,8 @@ namespace M_A_G_I_C_K
                 case 1:
                     //Fighter
                     EquipmentCheckBox.Items.Add("Items for fighter");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Fighter.png");
+           
 
                     //second switch statment for each level
                     switch (LevelPicker.Value)
@@ -131,6 +133,7 @@ namespace M_A_G_I_C_K
                 case 2:
                     //Cleric
                     EquipmentCheckBox.Items.Add("Items for Cleric");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Cleric.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -159,6 +162,7 @@ namespace M_A_G_I_C_K
                 case 3:
                     //Wizard
                     EquipmentCheckBox.Items.Add("Items for Wizard");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Wizard.png");
 
                     //wizard.spellfiller(LevelPicker.Value, ClassDropBox.index) returns array
                     switch (LevelPicker.Value)
@@ -188,6 +192,7 @@ namespace M_A_G_I_C_K
                 case 4:
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Rogue.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -216,6 +221,7 @@ namespace M_A_G_I_C_K
                 case 5:
                     //Bard
                     EquipmentCheckBox.Items.Add("Items for Bard");
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Bard.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -243,7 +249,7 @@ namespace M_A_G_I_C_K
 
                 default:
                     //nothing change nothing
-
+                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Default.png");
                     break;
             }
 
@@ -441,57 +447,230 @@ namespace M_A_G_I_C_K
         private void STRstats_ValueChanged(object sender, EventArgs e)
         {
 
-            if (STRstats.Value >= 6 && STRstats.Value < 8) STRbonusTxt.Text = "-2";
-            else if (STRstats.Value >= 8 && STRstats.Value < 10) STRbonusTxt.Text = "-1";
-            else if (STRstats.Value >= 10 && STRstats.Value < 12) STRbonusTxt.Text = "0";
-            else if (STRstats.Value >= 12 && STRstats.Value < 14) STRbonusTxt.Text = "+1";
-            else if (STRstats.Value >= 14) STRbonusTxt.Text = "+2";
+            switch (STRstats.Value)
+            {
+                case 6: case 7:
+                    STRbonusTxt.Text = "-2";
+                    break;
+                case 8: case 9:
+                    STRbonusTxt.Text = "-1";
+                    break;
+                case 10: case 11: default:
+                    STRbonusTxt.Text = "0";
+                    break;
+                case 12: case 13:
+                    STRbonusTxt.Text = "+1";
+                    break;
+                case 14: case 15:
+                    STRbonusTxt.Text = "+2";
+                    break;
+                case 16: case 17:
+                    STRbonusTxt.Text = "+3";
+                    break;
+                case 18: case 19:
+                    STRbonusTxt.Text = "+4";
+                    break;
+                case 20:
+                    STRbonusTxt.Text = "+5";
+                    break;
+            }
   
         }
 
         private void DEXStats_ValueChanged(object sender, EventArgs e)
         {
-            if (DEXStats.Value >= 6 && DEXStats.Value < 8) DEXbonusTxt.Text = "-2";
-            else if (DEXStats.Value >= 8 && DEXStats.Value < 10) DEXbonusTxt.Text = "-1";
-            else if (DEXStats.Value >= 10 && DEXStats.Value < 12) DEXbonusTxt.Text = "0";
-            else if (DEXStats.Value >= 12 && DEXStats.Value < 14) DEXbonusTxt.Text = "+1";
-            else if (DEXStats.Value >= 14) DEXbonusTxt.Text = "+2";
+            switch(DEXStats.Value)
+            {
+                case 6:
+                case 7:
+                    DEXbonusTxt.Text = "-2";
+                    break;
+                case 8:
+                case 9:
+                    DEXbonusTxt.Text = "-1";
+                    break;
+                case 10:
+                case 11:
+                default:
+                    DEXbonusTxt.Text = "0";
+                    break;
+                case 12:
+                case 13:
+                    DEXbonusTxt.Text = "+1";
+                    break;
+                case 14:
+                case 15:
+                    DEXbonusTxt.Text = "+2";
+                    break;
+                case 16:
+                case 17:
+                    DEXbonusTxt.Text = "+3";
+                    break;
+                case 18:
+                case 19:
+                    DEXbonusTxt.Text = "+4";
+                    break;
+                case 20:
+                    DEXbonusTxt.Text = "+5";
+                    break;
+                }
         }
 
         private void CONStats_ValueChanged(object sender, EventArgs e)
         {
-            if (CONStats.Value >= 6 && CONStats.Value < 8) CONbonusTxt.Text = "-2";
-            else if (CONStats.Value >= 8 && CONStats.Value < 10) CONbonusTxt.Text = "-1";
-            else if (CONStats.Value >= 10 && CONStats.Value < 12) CONbonusTxt.Text = "0";
-            else if (CONStats.Value >= 12 && CONStats.Value < 14) CONbonusTxt.Text = "+1";
-            else if (CONStats.Value >= 14) CONbonusTxt.Text = "+2";
+            switch (CONStats.Value)
+            {
+                case 6:
+                case 7:
+                    CONbonusTxt.Text = "-2";
+                    break;
+                case 8:
+                case 9:
+                    CONbonusTxt.Text = "-1";
+                    break;
+                case 10:
+                case 11:
+                default:
+                    CONbonusTxt.Text = "0";
+                    break;
+                case 12:
+                case 13:
+                    CONbonusTxt.Text = "+1";
+                    break;
+                case 14:
+                case 15:
+                    CONbonusTxt.Text = "+2";
+                    break;
+                case 16:
+                case 17:
+                    CONbonusTxt.Text = "+3";
+                    break;
+                case 18:
+                case 19:
+                    CONbonusTxt.Text = "+4";
+                    break;
+                case 20:
+                    CONbonusTxt.Text = "+5";
+                    break;
+            }
         }
 
         private void SMRTStats_ValueChanged(object sender, EventArgs e)
         {
-            if (SMRTStats.Value >= 6 && SMRTStats.Value < 8) SMRTbonusTxt.Text = "-2";
-            else if (SMRTStats.Value >= 8 && SMRTStats.Value < 10) SMRTbonusTxt.Text = "-1";
-            else if (SMRTStats.Value >= 10 && SMRTStats.Value < 12) SMRTbonusTxt.Text = "0";
-            else if (SMRTStats.Value >= 12 && SMRTStats.Value < 14) SMRTbonusTxt.Text = "+1";
-            else if (SMRTStats.Value >= 14) SMRTbonusTxt.Text = "+2";
+            switch (SMRTStats.Value)
+            {
+                case 6:
+                case 7:
+                    SMRTbonusTxt.Text = "-2";
+                    break;
+                case 8:
+                case 9:
+                    SMRTbonusTxt.Text = "-1";
+                    break;
+                case 10:
+                case 11:
+                default:
+                    SMRTbonusTxt.Text = "0";
+                    break;
+                case 12:
+                case 13:
+                    SMRTbonusTxt.Text = "+1";
+                    break;
+                case 14:
+                case 15:
+                    SMRTbonusTxt.Text = "+2";
+                    break;
+                case 16:
+                case 17:
+                    SMRTbonusTxt.Text = "+3";
+                    break;
+                case 18:
+                case 19:
+                    SMRTbonusTxt.Text = "+4";
+                    break;
+                case 20:
+                    SMRTbonusTxt.Text = "+5";
+                    break;
+            }
         }
 
         private void WISstats_ValueChanged(object sender, EventArgs e)
         {
-            if (WISstats.Value >= 6 && WISstats.Value < 8) WISbonusTxt.Text = "-2";
-            else if (WISstats.Value >= 8 && WISstats.Value < 10) WISbonusTxt.Text = "-1";
-            else if (WISstats.Value >= 10 && WISstats.Value < 12) WISbonusTxt.Text = "0";
-            else if (WISstats.Value >= 12 && WISstats.Value < 14) WISbonusTxt.Text = "+1";
-            else if (WISstats.Value >= 14) WISbonusTxt.Text = "+2";
+            switch (WISstats.Value)
+            {
+                case 6:
+                case 7:
+                    WISbonusTxt.Text = "-2";
+                    break;
+                case 8:
+                case 9:
+                    WISbonusTxt.Text = "-1";
+                    break;
+                case 10:
+                case 11:
+                default:
+                    WISbonusTxt.Text = "0";
+                    break;
+                case 12:
+                case 13:
+                    WISbonusTxt.Text = "+1";
+                    break;
+                case 14:
+                case 15:
+                    WISbonusTxt.Text = "+2";
+                    break;
+                case 16:
+                case 17:
+                    WISbonusTxt.Text = "+3";
+                    break;
+                case 18:
+                case 19:
+                    WISbonusTxt.Text = "+4";
+                    break;
+                case 20:
+                    WISbonusTxt.Text = "+5";
+                    break;
+            }
         }
 
         private void CHAStats_ValueChanged(object sender, EventArgs e)
         {
-            if (CHAStats.Value >= 6 && CHAStats.Value < 8) CHAbonusTxt.Text = "-2";
-            else if (CHAStats.Value >= 8 && CHAStats.Value < 10) CHAbonusTxt.Text = "-1";
-            else if (CHAStats.Value >= 10 && CHAStats.Value < 12) CHAbonusTxt.Text = "0";
-            else if (CHAStats.Value >= 12 && CHAStats.Value < 14) CHAbonusTxt.Text = "+1";
-            else if (CHAStats.Value >= 14) CHAbonusTxt.Text = "+2";
+            switch (CHAStats.Value)
+            {
+                case 6:
+                case 7:
+                    CHAbonusTxt.Text = "-2";
+                    break;
+                case 8:
+                case 9:
+                    CHAbonusTxt.Text = "-1";
+                    break;
+                case 10:
+                case 11:
+                default:
+                    CHAbonusTxt.Text = "0";
+                    break;
+                case 12:
+                case 13:
+                    CHAbonusTxt.Text = "+1";
+                    break;
+                case 14:
+                case 15:
+                    CHAbonusTxt.Text = "+2";
+                    break;
+                case 16:
+                case 17:
+                    CHAbonusTxt.Text = "+3";
+                    break;
+                case 18:
+                case 19:
+                    CHAbonusTxt.Text = "+4";
+                    break;
+                case 20:
+                    CHAbonusTxt.Text = "+5";
+                    break;
+            }
+
         }
 
         //main button click
@@ -545,7 +724,12 @@ namespace M_A_G_I_C_K
 
         private void d4btn_Click(object sender, EventArgs e)
         {
+            // Code for rolling a d4
+        }
 
+        private void oWoBtn_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("(>'-')> <('-'<) ^(' - ')^ <('-'<) (>'-')>");
         }
     }
 }
