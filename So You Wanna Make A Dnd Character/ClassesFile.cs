@@ -18,6 +18,7 @@ using System.Data.SQLite.Linq;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using static iText.Signatures.LtvVerification;
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
 
@@ -394,7 +395,7 @@ namespace M_A_G_I_C_K
             _hitpointDice = "D8";
 
         }
-        public static List<string> gettingSpells()
+        public static List<string> gettingSpells(int level)
         {
             List<string> currentSpells = new List<string>();
 
@@ -406,7 +407,7 @@ namespace M_A_G_I_C_K
                 string query = @"
                          SELECT Name
                          FROM ClericSpellbook
-                        ";
+                        WHERE Level=" + level;
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
@@ -438,7 +439,7 @@ namespace M_A_G_I_C_K
             _hitpointDice = "D6";
 
         }
-        public static List<string> gettingSpells()
+        public static List<string> gettingSpells(int level)
         {
             List<string> currentSpells = new List<string>();
 
@@ -450,7 +451,7 @@ namespace M_A_G_I_C_K
                 string query = @"
                          SELECT Name
                          FROM WizardSpellbook
-                        ";
+                        WHERE Level=" + level;
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
@@ -494,7 +495,7 @@ namespace M_A_G_I_C_K
             _hitpointDice = "D8";
         }
 
-        public static List<string> gettingSpells()
+        public static List<string> gettingSpells(int level)
         {
             List<string> currentSpells = new List<string>();
 
@@ -506,7 +507,7 @@ namespace M_A_G_I_C_K
                 string query = @"
                          SELECT Name
                          FROM BardSpellbook
-                        ";
+                         WHERE Level=" + level;
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
