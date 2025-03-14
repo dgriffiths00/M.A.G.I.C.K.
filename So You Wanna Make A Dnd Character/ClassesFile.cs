@@ -38,8 +38,6 @@ namespace M_A_G_I_C_K
         //created via inherented class
         private DndRace _CharRace;
         
-        //please fucking qwork you bitch
-
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
