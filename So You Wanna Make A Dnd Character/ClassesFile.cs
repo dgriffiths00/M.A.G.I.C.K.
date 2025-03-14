@@ -22,6 +22,7 @@ using System.Web.UI;
 
 namespace M_A_G_I_C_K
 {
+
     public class Character
     {
         //this will have all the info for the character
@@ -319,6 +320,7 @@ namespace M_A_G_I_C_K
         protected int _Level, _hitpoints;
         protected string _CharClass, _hitpointDice;
         protected Boolean _spellCaster;
+        protected static string connectionString = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
 
         public string CharClass
         {
@@ -340,6 +342,8 @@ namespace M_A_G_I_C_K
     abstract class spellCaster : DndClass
     {
         protected string _spellAbility, _spellSaveDC, _spellAtkBonus;
+        protected string[] SelectedSpells;
+        
 
         //this will also constain an array of object spells, then a get/set method for that array
 
@@ -422,6 +426,28 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClass = "Bard";
             _hitpointDice = "D8";
+        }
+
+        static string[] gettingSpells(int level)
+        {
+            string[] currentSpells = new string[10];
+
+            switch (level)
+            {
+                case 1:
+
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3: 
+                    
+                    break;
+            }
+
+            return currentSpells;
         }
     }
 

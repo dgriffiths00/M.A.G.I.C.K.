@@ -33,6 +33,8 @@ namespace M_A_G_I_C_K
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
             RaceDropBox.SelectedIndex = 0;
             ClassDropBox.SelectedIndex = 0;
+
+            Console.WriteLine(Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db");
         }
 
         //this will change the spells you can pick etc etc based on what you pick
@@ -94,7 +96,6 @@ namespace M_A_G_I_C_K
 
             string linkToImagine = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Resources\";
 
-            Console.WriteLine(linkToImagine);
 
             /*Class DropDown
                 Fighter
