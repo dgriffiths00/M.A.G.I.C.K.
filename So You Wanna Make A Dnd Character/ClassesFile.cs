@@ -14,8 +14,10 @@ using System.IO;
 using iText.Kernel.Utils;
 using System.Windows.Forms;
 using System.Web.UI;
-
-
+using System.Data.SQLite.Linq;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Data.SQLite;
 
 //THIS FILE HAS CONSOLE.WRITELINES THAT NEED TO BE REMOVED BEFORE HANDING IN
 
@@ -320,7 +322,7 @@ namespace M_A_G_I_C_K
         protected int _Level, _hitpoints;
         protected string _CharClass, _hitpointDice;
         protected Boolean _spellCaster;
-        protected static string connectionString = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
+        protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
 
         public string CharClass
         {
@@ -428,23 +430,34 @@ namespace M_A_G_I_C_K
             _hitpointDice = "D8";
         }
 
-        static string[] gettingSpells(int level)
+        public static List<string> gettingSpells()
         {
-            string[] currentSpells = new string[10];
+            List<string> currentSpells = new List<string>();
 
-            switch (level)
+            using (var connection = new SQLiteConnection(connectionString))
             {
-                case 1:
+                connection.Open();
 
-                    break;
+                //finally a query
+                string query = @"
+                         SELECT Name
+                         FROM BardSpellbook
+                        ";
 
-                case 2:
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
 
-                    break;
+                            currentSpells.Add(name);
+                        }
+                    }
+                }
 
-                case 3: 
-                    
-                    break;
+                connection.Close();
             }
 
             return currentSpells;
