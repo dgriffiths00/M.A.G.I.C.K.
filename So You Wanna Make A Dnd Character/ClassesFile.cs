@@ -434,47 +434,30 @@ namespace M_A_G_I_C_K
         {
             List<string> currentSpells = new List<string>();
 
-            switch (level)
+            using (var connection = new SQLiteConnection(connectionString))
             {
-                case 1:
+                connection.Open();
 
-                    //query
-                    using(var connection = new SQLiteConnection(connectionString))
-                    {
-                        connection.Open();
-
-                        //finally a query
-                        string query = @"
+                //finally a query
+                string query = @"
                          SELECT Name
                          FROM BardSpellbook
                         ";
 
-                        using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
                         {
-                            using (SQLiteDataReader reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    string name = reader.GetString(reader.GetOrdinal("Name"));
-                                    
-                                    currentSpells.Add(name);
-                                }
-                            }
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentSpells.Add(name);
                         }
-
-                        connection.Close();
                     }
+                }
 
-
-                    break;
-
-                case 2:
-
-                    break;
-
-                case 3: 
-                    
-                    break;
+                connection.Close();
             }
 
             return currentSpells;

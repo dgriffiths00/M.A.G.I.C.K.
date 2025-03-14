@@ -228,12 +228,20 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Bard");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
 
+                    //getting the names of all the bard spells
+                    List<string> BarbSpells = Bard.gettingSpells();
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("ONE");
+                            
+                            //displaying all the bard spell
+                            foreach(string spell in BarbSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
+
 
                             break;
                         case 2:
