@@ -140,24 +140,36 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Cleric");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
 
+                    List<string> ClericSpells = Cleric.gettingSpells();
+
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            foreach (string spell in ClericSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            foreach (string spell in ClericSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            foreach (string spell in ClericSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -169,25 +181,36 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Wizard");
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
 
-                    //wizard.spellfiller(LevelPicker.Value, ClassDropBox.index) returns array
+                    //getting the names of all the bard spells
+                    List<string> WizSpells = Wizard.gettingSpells();
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            foreach (string spell in WizSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            foreach (string spell in WizSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            };
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            foreach (string spell in WizSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -246,14 +269,22 @@ namespace M_A_G_I_C_K
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BarbSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BarbSpells)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -440,19 +471,14 @@ namespace M_A_G_I_C_K
             stats[5] = ran.Next(6, 21);
 
 
-            if (ClassDropBox.SelectedIndex == 0)
-            {
-                DEXStats.Value = stats[0];
-                STRstats.Value = stats[1];
-                SMRTStats.Value = stats[2];
-                CHAStats.Value = stats[3];
-                WISstats.Value = stats[4];
-                CONStats.Value = stats[5];
-            }
-            else
-            {
-                //randomly generated stats rolled but with preference for the ones needed by the class
-            }
+            
+             DEXStats.Value = stats[0];
+             STRstats.Value = stats[1];
+             SMRTStats.Value = stats[2];
+             CHAStats.Value = stats[3];
+             WISstats.Value = stats[4];
+             CONStats.Value = stats[5];
+            
         }
 
 

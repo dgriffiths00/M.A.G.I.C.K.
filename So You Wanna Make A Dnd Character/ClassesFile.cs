@@ -394,6 +394,38 @@ namespace M_A_G_I_C_K
             _hitpointDice = "D8";
 
         }
+        public static List<string> gettingSpells()
+        {
+            List<string> currentSpells = new List<string>();
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                //finally a query
+                string query = @"
+                         SELECT Name
+                         FROM ClericSpellbook
+                        ";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentSpells.Add(name);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return currentSpells;
+        }
     }
 
     class Wizard : spellCaster 
@@ -405,6 +437,38 @@ namespace M_A_G_I_C_K
             _CharClass = "Wizard";
             _hitpointDice = "D6";
 
+        }
+        public static List<string> gettingSpells()
+        {
+            List<string> currentSpells = new List<string>();
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                //finally a query
+                string query = @"
+                         SELECT Name
+                         FROM WizardSpellbook
+                        ";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentSpells.Add(name);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return currentSpells;
         }
     }
 
