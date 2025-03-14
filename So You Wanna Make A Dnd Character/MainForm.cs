@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Routing;
 using System.Windows.Forms;
 
 namespace M_A_G_I_C_K
@@ -90,6 +92,10 @@ namespace M_A_G_I_C_K
             FeatCheckBox.Items.Clear();
             SpellCheckBox.Items.Clear();
 
+            string linkToImagine = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Resources\";
+
+            Console.WriteLine(linkToImagine);
+
             /*Class DropDown
                 Fighter
                 Cleric
@@ -104,8 +110,8 @@ namespace M_A_G_I_C_K
                 case 1:
                     //Fighter
                     EquipmentCheckBox.Items.Add("Items for fighter");
-                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Fighter.png");
-           
+                    playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
+
 
                     //second switch statment for each level
                     switch (LevelPicker.Value)
@@ -133,7 +139,7 @@ namespace M_A_G_I_C_K
                 case 2:
                     //Cleric
                     EquipmentCheckBox.Items.Add("Items for Cleric");
-                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Cleric.png");
+                    playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -162,7 +168,7 @@ namespace M_A_G_I_C_K
                 case 3:
                     //Wizard
                     EquipmentCheckBox.Items.Add("Items for Wizard");
-                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Wizard.png");
+                    playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
 
                     //wizard.spellfiller(LevelPicker.Value, ClassDropBox.index) returns array
                     switch (LevelPicker.Value)
@@ -192,7 +198,7 @@ namespace M_A_G_I_C_K
                 case 4:
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
-                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Rogue.png");
+                    playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -221,7 +227,7 @@ namespace M_A_G_I_C_K
                 case 5:
                     //Bard
                     EquipmentCheckBox.Items.Add("Items for Bard");
-                    playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Bard.png");
+                    playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
 
                     switch (LevelPicker.Value)
                     {
@@ -249,7 +255,7 @@ namespace M_A_G_I_C_K
 
                 default:
                     //nothing change nothing
-                    //playerIcon.Image = Image.FromFile(@"C:\Users\Nekos\source\repos\M.A.G.I.C.K\So You Wanna Make A Dnd Character\Resources\Default.png");
+                    playerIcon.Image = Image.FromFile(linkToImagine + "Default.png");
                     break;
             }
 
