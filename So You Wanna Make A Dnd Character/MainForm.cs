@@ -25,7 +25,7 @@ namespace M_A_G_I_C_K
 
     public partial class MainForm : Form
     {
-  
+
         public MainForm()
         {
             InitializeComponent();
@@ -112,12 +112,15 @@ namespace M_A_G_I_C_K
             {
                 case 1:
                     //Fighter
-                    List<string> weapons = new Fighter.gettingWeapons();
-                    EquipmentCheckBox.Items.Add(weapons);
+                    List<string> weapons = Fighter.gettingWeapons();
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
 
+                    foreach(string weapon in weapons)
+                    {
+                         EquipmentCheckBox.Items.Add(weapon);
+                    }
 
-                    //second switch statment for each level
+                     //second switch statment for each level
                     switch (LevelPicker.Value)
                     {
                         case 1:

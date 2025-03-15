@@ -392,7 +392,7 @@ namespace M_A_G_I_C_K
             using (var conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
-                string weaponQuery = "SELECT Name FROM Weapons WHERE Type = Simple || Type = Martial";
+                string weaponQuery = "SELECT Name FROM Weapons WHERE Type = 'Simple' OR Type = 'Martial'";
 
                 using (SQLiteCommand command = new SQLiteCommand(weaponQuery, conn))
                 {
