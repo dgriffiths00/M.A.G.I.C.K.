@@ -113,45 +113,58 @@ namespace M_A_G_I_C_K
                 case 1:
                     //Fighter
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
+                    SpellCheckBox.Items.Add("Fighters do not get spells");
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
+                    List<string> fighterFeats = Fighter.gettingFeats();
+
 
                     foreach (string weapon in fighterWeapons)
                     {
                          EquipmentCheckBox.Items.Add(weapon);
                     }
 
-                     //second switch statment for each level
-                    switch (LevelPicker.Value)
+                    foreach (string feat in fighterFeats)
                     {
-                        case 1:
-                            FeatCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("ONE");
-
-                            break;
-                        case 2:
-                            FeatCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("TWO");
-
-                            break;
-                        case 3:
-                            FeatCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("THREE");
-
-                            break;
+                         FeatCheckBox.Items.Add(feat);
                     }
+
+                    ////second switch statment for each level
+
+                    ////commented out jic you want it for a reason, I currently see this code as defunct at the moment
+                    ////
+                    ////regarding feats, we should have a counter that displays selections available, upon threshold (counter reaching zero), user should be blocked from selecting more
+                    ////we could use this statement for updating selection choices and limitations for feats/lvl
+ 
+                    //switch (LevelPicker.Value)
+                    //{
+                    //    case 1:
+
+                    //        break;
+                    //    case 2:
+                         
+
+                    //        break;
+                    //    case 3:
+                            
+
+                    //        break;
+                    //}
                     break;
                 case 2:
                     //Cleric
                      playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
 
-                    List<string> clericWeapon = Cleric.gettingWeapons("simple");
+                    List<string> clericWeapons = Cleric.gettingWeapons("simple");
+                    List<string> clericFeats = Cleric.gettingFeats();
 
-                    foreach (string weapon in clericWeapon)
+                    foreach(string weapon in clericWeapons)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+                    foreach (string feat in clericFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
                     }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
@@ -198,11 +211,16 @@ namespace M_A_G_I_C_K
                     //Wizard
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
 
-                    List<string> wizardWeapon = Cleric.gettingWeapons("simple");
+                    List<string> wizardWeapon = Wizard.gettingWeapons("simple");
+                    List<string> wizardFeats = Wizard.gettingFeats();
 
                     foreach (string weapon in wizardWeapon)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
+                    }
+                    foreach (string feat in wizardFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
                     }
 
                     List<string> WizCantrip = Wizard.gettingSpells(0);
@@ -249,11 +267,18 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
 
-                    List<string> rogueWeapon = Cleric.gettingWeapons("martial");
+                    List<string> rogueWeapons = Cleric.gettingWeapons("martial");
+                    List<string> rogueFeats = Fighter.gettingFeats();
 
-                    foreach (string weapon in rogueWeapon)
+
+                    foreach (string weapon in rogueWeapons)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+                    foreach (string feat in rogueFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
                     }
 
 
@@ -283,11 +308,17 @@ namespace M_A_G_I_C_K
                 case 5:
                     //Bard
                      playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
-                    List<string> bardWeapon = Cleric.gettingWeapons("simple");
+                    List<string> bardWeapons = Bard.gettingWeapons("simple");
+                    List<string> bardFeats = Bard.gettingFeats();
 
-                    foreach (string weapon in bardWeapon)
+                    foreach (string weapon in bardWeapons)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+                    foreach (string feat in bardFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
                     }
                     //getting the names of all the bard spells
                     List<string> BardCantrips = Bard.gettingSpells(0);
@@ -871,6 +902,11 @@ namespace M_A_G_I_C_K
         private void EquipmentCheckBox_SelectedIndexChanged(object sender, EventArgs e)
         {
              
+        }
+
+        private void FeatCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

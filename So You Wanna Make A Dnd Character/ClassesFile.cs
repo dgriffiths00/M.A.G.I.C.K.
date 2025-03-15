@@ -376,6 +376,33 @@ namespace M_A_G_I_C_K
             }
         }
 
+        public static List<string> gettingFeats()
+        {
+            List<string> currentWeapon = new List<string>();
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                string featquery = "SELECT Name FROM GeneralFeats";
+
+                using (SQLiteCommand command = new SQLiteCommand(featquery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentWeapon.Add(name);
+                        }
+                    }
+                }
+                return currentWeapon;
+            }
+
+        }
+
     }
 
     abstract class spellCaster : DndClass

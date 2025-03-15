@@ -196,6 +196,7 @@
             this.FeatCheckBox.Name = "FeatCheckBox";
             this.FeatCheckBox.Size = new System.Drawing.Size(165, 208);
             this.FeatCheckBox.TabIndex = 8;
+            this.FeatCheckBox.SelectedIndexChanged += new System.EventHandler(this.FeatCheckBox_SelectedIndexChanged);
             // 
             // runBtn
             // 
