@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Routing;
 using System.Windows.Forms;
+using static iText.Signatures.LtvVerification;
 
 namespace M_A_G_I_C_K
 {
@@ -23,11 +25,13 @@ namespace M_A_G_I_C_K
 
     public partial class MainForm : Form
     {
+  
         public MainForm()
         {
             InitializeComponent();
         }
 
+        protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
         private void MainForm_Load(object sender, EventArgs e)
         {
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
@@ -108,7 +112,8 @@ namespace M_A_G_I_C_K
             {
                 case 1:
                     //Fighter
-                    EquipmentCheckBox.Items.Add("Items for fighter");
+                    List<string> weapons = new Fighter.gettingWeapons();
+                    EquipmentCheckBox.Items.Add(weapons);
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
 
 
@@ -829,6 +834,16 @@ namespace M_A_G_I_C_K
         private void oWoBtn_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.MessageBox.Show("(>'-')> <('-'<) ^(' - ')^ <('-'<) (>'-')>");
+        }
+
+        private void SpellCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EquipmentCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             
         }
     }
 }

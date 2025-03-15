@@ -176,6 +176,7 @@
             this.EquipmentCheckBox.Name = "EquipmentCheckBox";
             this.EquipmentCheckBox.Size = new System.Drawing.Size(165, 72);
             this.EquipmentCheckBox.TabIndex = 6;
+            this.EquipmentCheckBox.SelectedIndexChanged += new System.EventHandler(this.EquipmentCheckBox_SelectedIndexChanged);
             // 
             // SpellCheckBox
             // 
@@ -185,6 +186,7 @@
             this.SpellCheckBox.Name = "SpellCheckBox";
             this.SpellCheckBox.Size = new System.Drawing.Size(128, 208);
             this.SpellCheckBox.TabIndex = 7;
+            this.SpellCheckBox.SelectedIndexChanged += new System.EventHandler(this.SpellCheckBox_SelectedIndexChanged);
             // 
             // FeatCheckBox
             // 
@@ -387,7 +389,7 @@
             0});
             this.STRstats.Name = "STRstats";
             this.STRstats.ReadOnly = true;
-            this.STRstats.Size = new System.Drawing.Size(62, 35);
+            this.STRstats.Size = new System.Drawing.Size(62, 36);
             this.STRstats.TabIndex = 35;
             this.STRstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.STRstats.Value = new decimal(new int[] {
@@ -413,7 +415,7 @@
             0});
             this.DEXStats.Name = "DEXStats";
             this.DEXStats.ReadOnly = true;
-            this.DEXStats.Size = new System.Drawing.Size(62, 35);
+            this.DEXStats.Size = new System.Drawing.Size(62, 36);
             this.DEXStats.TabIndex = 36;
             this.DEXStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DEXStats.Value = new decimal(new int[] {
@@ -439,7 +441,7 @@
             0});
             this.CONStats.Name = "CONStats";
             this.CONStats.ReadOnly = true;
-            this.CONStats.Size = new System.Drawing.Size(62, 35);
+            this.CONStats.Size = new System.Drawing.Size(62, 36);
             this.CONStats.TabIndex = 37;
             this.CONStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CONStats.Value = new decimal(new int[] {
@@ -465,7 +467,7 @@
             0});
             this.SMRTStats.Name = "SMRTStats";
             this.SMRTStats.ReadOnly = true;
-            this.SMRTStats.Size = new System.Drawing.Size(62, 35);
+            this.SMRTStats.Size = new System.Drawing.Size(62, 36);
             this.SMRTStats.TabIndex = 38;
             this.SMRTStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SMRTStats.Value = new decimal(new int[] {
@@ -491,7 +493,7 @@
             0});
             this.WISstats.Name = "WISstats";
             this.WISstats.ReadOnly = true;
-            this.WISstats.Size = new System.Drawing.Size(62, 35);
+            this.WISstats.Size = new System.Drawing.Size(62, 36);
             this.WISstats.TabIndex = 39;
             this.WISstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WISstats.Value = new decimal(new int[] {
@@ -517,7 +519,7 @@
             0});
             this.CHAStats.Name = "CHAStats";
             this.CHAStats.ReadOnly = true;
-            this.CHAStats.Size = new System.Drawing.Size(62, 35);
+            this.CHAStats.Size = new System.Drawing.Size(62, 36);
             this.CHAStats.TabIndex = 40;
             this.CHAStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CHAStats.Value = new decimal(new int[] {
@@ -647,7 +649,7 @@
             this.diceZoneLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.diceZoneLbl.Location = new System.Drawing.Point(12, 549);
             this.diceZoneLbl.Name = "diceZoneLbl";
-            this.diceZoneLbl.Size = new System.Drawing.Size(162, 37);
+            this.diceZoneLbl.Size = new System.Drawing.Size(173, 39);
             this.diceZoneLbl.TabIndex = 54;
             this.diceZoneLbl.Text = "Dice Zone";
             // 
@@ -728,7 +730,7 @@
             this.rollResultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rollResultLbl.Location = new System.Drawing.Point(372, 549);
             this.rollResultLbl.Name = "rollResultLbl";
-            this.rollResultLbl.Size = new System.Drawing.Size(149, 37);
+            this.rollResultLbl.Size = new System.Drawing.Size(157, 39);
             this.rollResultLbl.TabIndex = 62;
             this.rollResultLbl.Text = "Your Roll";
             // 

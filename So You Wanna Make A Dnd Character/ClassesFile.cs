@@ -384,6 +384,31 @@ namespace M_A_G_I_C_K
             _spellCaster = false;
             _hitpointDice = "D10";
         }
+
+        public static List<string> gettingWeapons()
+        {
+            List<string> currentWeapon = new List<string>();
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string weaponQuery = "SELECT Name FROM Weapons WHERE Type = Simple || Type = Martial";
+
+                using (SQLiteCommand command = new SQLiteCommand(weaponQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentWeapon.Add(name);
+                        }
+                    }
+                }
+                return currentWeapon;
+            }
+        }
     }
 
     class Cleric : spellCaster 
