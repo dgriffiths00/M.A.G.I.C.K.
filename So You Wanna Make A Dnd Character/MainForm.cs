@@ -112,10 +112,10 @@ namespace M_A_G_I_C_K
             {
                 case 1:
                     //Fighter
-                    List<string> weapons = Fighter.gettingWeapons();
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
+                    List<string> fighterWeapons = Fighter.gettingWeapons("martial");
 
-                    foreach(string weapon in weapons)
+                    foreach (string weapon in fighterWeapons)
                     {
                          EquipmentCheckBox.Items.Add(weapon);
                     }
@@ -145,8 +145,14 @@ namespace M_A_G_I_C_K
                     break;
                 case 2:
                     //Cleric
-                    EquipmentCheckBox.Items.Add("Items for Cleric");
-                    playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
+                     playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
+
+                    List<string> clericWeapon = Cleric.gettingWeapons("simple");
+
+                    foreach (string weapon in clericWeapon)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
                     List<string> ClericLevelOne = Cleric.gettingSpells(1);
@@ -190,8 +196,14 @@ namespace M_A_G_I_C_K
                     break;
                 case 3:
                     //Wizard
-                    EquipmentCheckBox.Items.Add("Items for Wizard");
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
+
+                    List<string> wizardWeapon = Cleric.gettingWeapons("simple");
+
+                    foreach (string weapon in wizardWeapon)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
 
                     List<string> WizCantrip = Wizard.gettingSpells(0);
                     List<string> WizLevelOne = Wizard.gettingSpells(1);
@@ -237,6 +249,14 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
 
+                    List<string> rogueWeapon = Cleric.gettingWeapons("martial");
+
+                    foreach (string weapon in rogueWeapon)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
@@ -262,9 +282,13 @@ namespace M_A_G_I_C_K
                     break;
                 case 5:
                     //Bard
-                    EquipmentCheckBox.Items.Add("Items for Bard");
-                    playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
+                     playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
+                    List<string> bardWeapon = Cleric.gettingWeapons("simple");
 
+                    foreach (string weapon in bardWeapon)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
                     //getting the names of all the bard spells
                     List<string> BardCantrips = Bard.gettingSpells(0);
                     List<string> BardLevelOne = Bard.gettingSpells(1);
