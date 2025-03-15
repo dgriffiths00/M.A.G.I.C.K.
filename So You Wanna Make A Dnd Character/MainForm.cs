@@ -94,7 +94,6 @@ namespace M_A_G_I_C_K
 
             string linkToImagine = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Resources\";
 
-            Console.WriteLine(linkToImagine);
 
             /*Class DropDown
                 Fighter
@@ -141,60 +140,90 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Cleric");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
 
+                    List<string> ClericCantrip = Cleric.gettingSpells(0);
+                    List<string> ClericLevelOne = Cleric.gettingSpells(1);
+                    List<string> ClericLevelTwo = Cleric.gettingSpells(2);
+
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            //4 cantrips, two spells, only first level spells
+                            foreach (string spell in ClericCantrip)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //4 cantrips, three spells, only first level
+                            foreach (string spell in ClericLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //4 cantrips, four spells, second and first
+                            foreach (string spell in ClericLevelTwo)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
 
                     break;
-
                 case 3:
                     //Wizard
                     EquipmentCheckBox.Items.Add("Items for Wizard");
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
 
-                    //wizard.spellfiller(LevelPicker.Value, ClassDropBox.index) returns array
+                    List<string> WizCantrip = Wizard.gettingSpells(0);
+                    List<string> WizLevelOne = Wizard.gettingSpells(1);
+                    List<string> WizLevelTwo = Wizard.gettingSpells(2);
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            //4 cantrips, two spells, only first level spells
+                            foreach (string spell in WizCantrip)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //4 cantrips, three spells, only first level
+                            foreach (string spell in WizLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            };
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //4 cantrips, four spells, second and first
+                            foreach (string spell in WizLevelTwo)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
 
                     break;
-
                 case 4:
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
@@ -223,30 +252,48 @@ namespace M_A_G_I_C_K
                     }
 
                     break;
-
                 case 5:
                     //Bard
                     EquipmentCheckBox.Items.Add("Items for Bard");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
 
+                    //getting the names of all the bard spells
+                    List<string> BardCantrips = Bard.gettingSpells(0);
+                    List<string> BardLevelOne = Bard.gettingSpells(1);
+                    List<string> BardLevelTwo = Bard.gettingSpells(2);
+
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("ONE");
+                            
+                            //displaying all the bard spell
+                            foreach(string spell in BardCantrips)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
+
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BardLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BardLevelTwo)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -306,24 +353,41 @@ namespace M_A_G_I_C_K
                     break;
                 case 2:
                     //Cleric
+
+                    List<string> ClericCantrip = Cleric.gettingSpells(0);
+                    List<string> ClericLevelOne = Cleric.gettingSpells(1);
+                    List<string> ClericLevelTwo = Cleric.gettingSpells(2);
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            //4 cantrips, two spells, only first level spells
+                            foreach (string spell in ClericCantrip)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //4 cantrips, three spells, only first level
+                            foreach (string spell in ClericLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("Cleric");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //4 cantrips, four spells, second and first
+                            foreach (string spell in ClericLevelTwo)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -332,24 +396,40 @@ namespace M_A_G_I_C_K
 
                 case 3:
                     //Wizard
+                    List<string> WizCantrip = Wizard.gettingSpells(0);
+                    List<string> WizLevelOne = Wizard.gettingSpells(1);
+                    List<string> WizLevelTwo = Wizard.gettingSpells(2);
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            //4 cantrips, two spells, only first level spells
+                            foreach (string spell in WizCantrip)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //4 cantrips, three spells, only first level
+                            foreach (string spell in WizLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            };
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("Wizard");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //4 cantrips, four spells, second and first
+                            foreach (string spell in WizLevelTwo)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -384,24 +464,42 @@ namespace M_A_G_I_C_K
 
                 case 5:
                     //Bard
+                    List<string> BardCantrips = Bard.gettingSpells(0);
+                    List<string> BardLevelOne = Bard.gettingSpells(1);
+                    List<string> BardLevelTwo = Bard.gettingSpells(2);
+
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("ONE");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BardCantrips)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
+
 
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("TWO");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BardLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                         case 3:
                             FeatCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("Bard");
-                            SpellCheckBox.Items.Add("THREE");
+
+                            //displaying all the bard spell
+                            foreach (string spell in BardLevelTwo)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
 
                             break;
                     }
@@ -433,19 +531,14 @@ namespace M_A_G_I_C_K
             stats[5] = ran.Next(6, 21);
 
 
-            if (ClassDropBox.SelectedIndex == 0)
-            {
-                DEXStats.Value = stats[0];
-                STRstats.Value = stats[1];
-                SMRTStats.Value = stats[2];
-                CHAStats.Value = stats[3];
-                WISstats.Value = stats[4];
-                CONStats.Value = stats[5];
-            }
-            else
-            {
-                //randomly generated stats rolled but with preference for the ones needed by the class
-            }
+            
+             DEXStats.Value = stats[0];
+             STRstats.Value = stats[1];
+             SMRTStats.Value = stats[2];
+             CHAStats.Value = stats[3];
+             WISstats.Value = stats[4];
+             CONStats.Value = stats[5];
+            
         }
 
 

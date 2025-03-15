@@ -303,6 +303,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <AdditionalFiles Include="PDFS\DnD_BaseSheet.pdf" />
+    <None Include="Databases\Primary Database.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
