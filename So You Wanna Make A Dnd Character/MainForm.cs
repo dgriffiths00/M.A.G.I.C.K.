@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Routing;
 using System.Windows.Forms;
+using static iText.Signatures.LtvVerification;
 
 namespace M_A_G_I_C_K
 {
@@ -23,11 +25,13 @@ namespace M_A_G_I_C_K
 
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
         }
 
+        protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
         private void MainForm_Load(object sender, EventArgs e)
         {
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
@@ -108,37 +112,60 @@ namespace M_A_G_I_C_K
             {
                 case 1:
                     //Fighter
-                    EquipmentCheckBox.Items.Add("Items for fighter");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
+                    SpellCheckBox.Items.Add("Fighters do not get spells");
+                    List<string> fighterWeapons = Fighter.gettingWeapons("martial");
+                    List<string> fighterFeats = Fighter.gettingFeats();
 
 
-                    //second switch statment for each level
-                    switch (LevelPicker.Value)
+                    foreach (string weapon in fighterWeapons)
                     {
-                        case 1:
-                            FeatCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("ONE");
-
-                            break;
-                        case 2:
-                            FeatCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("TWO");
-
-                            break;
-                        case 3:
-                            FeatCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("Fighter");
-                            SpellCheckBox.Items.Add("THREE");
-
-                            break;
+                         EquipmentCheckBox.Items.Add(weapon);
                     }
+
+                    foreach (string feat in fighterFeats)
+                    {
+                         FeatCheckBox.Items.Add(feat);
+                    }
+
+                    ////second switch statment for each level
+
+                    ////commented out jic you want it for a reason, I currently see this code as defunct at the moment
+                    ////
+                    ////regarding feats, we should have a counter that displays selections available, upon threshold (counter reaching zero), user should be blocked from selecting more
+                    ////we could use this statement for updating selection choices and limitations for feats/lvl
+ 
+                    //switch (LevelPicker.Value)
+                    //{
+                    //    case 1:
+
+                    //        break;
+                    //    case 2:
+                         
+
+                    //        break;
+                    //    case 3:
+                            
+
+                    //        break;
+                    //}
                     break;
                 case 2:
                     //Cleric
-                    EquipmentCheckBox.Items.Add("Items for Cleric");
-                    playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
+                     playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
+
+                    List<string> clericWeapons = Cleric.gettingWeapons("simple");
+                    List<string> clericFeats = Cleric.gettingFeats();
+
+                    foreach(string weapon in clericWeapons)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+                    foreach (string feat in clericFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
+                    }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
                     List<string> ClericLevelOne = Cleric.gettingSpells(1);
@@ -182,8 +209,19 @@ namespace M_A_G_I_C_K
                     break;
                 case 3:
                     //Wizard
-                    EquipmentCheckBox.Items.Add("Items for Wizard");
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
+
+                    List<string> wizardWeapon = Wizard.gettingWeapons("simple");
+                    List<string> wizardFeats = Wizard.gettingFeats();
+
+                    foreach (string weapon in wizardWeapon)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
+                    foreach (string feat in wizardFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
+                    }
 
                     List<string> WizCantrip = Wizard.gettingSpells(0);
                     List<string> WizLevelOne = Wizard.gettingSpells(1);
@@ -229,6 +267,21 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
 
+                    List<string> rogueWeapons = Cleric.gettingWeapons("martial");
+                    List<string> rogueFeats = Fighter.gettingFeats();
+
+
+                    foreach (string weapon in rogueWeapons)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+                    foreach (string feat in rogueFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
+                    }
+
+
                     switch (LevelPicker.Value)
                     {
                         case 1:
@@ -254,9 +307,19 @@ namespace M_A_G_I_C_K
                     break;
                 case 5:
                     //Bard
-                    EquipmentCheckBox.Items.Add("Items for Bard");
-                    playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
+                     playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
+                    List<string> bardWeapons = Bard.gettingWeapons("simple");
+                    List<string> bardFeats = Bard.gettingFeats();
 
+                    foreach (string weapon in bardWeapons)
+                    {
+                        EquipmentCheckBox.Items.Add(weapon);
+                    }
+
+                    foreach (string feat in bardFeats)
+                    {
+                        FeatCheckBox.Items.Add(feat);
+                    }
                     //getting the names of all the bard spells
                     List<string> BardCantrips = Bard.gettingSpells(0);
                     List<string> BardLevelOne = Bard.gettingSpells(1);
@@ -838,7 +901,7 @@ namespace M_A_G_I_C_K
 
         private void ProgressBarBtn_Click(object sender, EventArgs e)
         {
-
+        
         }
     }
 }
