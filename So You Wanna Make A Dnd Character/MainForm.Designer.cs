@@ -70,22 +70,18 @@
             this.backgroundTb = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.spellbookLbl = new System.Windows.Forms.Label();
-            this.equipLbl = new System.Windows.Forms.Label();
+            this.WeaponsLbl = new System.Windows.Forms.Label();
             this.classFeaturesLbl = new System.Windows.Forms.Label();
             this.statsLbl = new System.Windows.Forms.Label();
-            this.diceZoneLbl = new System.Windows.Forms.Label();
-            this.d4btn = new System.Windows.Forms.Button();
-            this.d6btn = new System.Windows.Forms.Button();
-            this.d8btn = new System.Windows.Forms.Button();
-            this.d10btn = new System.Windows.Forms.Button();
-            this.d12btn = new System.Windows.Forms.Button();
-            this.d20btn = new System.Windows.Forms.Button();
-            this.dPercentBtn = new System.Windows.Forms.Button();
-            this.rollResultLbl = new System.Windows.Forms.Label();
-            this.rollResultTb = new System.Windows.Forms.TextBox();
-            this.oWoBtn = new System.Windows.Forms.Button();
-            this.progBarLbl = new System.Windows.Forms.Label();
             this.playerIcon = new System.Windows.Forms.PictureBox();
+            this.cantripLbl = new System.Windows.Forms.Label();
+            this.Armours = new System.Windows.Forms.Label();
+            this.ArmCheckbox = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.InventoryCheckbox = new System.Windows.Forms.CheckedListBox();
+            this.CantripList = new System.Windows.Forms.CheckedListBox();
+            this.ProgressBarBtn = new System.Windows.Forms.Button();
+            this.cantripsLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -107,10 +103,10 @@
             "Wizard",
             "Rogue",
             "Bard"});
-            this.ClassDropBox.Location = new System.Drawing.Point(12, 79);
+            this.ClassDropBox.Location = new System.Drawing.Point(209, 69);
             this.ClassDropBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClassDropBox.Name = "ClassDropBox";
-            this.ClassDropBox.Size = new System.Drawing.Size(128, 24);
+            this.ClassDropBox.Size = new System.Drawing.Size(119, 24);
             this.ClassDropBox.TabIndex = 0;
             this.ClassDropBox.SelectedIndexChanged += new System.EventHandler(this.ClassDropBox_SelectedIndexChanged);
             // 
@@ -125,17 +121,17 @@
             "Dwarf",
             "Orc",
             "Dragonborn"});
-            this.RaceDropBox.Location = new System.Drawing.Point(11, 134);
+            this.RaceDropBox.Location = new System.Drawing.Point(337, 69);
             this.RaceDropBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RaceDropBox.Name = "RaceDropBox";
-            this.RaceDropBox.Size = new System.Drawing.Size(129, 24);
+            this.RaceDropBox.Size = new System.Drawing.Size(117, 24);
             this.RaceDropBox.TabIndex = 0;
             this.RaceDropBox.SelectedIndexChanged += new System.EventHandler(this.RaceDropBox_SelectedIndexChanged);
             // 
             // RaceLabel
             // 
             this.RaceLabel.AutoSize = true;
-            this.RaceLabel.Location = new System.Drawing.Point(11, 115);
+            this.RaceLabel.Location = new System.Drawing.Point(334, 51);
             this.RaceLabel.Name = "RaceLabel";
             this.RaceLabel.Size = new System.Drawing.Size(40, 16);
             this.RaceLabel.TabIndex = 2;
@@ -144,7 +140,7 @@
             // ClassLabel
             // 
             this.ClassLabel.AutoSize = true;
-            this.ClassLabel.Location = new System.Drawing.Point(12, 61);
+            this.ClassLabel.Location = new System.Drawing.Point(209, 51);
             this.ClassLabel.Name = "ClassLabel";
             this.ClassLabel.Size = new System.Drawing.Size(41, 16);
             this.ClassLabel.TabIndex = 3;
@@ -152,17 +148,17 @@
             // 
             // FirstNameTxt
             // 
-            this.FirstNameTxt.Location = new System.Drawing.Point(11, 34);
+            this.FirstNameTxt.Location = new System.Drawing.Point(209, 25);
             this.FirstNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FirstNameTxt.Name = "FirstNameTxt";
-            this.FirstNameTxt.Size = new System.Drawing.Size(129, 22);
+            this.FirstNameTxt.Size = new System.Drawing.Size(119, 22);
             this.FirstNameTxt.TabIndex = 4;
             this.FirstNameTxt.Text = "Unknown";
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(11, 16);
+            this.NameLabel.Location = new System.Drawing.Point(209, 7);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(72, 16);
             this.NameLabel.TabIndex = 5;
@@ -171,25 +167,25 @@
             // EquipmentCheckBox
             // 
             this.EquipmentCheckBox.FormattingEnabled = true;
-            this.EquipmentCheckBox.Location = new System.Drawing.Point(149, 239);
+            this.EquipmentCheckBox.Location = new System.Drawing.Point(163, 240);
             this.EquipmentCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EquipmentCheckBox.Name = "EquipmentCheckBox";
-            this.EquipmentCheckBox.Size = new System.Drawing.Size(165, 72);
+            this.EquipmentCheckBox.Size = new System.Drawing.Size(165, 191);
             this.EquipmentCheckBox.TabIndex = 6;
             // 
             // SpellCheckBox
             // 
             this.SpellCheckBox.FormattingEnabled = true;
-            this.SpellCheckBox.Location = new System.Drawing.Point(11, 330);
+            this.SpellCheckBox.Location = new System.Drawing.Point(11, 374);
             this.SpellCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SpellCheckBox.Name = "SpellCheckBox";
-            this.SpellCheckBox.Size = new System.Drawing.Size(128, 208);
+            this.SpellCheckBox.Size = new System.Drawing.Size(140, 293);
             this.SpellCheckBox.TabIndex = 7;
             // 
             // FeatCheckBox
             // 
             this.FeatCheckBox.FormattingEnabled = true;
-            this.FeatCheckBox.Location = new System.Drawing.Point(149, 330);
+            this.FeatCheckBox.Location = new System.Drawing.Point(348, 459);
             this.FeatCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FeatCheckBox.Name = "FeatCheckBox";
             this.FeatCheckBox.Size = new System.Drawing.Size(165, 208);
@@ -197,10 +193,10 @@
             // 
             // runBtn
             // 
-            this.runBtn.Location = new System.Drawing.Point(451, 425);
+            this.runBtn.Location = new System.Drawing.Point(532, 630);
             this.runBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.runBtn.Name = "runBtn";
-            this.runBtn.Size = new System.Drawing.Size(127, 23);
+            this.runBtn.Size = new System.Drawing.Size(259, 37);
             this.runBtn.TabIndex = 9;
             this.runBtn.Text = "Print Character";
             this.runBtn.UseVisualStyleBackColor = true;
@@ -209,7 +205,7 @@
             // STRlabel
             // 
             this.STRlabel.AutoSize = true;
-            this.STRlabel.Location = new System.Drawing.Point(320, 61);
+            this.STRlabel.Location = new System.Drawing.Point(527, 37);
             this.STRlabel.Name = "STRlabel";
             this.STRlabel.Size = new System.Drawing.Size(95, 16);
             this.STRlabel.TabIndex = 16;
@@ -218,7 +214,7 @@
             // CHALabel
             // 
             this.CHALabel.AutoSize = true;
-            this.CHALabel.Location = new System.Drawing.Point(317, 362);
+            this.CHALabel.Location = new System.Drawing.Point(524, 338);
             this.CHALabel.Name = "CHALabel";
             this.CHALabel.Size = new System.Drawing.Size(103, 16);
             this.CHALabel.TabIndex = 17;
@@ -227,7 +223,7 @@
             // WISLabel
             // 
             this.WISLabel.AutoSize = true;
-            this.WISLabel.Location = new System.Drawing.Point(320, 302);
+            this.WISLabel.Location = new System.Drawing.Point(527, 278);
             this.WISLabel.Name = "WISLabel";
             this.WISLabel.Size = new System.Drawing.Size(93, 16);
             this.WISLabel.TabIndex = 18;
@@ -236,7 +232,7 @@
             // SMRTlabel
             // 
             this.SMRTlabel.AutoSize = true;
-            this.SMRTlabel.Location = new System.Drawing.Point(317, 240);
+            this.SMRTlabel.Location = new System.Drawing.Point(524, 216);
             this.SMRTlabel.Name = "SMRTlabel";
             this.SMRTlabel.Size = new System.Drawing.Size(113, 16);
             this.SMRTlabel.TabIndex = 19;
@@ -245,7 +241,7 @@
             // CONLabel
             // 
             this.CONLabel.AutoSize = true;
-            this.CONLabel.Location = new System.Drawing.Point(317, 180);
+            this.CONLabel.Location = new System.Drawing.Point(524, 156);
             this.CONLabel.Name = "CONLabel";
             this.CONLabel.Size = new System.Drawing.Size(115, 16);
             this.CONLabel.TabIndex = 20;
@@ -254,7 +250,7 @@
             // DEXlabel
             // 
             this.DEXlabel.AutoSize = true;
-            this.DEXlabel.Location = new System.Drawing.Point(320, 119);
+            this.DEXlabel.Location = new System.Drawing.Point(527, 95);
             this.DEXlabel.Name = "DEXlabel";
             this.DEXlabel.Size = new System.Drawing.Size(97, 16);
             this.DEXlabel.TabIndex = 21;
@@ -263,7 +259,7 @@
             // NameSLabel
             // 
             this.NameSLabel.AutoSize = true;
-            this.NameSLabel.Location = new System.Drawing.Point(146, 16);
+            this.NameSLabel.Location = new System.Drawing.Point(334, 7);
             this.NameSLabel.Name = "NameSLabel";
             this.NameSLabel.Size = new System.Drawing.Size(72, 16);
             this.NameSLabel.TabIndex = 23;
@@ -271,16 +267,17 @@
             // 
             // SecondNameTxt
             // 
-            this.SecondNameTxt.Location = new System.Drawing.Point(146, 34);
+            this.SecondNameTxt.Location = new System.Drawing.Point(337, 25);
             this.SecondNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SecondNameTxt.Name = "SecondNameTxt";
-            this.SecondNameTxt.Size = new System.Drawing.Size(129, 22);
+            this.SecondNameTxt.Size = new System.Drawing.Size(117, 22);
             this.SecondNameTxt.TabIndex = 22;
             this.SecondNameTxt.Text = "Adventurer";
             // 
             // LevelPicker
             // 
-            this.LevelPicker.Location = new System.Drawing.Point(274, 34);
+            this.LevelPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelPicker.Location = new System.Drawing.Point(460, 25);
             this.LevelPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LevelPicker.Maximum = new decimal(new int[] {
             3,
@@ -294,7 +291,7 @@
             0});
             this.LevelPicker.Name = "LevelPicker";
             this.LevelPicker.ReadOnly = true;
-            this.LevelPicker.Size = new System.Drawing.Size(40, 22);
+            this.LevelPicker.Size = new System.Drawing.Size(50, 45);
             this.LevelPicker.TabIndex = 24;
             this.LevelPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.LevelPicker.Value = new decimal(new int[] {
@@ -307,7 +304,7 @@
             // LevelLabel
             // 
             this.LevelLabel.AutoSize = true;
-            this.LevelLabel.Location = new System.Drawing.Point(274, 16);
+            this.LevelLabel.Location = new System.Drawing.Point(458, 7);
             this.LevelLabel.Name = "LevelLabel";
             this.LevelLabel.Size = new System.Drawing.Size(40, 16);
             this.LevelLabel.TabIndex = 25;
@@ -316,7 +313,7 @@
             // STRCheck
             // 
             this.STRCheck.FormattingEnabled = true;
-            this.STRCheck.Location = new System.Drawing.Point(432, 80);
+            this.STRCheck.Location = new System.Drawing.Point(639, 56);
             this.STRCheck.Name = "STRCheck";
             this.STRCheck.Size = new System.Drawing.Size(146, 38);
             this.STRCheck.TabIndex = 26;
@@ -324,7 +321,7 @@
             // DEXCheck
             // 
             this.DEXCheck.FormattingEnabled = true;
-            this.DEXCheck.Location = new System.Drawing.Point(432, 139);
+            this.DEXCheck.Location = new System.Drawing.Point(639, 115);
             this.DEXCheck.Name = "DEXCheck";
             this.DEXCheck.Size = new System.Drawing.Size(146, 38);
             this.DEXCheck.TabIndex = 27;
@@ -332,7 +329,7 @@
             // CONCheck
             // 
             this.CONCheck.FormattingEnabled = true;
-            this.CONCheck.Location = new System.Drawing.Point(432, 199);
+            this.CONCheck.Location = new System.Drawing.Point(639, 175);
             this.CONCheck.Name = "CONCheck";
             this.CONCheck.Size = new System.Drawing.Size(146, 38);
             this.CONCheck.TabIndex = 28;
@@ -340,7 +337,7 @@
             // SMRTCheck
             // 
             this.SMRTCheck.FormattingEnabled = true;
-            this.SMRTCheck.Location = new System.Drawing.Point(432, 261);
+            this.SMRTCheck.Location = new System.Drawing.Point(639, 237);
             this.SMRTCheck.Name = "SMRTCheck";
             this.SMRTCheck.Size = new System.Drawing.Size(146, 38);
             this.SMRTCheck.TabIndex = 29;
@@ -348,7 +345,7 @@
             // WISCheck
             // 
             this.WISCheck.FormattingEnabled = true;
-            this.WISCheck.Location = new System.Drawing.Point(432, 321);
+            this.WISCheck.Location = new System.Drawing.Point(639, 297);
             this.WISCheck.Name = "WISCheck";
             this.WISCheck.Size = new System.Drawing.Size(146, 38);
             this.WISCheck.TabIndex = 30;
@@ -356,16 +353,16 @@
             // CHACheck
             // 
             this.CHACheck.FormattingEnabled = true;
-            this.CHACheck.Location = new System.Drawing.Point(432, 381);
+            this.CHACheck.Location = new System.Drawing.Point(639, 357);
             this.CHACheck.Name = "CHACheck";
             this.CHACheck.Size = new System.Drawing.Size(146, 38);
             this.CHACheck.TabIndex = 31;
             // 
             // StatRoll
             // 
-            this.StatRoll.Location = new System.Drawing.Point(320, 425);
+            this.StatRoll.Location = new System.Drawing.Point(530, 406);
             this.StatRoll.Name = "StatRoll";
-            this.StatRoll.Size = new System.Drawing.Size(130, 23);
+            this.StatRoll.Size = new System.Drawing.Size(259, 39);
             this.StatRoll.TabIndex = 32;
             this.StatRoll.Text = "Stat Randomizer";
             this.StatRoll.UseVisualStyleBackColor = true;
@@ -374,7 +371,7 @@
             // STRstats
             // 
             this.STRstats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STRstats.Location = new System.Drawing.Point(320, 80);
+            this.STRstats.Location = new System.Drawing.Point(527, 56);
             this.STRstats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -387,7 +384,7 @@
             0});
             this.STRstats.Name = "STRstats";
             this.STRstats.ReadOnly = true;
-            this.STRstats.Size = new System.Drawing.Size(62, 35);
+            this.STRstats.Size = new System.Drawing.Size(62, 36);
             this.STRstats.TabIndex = 35;
             this.STRstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.STRstats.Value = new decimal(new int[] {
@@ -400,7 +397,7 @@
             // DEXStats
             // 
             this.DEXStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DEXStats.Location = new System.Drawing.Point(320, 141);
+            this.DEXStats.Location = new System.Drawing.Point(527, 117);
             this.DEXStats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -413,7 +410,7 @@
             0});
             this.DEXStats.Name = "DEXStats";
             this.DEXStats.ReadOnly = true;
-            this.DEXStats.Size = new System.Drawing.Size(62, 35);
+            this.DEXStats.Size = new System.Drawing.Size(62, 36);
             this.DEXStats.TabIndex = 36;
             this.DEXStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DEXStats.Value = new decimal(new int[] {
@@ -426,7 +423,7 @@
             // CONStats
             // 
             this.CONStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CONStats.Location = new System.Drawing.Point(320, 199);
+            this.CONStats.Location = new System.Drawing.Point(527, 175);
             this.CONStats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -439,7 +436,7 @@
             0});
             this.CONStats.Name = "CONStats";
             this.CONStats.ReadOnly = true;
-            this.CONStats.Size = new System.Drawing.Size(62, 35);
+            this.CONStats.Size = new System.Drawing.Size(62, 36);
             this.CONStats.TabIndex = 37;
             this.CONStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CONStats.Value = new decimal(new int[] {
@@ -452,7 +449,7 @@
             // SMRTStats
             // 
             this.SMRTStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SMRTStats.Location = new System.Drawing.Point(320, 261);
+            this.SMRTStats.Location = new System.Drawing.Point(527, 237);
             this.SMRTStats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -465,7 +462,7 @@
             0});
             this.SMRTStats.Name = "SMRTStats";
             this.SMRTStats.ReadOnly = true;
-            this.SMRTStats.Size = new System.Drawing.Size(62, 35);
+            this.SMRTStats.Size = new System.Drawing.Size(62, 36);
             this.SMRTStats.TabIndex = 38;
             this.SMRTStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SMRTStats.Value = new decimal(new int[] {
@@ -478,7 +475,7 @@
             // WISstats
             // 
             this.WISstats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WISstats.Location = new System.Drawing.Point(320, 321);
+            this.WISstats.Location = new System.Drawing.Point(527, 297);
             this.WISstats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -491,7 +488,7 @@
             0});
             this.WISstats.Name = "WISstats";
             this.WISstats.ReadOnly = true;
-            this.WISstats.Size = new System.Drawing.Size(62, 35);
+            this.WISstats.Size = new System.Drawing.Size(62, 36);
             this.WISstats.TabIndex = 39;
             this.WISstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WISstats.Value = new decimal(new int[] {
@@ -504,7 +501,7 @@
             // CHAStats
             // 
             this.CHAStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHAStats.Location = new System.Drawing.Point(320, 381);
+            this.CHAStats.Location = new System.Drawing.Point(527, 357);
             this.CHAStats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -517,7 +514,7 @@
             0});
             this.CHAStats.Name = "CHAStats";
             this.CHAStats.ReadOnly = true;
-            this.CHAStats.Size = new System.Drawing.Size(62, 35);
+            this.CHAStats.Size = new System.Drawing.Size(62, 36);
             this.CHAStats.TabIndex = 40;
             this.CHAStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CHAStats.Value = new decimal(new int[] {
@@ -530,7 +527,7 @@
             // STRbonusTxt
             // 
             this.STRbonusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STRbonusTxt.Location = new System.Drawing.Point(388, 80);
+            this.STRbonusTxt.Location = new System.Drawing.Point(595, 56);
             this.STRbonusTxt.Name = "STRbonusTxt";
             this.STRbonusTxt.ReadOnly = true;
             this.STRbonusTxt.Size = new System.Drawing.Size(38, 38);
@@ -540,7 +537,7 @@
             // DEXbonusTxt
             // 
             this.DEXbonusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DEXbonusTxt.Location = new System.Drawing.Point(388, 139);
+            this.DEXbonusTxt.Location = new System.Drawing.Point(595, 115);
             this.DEXbonusTxt.Name = "DEXbonusTxt";
             this.DEXbonusTxt.ReadOnly = true;
             this.DEXbonusTxt.Size = new System.Drawing.Size(38, 38);
@@ -550,7 +547,7 @@
             // CONbonusTxt
             // 
             this.CONbonusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CONbonusTxt.Location = new System.Drawing.Point(388, 199);
+            this.CONbonusTxt.Location = new System.Drawing.Point(595, 175);
             this.CONbonusTxt.Name = "CONbonusTxt";
             this.CONbonusTxt.ReadOnly = true;
             this.CONbonusTxt.Size = new System.Drawing.Size(38, 38);
@@ -560,7 +557,7 @@
             // SMRTbonusTxt
             // 
             this.SMRTbonusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SMRTbonusTxt.Location = new System.Drawing.Point(388, 261);
+            this.SMRTbonusTxt.Location = new System.Drawing.Point(595, 237);
             this.SMRTbonusTxt.Name = "SMRTbonusTxt";
             this.SMRTbonusTxt.ReadOnly = true;
             this.SMRTbonusTxt.Size = new System.Drawing.Size(38, 38);
@@ -570,7 +567,7 @@
             // WISbonusTxt
             // 
             this.WISbonusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WISbonusTxt.Location = new System.Drawing.Point(388, 321);
+            this.WISbonusTxt.Location = new System.Drawing.Point(595, 297);
             this.WISbonusTxt.Name = "WISbonusTxt";
             this.WISbonusTxt.ReadOnly = true;
             this.WISbonusTxt.Size = new System.Drawing.Size(38, 38);
@@ -580,7 +577,7 @@
             // CHAbonusTxt
             // 
             this.CHAbonusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHAbonusTxt.Location = new System.Drawing.Point(388, 381);
+            this.CHAbonusTxt.Location = new System.Drawing.Point(595, 357);
             this.CHAbonusTxt.Name = "CHAbonusTxt";
             this.CHAbonusTxt.ReadOnly = true;
             this.CHAbonusTxt.Size = new System.Drawing.Size(38, 38);
@@ -590,7 +587,7 @@
             // backgroundTb
             // 
             this.backgroundTb.AutoSize = true;
-            this.backgroundTb.Location = new System.Drawing.Point(146, 61);
+            this.backgroundTb.Location = new System.Drawing.Point(209, 98);
             this.backgroundTb.Name = "backgroundTb";
             this.backgroundTb.Size = new System.Drawing.Size(80, 16);
             this.backgroundTb.TabIndex = 48;
@@ -598,34 +595,34 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 80);
+            this.textBox1.Location = new System.Drawing.Point(209, 119);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 135);
+            this.textBox1.Size = new System.Drawing.Size(301, 85);
             this.textBox1.TabIndex = 49;
             // 
             // spellbookLbl
             // 
             this.spellbookLbl.AutoSize = true;
-            this.spellbookLbl.Location = new System.Drawing.Point(11, 311);
+            this.spellbookLbl.Location = new System.Drawing.Point(8, 353);
             this.spellbookLbl.Name = "spellbookLbl";
             this.spellbookLbl.Size = new System.Drawing.Size(69, 16);
             this.spellbookLbl.TabIndex = 50;
             this.spellbookLbl.Text = "Spellbook";
             // 
-            // equipLbl
+            // WeaponsLbl
             // 
-            this.equipLbl.AutoSize = true;
-            this.equipLbl.Location = new System.Drawing.Point(147, 218);
-            this.equipLbl.Name = "equipLbl";
-            this.equipLbl.Size = new System.Drawing.Size(71, 16);
-            this.equipLbl.TabIndex = 51;
-            this.equipLbl.Text = "Equipment";
+            this.WeaponsLbl.AutoSize = true;
+            this.WeaponsLbl.Location = new System.Drawing.Point(160, 220);
+            this.WeaponsLbl.Name = "WeaponsLbl";
+            this.WeaponsLbl.Size = new System.Drawing.Size(66, 16);
+            this.WeaponsLbl.TabIndex = 51;
+            this.WeaponsLbl.Text = "Weapons";
             // 
             // classFeaturesLbl
             // 
             this.classFeaturesLbl.AutoSize = true;
-            this.classFeaturesLbl.Location = new System.Drawing.Point(147, 311);
+            this.classFeaturesLbl.Location = new System.Drawing.Point(342, 441);
             this.classFeaturesLbl.Name = "classFeaturesLbl";
             this.classFeaturesLbl.Size = new System.Drawing.Size(97, 16);
             this.classFeaturesLbl.TabIndex = 52;
@@ -635,163 +632,112 @@
             // 
             this.statsLbl.AutoSize = true;
             this.statsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statsLbl.Location = new System.Drawing.Point(332, 27);
+            this.statsLbl.Location = new System.Drawing.Point(538, 9);
             this.statsLbl.Name = "statsLbl";
             this.statsLbl.Size = new System.Drawing.Size(233, 29);
             this.statsLbl.TabIndex = 53;
             this.statsLbl.Text = "Character Statistics";
             // 
-            // diceZoneLbl
-            // 
-            this.diceZoneLbl.AutoSize = true;
-            this.diceZoneLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diceZoneLbl.Location = new System.Drawing.Point(12, 549);
-            this.diceZoneLbl.Name = "diceZoneLbl";
-            this.diceZoneLbl.Size = new System.Drawing.Size(162, 37);
-            this.diceZoneLbl.TabIndex = 54;
-            this.diceZoneLbl.Text = "Dice Zone";
-            // 
-            // d4btn
-            // 
-            this.d4btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.d4btn.Location = new System.Drawing.Point(15, 591);
-            this.d4btn.Name = "d4btn";
-            this.d4btn.Size = new System.Drawing.Size(80, 80);
-            this.d4btn.TabIndex = 55;
-            this.d4btn.Text = "d4";
-            this.d4btn.UseVisualStyleBackColor = true;
-            this.d4btn.Click += new System.EventHandler(this.d4btn_Click);
-            // 
-            // d6btn
-            // 
-            this.d6btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.d6btn.Location = new System.Drawing.Point(101, 591);
-            this.d6btn.Name = "d6btn";
-            this.d6btn.Size = new System.Drawing.Size(80, 80);
-            this.d6btn.TabIndex = 56;
-            this.d6btn.Text = "d6";
-            this.d6btn.UseVisualStyleBackColor = true;
-            // 
-            // d8btn
-            // 
-            this.d8btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.d8btn.Location = new System.Drawing.Point(187, 591);
-            this.d8btn.Name = "d8btn";
-            this.d8btn.Size = new System.Drawing.Size(80, 80);
-            this.d8btn.TabIndex = 57;
-            this.d8btn.Text = "d8";
-            this.d8btn.UseVisualStyleBackColor = true;
-            // 
-            // d10btn
-            // 
-            this.d10btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.d10btn.Location = new System.Drawing.Point(273, 591);
-            this.d10btn.Name = "d10btn";
-            this.d10btn.Size = new System.Drawing.Size(80, 80);
-            this.d10btn.TabIndex = 58;
-            this.d10btn.Text = "d10";
-            this.d10btn.UseVisualStyleBackColor = true;
-            // 
-            // d12btn
-            // 
-            this.d12btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.d12btn.Location = new System.Drawing.Point(15, 677);
-            this.d12btn.Name = "d12btn";
-            this.d12btn.Size = new System.Drawing.Size(80, 80);
-            this.d12btn.TabIndex = 59;
-            this.d12btn.Text = "d12";
-            this.d12btn.UseVisualStyleBackColor = true;
-            // 
-            // d20btn
-            // 
-            this.d20btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.d20btn.Location = new System.Drawing.Point(105, 677);
-            this.d20btn.Name = "d20btn";
-            this.d20btn.Size = new System.Drawing.Size(80, 80);
-            this.d20btn.TabIndex = 60;
-            this.d20btn.Text = "d20";
-            this.d20btn.UseVisualStyleBackColor = true;
-            // 
-            // dPercentBtn
-            // 
-            this.dPercentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dPercentBtn.Location = new System.Drawing.Point(187, 677);
-            this.dPercentBtn.Name = "dPercentBtn";
-            this.dPercentBtn.Size = new System.Drawing.Size(80, 80);
-            this.dPercentBtn.TabIndex = 61;
-            this.dPercentBtn.Text = "d100";
-            this.dPercentBtn.UseVisualStyleBackColor = true;
-            // 
-            // rollResultLbl
-            // 
-            this.rollResultLbl.AutoSize = true;
-            this.rollResultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollResultLbl.Location = new System.Drawing.Point(372, 549);
-            this.rollResultLbl.Name = "rollResultLbl";
-            this.rollResultLbl.Size = new System.Drawing.Size(149, 37);
-            this.rollResultLbl.TabIndex = 62;
-            this.rollResultLbl.Text = "Your Roll";
-            // 
-            // rollResultTb
-            // 
-            this.rollResultTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollResultTb.Location = new System.Drawing.Point(379, 592);
-            this.rollResultTb.Multiline = true;
-            this.rollResultTb.Name = "rollResultTb";
-            this.rollResultTb.Size = new System.Drawing.Size(150, 165);
-            this.rollResultTb.TabIndex = 63;
-            this.rollResultTb.Text = "No Die Rolled";
-            // 
-            // oWoBtn
-            // 
-            this.oWoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oWoBtn.Location = new System.Drawing.Point(277, 677);
-            this.oWoBtn.Name = "oWoBtn";
-            this.oWoBtn.Size = new System.Drawing.Size(80, 80);
-            this.oWoBtn.TabIndex = 64;
-            this.oWoBtn.Text = "OwO";
-            this.oWoBtn.UseVisualStyleBackColor = true;
-            this.oWoBtn.Click += new System.EventHandler(this.oWoBtn_Click);
-            // 
-            // progBarLbl
-            // 
-            this.progBarLbl.AutoSize = true;
-            this.progBarLbl.Location = new System.Drawing.Point(397, 476);
-            this.progBarLbl.Name = "progBarLbl";
-            this.progBarLbl.Size = new System.Drawing.Size(120, 16);
-            this.progBarLbl.TabIndex = 65;
-            this.progBarLbl.Text = "[Progressbar here]";
-            // 
             // playerIcon
             // 
             this.playerIcon.Image = global::So_You_Wanna_Make_A_Dnd_Character.Properties.Resources.Default;
-            this.playerIcon.Location = new System.Drawing.Point(11, 166);
+            this.playerIcon.Location = new System.Drawing.Point(11, 12);
             this.playerIcon.Name = "playerIcon";
-            this.playerIcon.Size = new System.Drawing.Size(128, 128);
+            this.playerIcon.Size = new System.Drawing.Size(192, 192);
             this.playerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerIcon.TabIndex = 47;
             this.playerIcon.TabStop = false;
+            // 
+            // cantripLbl
+            // 
+            this.cantripLbl.AutoSize = true;
+            this.cantripLbl.Location = new System.Drawing.Point(10, 296);
+            this.cantripLbl.Name = "cantripLbl";
+            this.cantripLbl.Size = new System.Drawing.Size(56, 16);
+            this.cantripLbl.TabIndex = 67;
+            this.cantripLbl.Text = "Cantrips";
+            this.cantripLbl.Click += new System.EventHandler(this.cantripLbl_Click);
+            // 
+            // Armours
+            // 
+            this.Armours.AutoSize = true;
+            this.Armours.Location = new System.Drawing.Point(160, 441);
+            this.Armours.Name = "Armours";
+            this.Armours.Size = new System.Drawing.Size(50, 16);
+            this.Armours.TabIndex = 69;
+            this.Armours.Text = "Armour";
+            // 
+            // ArmCheckbox
+            // 
+            this.ArmCheckbox.FormattingEnabled = true;
+            this.ArmCheckbox.Location = new System.Drawing.Point(163, 459);
+            this.ArmCheckbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ArmCheckbox.Name = "ArmCheckbox";
+            this.ArmCheckbox.Size = new System.Drawing.Size(165, 208);
+            this.ArmCheckbox.TabIndex = 68;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(345, 220);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Equipment";
+            // 
+            // InventoryCheckbox
+            // 
+            this.InventoryCheckbox.FormattingEnabled = true;
+            this.InventoryCheckbox.Location = new System.Drawing.Point(345, 240);
+            this.InventoryCheckbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InventoryCheckbox.Name = "InventoryCheckbox";
+            this.InventoryCheckbox.Size = new System.Drawing.Size(165, 191);
+            this.InventoryCheckbox.TabIndex = 70;
+            // 
+            // CantripList
+            // 
+            this.CantripList.FormattingEnabled = true;
+            this.CantripList.Location = new System.Drawing.Point(11, 240);
+            this.CantripList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CantripList.Name = "CantripList";
+            this.CantripList.Size = new System.Drawing.Size(140, 106);
+            this.CantripList.TabIndex = 72;
+            // 
+            // ProgressBarBtn
+            // 
+            this.ProgressBarBtn.Location = new System.Drawing.Point(532, 599);
+            this.ProgressBarBtn.Name = "ProgressBarBtn";
+            this.ProgressBarBtn.Size = new System.Drawing.Size(259, 26);
+            this.ProgressBarBtn.TabIndex = 73;
+            this.ProgressBarBtn.Text = "PROGRESS BAR SIZING";
+            this.ProgressBarBtn.UseVisualStyleBackColor = true;
+            this.ProgressBarBtn.Click += new System.EventHandler(this.ProgressBarBtn_Click);
+            // 
+            // cantripsLbl
+            // 
+            this.cantripsLbl.AutoSize = true;
+            this.cantripsLbl.Location = new System.Drawing.Point(8, 220);
+            this.cantripsLbl.Name = "cantripsLbl";
+            this.cantripsLbl.Size = new System.Drawing.Size(56, 16);
+            this.cantripsLbl.TabIndex = 74;
+            this.cantripsLbl.Text = "Cantrips";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 764);
-            this.Controls.Add(this.progBarLbl);
-            this.Controls.Add(this.oWoBtn);
-            this.Controls.Add(this.rollResultTb);
-            this.Controls.Add(this.rollResultLbl);
-            this.Controls.Add(this.dPercentBtn);
-            this.Controls.Add(this.d20btn);
-            this.Controls.Add(this.d12btn);
-            this.Controls.Add(this.d10btn);
-            this.Controls.Add(this.d8btn);
-            this.Controls.Add(this.d6btn);
-            this.Controls.Add(this.d4btn);
-            this.Controls.Add(this.diceZoneLbl);
+            this.ClientSize = new System.Drawing.Size(805, 684);
+            this.Controls.Add(this.cantripsLbl);
+            this.Controls.Add(this.ProgressBarBtn);
+            this.Controls.Add(this.CantripList);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.InventoryCheckbox);
+            this.Controls.Add(this.Armours);
+            this.Controls.Add(this.ArmCheckbox);
+            this.Controls.Add(this.cantripLbl);
             this.Controls.Add(this.statsLbl);
             this.Controls.Add(this.classFeaturesLbl);
-            this.Controls.Add(this.equipLbl);
+            this.Controls.Add(this.WeaponsLbl);
             this.Controls.Add(this.spellbookLbl);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.backgroundTb);
@@ -897,21 +843,17 @@
         private System.Windows.Forms.Label backgroundTb;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label spellbookLbl;
-        private System.Windows.Forms.Label equipLbl;
+        private System.Windows.Forms.Label WeaponsLbl;
         private System.Windows.Forms.Label classFeaturesLbl;
         private System.Windows.Forms.Label statsLbl;
-        private System.Windows.Forms.Label diceZoneLbl;
-        private System.Windows.Forms.Button d4btn;
-        private System.Windows.Forms.Button d6btn;
-        private System.Windows.Forms.Button d8btn;
-        private System.Windows.Forms.Button d10btn;
-        private System.Windows.Forms.Button d12btn;
-        private System.Windows.Forms.Button d20btn;
-        private System.Windows.Forms.Button dPercentBtn;
-        private System.Windows.Forms.Label rollResultLbl;
-        private System.Windows.Forms.TextBox rollResultTb;
-        private System.Windows.Forms.Button oWoBtn;
-        private System.Windows.Forms.Label progBarLbl;
+        private System.Windows.Forms.Label cantripLbl;
+        private System.Windows.Forms.Label Armours;
+        private System.Windows.Forms.CheckedListBox ArmCheckbox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckedListBox InventoryCheckbox;
+        private System.Windows.Forms.CheckedListBox CantripList;
+        private System.Windows.Forms.Button ProgressBarBtn;
+        private System.Windows.Forms.Label cantripsLbl;
     }
 }
 

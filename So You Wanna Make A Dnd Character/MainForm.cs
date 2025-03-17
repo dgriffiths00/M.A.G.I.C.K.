@@ -830,5 +830,15 @@ namespace M_A_G_I_C_K
         {
             System.Windows.Forms.MessageBox.Show("(>'-')> <('-'<) ^(' - ')^ <('-'<) (>'-')>");
         }
+
+        private void cantripLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProgressBarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
