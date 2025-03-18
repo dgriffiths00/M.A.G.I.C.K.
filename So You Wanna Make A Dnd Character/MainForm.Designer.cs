@@ -172,7 +172,6 @@
             this.EquipmentCheckBox.Name = "EquipmentCheckBox";
             this.EquipmentCheckBox.Size = new System.Drawing.Size(165, 191);
             this.EquipmentCheckBox.TabIndex = 6;
-            this.EquipmentCheckBox.SelectedIndexChanged += new System.EventHandler(this.EquipmentCheckBox_SelectedIndexChanged);
             // 
             // SpellCheckBox
             // 
@@ -182,7 +181,6 @@
             this.SpellCheckBox.Name = "SpellCheckBox";
             this.SpellCheckBox.Size = new System.Drawing.Size(140, 293);
             this.SpellCheckBox.TabIndex = 7;
-            this.SpellCheckBox.SelectedIndexChanged += new System.EventHandler(this.SpellCheckBox_SelectedIndexChanged);
             // 
             // FeatCheckBox
             // 
@@ -192,7 +190,6 @@
             this.FeatCheckBox.Name = "FeatCheckBox";
             this.FeatCheckBox.Size = new System.Drawing.Size(165, 208);
             this.FeatCheckBox.TabIndex = 8;
-            this.FeatCheckBox.SelectedIndexChanged += new System.EventHandler(this.FeatCheckBox_SelectedIndexChanged);
             // 
             // runBtn
             // 
@@ -659,7 +656,6 @@
             this.cantripLbl.Size = new System.Drawing.Size(56, 16);
             this.cantripLbl.TabIndex = 67;
             this.cantripLbl.Text = "Cantrips";
-            this.cantripLbl.Click += new System.EventHandler(this.cantripLbl_Click);
             // 
             // Armours
             // 
@@ -714,7 +710,6 @@
             this.ProgressBarBtn.TabIndex = 73;
             this.ProgressBarBtn.Text = "PROGRESS BAR SIZING";
             this.ProgressBarBtn.UseVisualStyleBackColor = true;
-            this.ProgressBarBtn.Click += new System.EventHandler(this.ProgressBarBtn_Click);
             // 
             // cantripsLbl
             // 
