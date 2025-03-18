@@ -894,19 +894,14 @@ namespace M_A_G_I_C_K
             System.Windows.Forms.MessageBox.Show("(>'-')> <('-'<) ^(' - ')^ <('-'<) (>'-')>");
         }
 
-        private void SpellCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void cantripLbl_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void EquipmentCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ProgressBarBtn_Click(object sender, EventArgs e)
         {
-             
-        }
-
-        private void FeatCheckBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+        
         }
     }
 }
