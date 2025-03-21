@@ -326,6 +326,8 @@ namespace M_A_G_I_C_K
         protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
         public static string weaponQuery;
 
+
+
         public string CharClass
         {
             get { return _CharClass; }
@@ -408,7 +410,10 @@ namespace M_A_G_I_C_K
     abstract class spellCaster : DndClass
     {
         protected string _spellAbility, _spellSaveDC, _spellAtkBonus;
-        protected string[] SelectedSpells;
+        protected string[] SelectedSpells, SelectedCantrip;
+
+        //this is the variable to be modified for the spells/cantrips
+        public static int SpellAmountAllowed;
         
 
         //this will also constain an array of object spells, then a get/set method for that array

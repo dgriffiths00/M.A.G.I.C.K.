@@ -31,12 +31,12 @@ namespace M_A_G_I_C_K
             InitializeComponent();
         }
 
-        protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
         private void MainForm_Load(object sender, EventArgs e)
         {
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
             RaceDropBox.SelectedIndex = 0;
             ClassDropBox.SelectedIndex = 0;
+
         }
 
         //this will change the spells you can pick etc etc based on what you pick
@@ -190,6 +190,9 @@ namespace M_A_G_I_C_K
                                 SpellCheckBox.Items.Add(spell);
                             }
 
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
+
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
@@ -205,6 +208,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
 
                             break;
                         case 3:
@@ -226,6 +232,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
 
                             break;
                     }
@@ -269,6 +278,9 @@ namespace M_A_G_I_C_K
                                 SpellCheckBox.Items.Add(spell);
                             }
 
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
+
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
@@ -284,6 +296,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 3;
 
                             break;
                         case 3:
@@ -305,6 +320,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 4;
 
                             break;
                     }
@@ -392,6 +410,9 @@ namespace M_A_G_I_C_K
                                 SpellCheckBox.Items.Add(spell);
                             }
 
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
+
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
@@ -407,6 +428,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 3;
 
                             break;
                         case 3:
@@ -428,6 +452,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 4;
 
                             break;
                     }
@@ -510,6 +537,9 @@ namespace M_A_G_I_C_K
                                 SpellCheckBox.Items.Add(spell);
                             }
 
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
+
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
@@ -525,6 +555,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 3;
 
                             break;
                         case 3:
@@ -546,6 +579,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 4;
 
                             break;
                     }
@@ -576,6 +612,9 @@ namespace M_A_G_I_C_K
                                 SpellCheckBox.Items.Add(spell);
                             }
 
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
+
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
@@ -591,6 +630,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 3;
 
                             break;
                         case 3:
@@ -612,6 +654,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 4;
 
                             break;
                     }
@@ -669,6 +714,9 @@ namespace M_A_G_I_C_K
                                 SpellCheckBox.Items.Add(spell);
                             }
 
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 2;
+
                             break;
                         case 2:
                             FeatCheckBox.Items.Add("Cleric");
@@ -684,6 +732,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 3;
 
                             break;
                         case 3:
@@ -705,6 +756,9 @@ namespace M_A_G_I_C_K
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
+
+                            //updating the number of spells that can be selected
+                            spellCaster.SpellAmountAllowed = 4;
 
                             break;
                     }
@@ -1024,6 +1078,21 @@ namespace M_A_G_I_C_K
             CharacterShow show = new CharacterShow(createdChar);
             show.Show();
             show.Closed += (s, args) => this.Close();
+        }
+
+        //these will limit the number of the checked boxes you can click
+        private void CantripList_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && CantripList.CheckedItems.Count >= 4)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
+               
+        }
+
+        private void SpellCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+
         }
     }
 }
