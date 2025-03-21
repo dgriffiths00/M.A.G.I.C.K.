@@ -128,7 +128,7 @@ namespace M_A_G_I_C_K
                          FeatCheckBox.Items.Add(feat);
                     }
 
-                    ////second switch statment for each level
+                    /*second switch statment for each level
 
                     ////commented out jic you want it for a reason, I currently see this code as defunct at the moment
                     ////
@@ -148,7 +148,7 @@ namespace M_A_G_I_C_K
                             
 
                     //        break;
-                    //}
+                    }*/
                     break;
                 case 2:
                     //Cleric
@@ -178,7 +178,14 @@ namespace M_A_G_I_C_K
                             FeatCheckBox.Items.Add("Cleric");
 
                             //4 cantrips, two spells, only first level spells
+                            //adding the cantrips
                             foreach (string spell in ClericCantrip)
+                            {
+                                CantripList.Items.Add(spell);
+                            }
+
+                            //adding first
+                            foreach(string spell in ClericLevelOne)
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
@@ -188,6 +195,12 @@ namespace M_A_G_I_C_K
                             FeatCheckBox.Items.Add("Cleric");
 
                             //4 cantrips, three spells, only first level
+                            //adding the cantrips
+                            foreach (string spell in ClericCantrip)
+                            {
+                                CantripList.Items.Add(spell);
+                            }
+                            //adding first
                             foreach (string spell in ClericLevelOne)
                             {
                                 SpellCheckBox.Items.Add(spell);
@@ -198,7 +211,18 @@ namespace M_A_G_I_C_K
                             FeatCheckBox.Items.Add("Cleric");
 
                             //4 cantrips, four spells, second and first
-                            foreach (string spell in ClericLevelTwo)
+                            //adding the cantrips
+                            foreach (string spell in ClericCantrip)
+                            {
+                                CantripList.Items.Add(spell);
+                            }
+                            //adding first
+                            foreach (string spell in ClericLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
+                            //adding second
+                            foreach(string spell in ClericLevelTwo)
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
@@ -427,7 +451,14 @@ namespace M_A_G_I_C_K
                             FeatCheckBox.Items.Add("Cleric");
 
                             //4 cantrips, two spells, only first level spells
+                            //adding the cantrips
                             foreach (string spell in ClericCantrip)
+                            {
+                                CantripList.Items.Add(spell);
+                            }
+
+                            //adding first
+                            foreach (string spell in ClericLevelOne)
                             {
                                 SpellCheckBox.Items.Add(spell);
                             }
@@ -437,6 +468,12 @@ namespace M_A_G_I_C_K
                             FeatCheckBox.Items.Add("Cleric");
 
                             //4 cantrips, three spells, only first level
+                            //adding the cantrips
+                            foreach (string spell in ClericCantrip)
+                            {
+                                CantripList.Items.Add(spell);
+                            }
+                            //adding first
                             foreach (string spell in ClericLevelOne)
                             {
                                 SpellCheckBox.Items.Add(spell);
@@ -447,6 +484,17 @@ namespace M_A_G_I_C_K
                             FeatCheckBox.Items.Add("Cleric");
 
                             //4 cantrips, four spells, second and first
+                            //adding the cantrips
+                            foreach (string spell in ClericCantrip)
+                            {
+                                CantripList.Items.Add(spell);
+                            }
+                            //adding first
+                            foreach (string spell in ClericLevelOne)
+                            {
+                                SpellCheckBox.Items.Add(spell);
+                            }
+                            //adding second
                             foreach (string spell in ClericLevelTwo)
                             {
                                 SpellCheckBox.Items.Add(spell);
