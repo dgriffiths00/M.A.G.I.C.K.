@@ -85,7 +85,6 @@
             this.cantripLblCount = new System.Windows.Forms.Label();
             this.spellbookLblCount = new System.Windows.Forms.Label();
             this.RanNameBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.randomNameLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
@@ -732,9 +731,9 @@
             this.cantripLblCount.AutoSize = true;
             this.cantripLblCount.Location = new System.Drawing.Point(103, 220);
             this.cantripLblCount.Name = "cantripLblCount";
-            this.cantripLblCount.Size = new System.Drawing.Size(48, 16);
+            this.cantripLblCount.Size = new System.Drawing.Size(45, 16);
             this.cantripLblCount.TabIndex = 75;
-            this.cantripLblCount.Text = "( X / Y )";
+            this.cantripLblCount.Text = "( 0 / 4 )";
             // 
             // spellbookLblCount
             // 
@@ -754,15 +753,6 @@
             this.RanNameBtn.Text = "RNG";
             this.RanNameBtn.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 78;
-            this.label1.Text = "label1";
-            // 
             // randomNameLbl
             // 
             this.randomNameLbl.AutoSize = true;
@@ -778,7 +768,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 684);
             this.Controls.Add(this.randomNameLbl);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.RanNameBtn);
             this.Controls.Add(this.spellbookLblCount);
             this.Controls.Add(this.cantripLblCount);
@@ -912,7 +901,6 @@
         private System.Windows.Forms.Label cantripLblCount;
         private System.Windows.Forms.Label spellbookLblCount;
         private System.Windows.Forms.Button RanNameBtn;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label randomNameLbl;
     }
 }
