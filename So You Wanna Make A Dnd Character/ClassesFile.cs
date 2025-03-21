@@ -310,8 +310,6 @@ namespace M_A_G_I_C_K
 
             //loop for cantrips
         }
-
-        
         
     }
 
@@ -446,6 +444,31 @@ namespace M_A_G_I_C_K
             }
         }
 
+        public static List<string> gettingEquipment()
+        {
+            List<string> currentEquipment = new List<string>();
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                string featquery = "SELECT Name FROM GenEquipment";
+
+                using (SQLiteCommand command = new SQLiteCommand(featquery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentEquipment.Add(name);
+                        }
+                    }
+                }
+                return currentEquipment;
+            }
+        }
 
     }
 
