@@ -68,7 +68,7 @@
             this.WISbonusTxt = new System.Windows.Forms.RichTextBox();
             this.CHAbonusTxt = new System.Windows.Forms.RichTextBox();
             this.backgroundTb = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.backgroundTb1 = new System.Windows.Forms.TextBox();
             this.spellbookLbl = new System.Windows.Forms.Label();
             this.WeaponsLbl = new System.Windows.Forms.Label();
             this.classFeaturesLbl = new System.Windows.Forms.Label();
@@ -593,13 +593,13 @@
             this.backgroundTb.TabIndex = 48;
             this.backgroundTb.Text = "Background";
             // 
-            // textBox1
+            // backgroundTb1
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 119);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(301, 85);
-            this.textBox1.TabIndex = 49;
+            this.backgroundTb1.Location = new System.Drawing.Point(209, 119);
+            this.backgroundTb1.Multiline = true;
+            this.backgroundTb1.Name = "backgroundTb1";
+            this.backgroundTb1.Size = new System.Drawing.Size(301, 94);
+            this.backgroundTb1.TabIndex = 49;
             // 
             // spellbookLbl
             // 
@@ -737,7 +737,7 @@
             this.Controls.Add(this.classFeaturesLbl);
             this.Controls.Add(this.WeaponsLbl);
             this.Controls.Add(this.spellbookLbl);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.backgroundTb1);
             this.Controls.Add(this.backgroundTb);
             this.Controls.Add(this.playerIcon);
             this.Controls.Add(this.CHAbonusTxt);
@@ -839,7 +839,7 @@
         private System.Windows.Forms.RichTextBox CHAbonusTxt;
         private System.Windows.Forms.PictureBox playerIcon;
         private System.Windows.Forms.Label backgroundTb;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox backgroundTb1;
         private System.Windows.Forms.Label spellbookLbl;
         private System.Windows.Forms.Label WeaponsLbl;
         private System.Windows.Forms.Label classFeaturesLbl;

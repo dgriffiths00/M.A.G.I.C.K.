@@ -113,6 +113,10 @@ namespace M_A_G_I_C_K
                 case 1:
                     //Fighter
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
+                    backgroundTb1.Text = "History: Soldier"
+                        + Environment.NewLine + "Trinket: a small, bronze sword necklace."
+                        + Environment.NewLine + "Personality: Pragmatic"
+                        + Environment.NewLine + "Mannerisms: you fidget with your equipement.";
                     SpellCheckBox.Items.Add("Fighters do not get spells");
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
                     List<string> fighterFeats = Fighter.gettingFeats();
@@ -153,7 +157,10 @@ namespace M_A_G_I_C_K
                 case 2:
                     //Cleric
                      playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
-
+                    backgroundTb1.Text = "History: Cloistered Scholar"
+                       + Environment.NewLine + "Trinket: an ornate box inscribed with verse."
+                       + Environment.NewLine + "Personality: Diligent"
+                       + Environment.NewLine + "Mannerisms: you collect trinkets from whereever you go.";
                     List<string> clericWeapons = Cleric.gettingWeapons("simple");
                     List<string> clericFeats = Cleric.gettingFeats();
 
@@ -234,7 +241,10 @@ namespace M_A_G_I_C_K
                 case 3:
                     //Wizard
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
-
+                    backgroundTb1.Text = "History: Hermit"
+                       + Environment.NewLine + "Trinket: a set of used writing quills."
+                       + Environment.NewLine + "Personality: Observant"
+                       + Environment.NewLine + "Mannerisms: you like to eat colourful food.";
                     List<string> wizardWeapon = Wizard.gettingWeapons("simple");
                     List<string> wizardFeats = Wizard.gettingFeats();
 
@@ -290,7 +300,10 @@ namespace M_A_G_I_C_K
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
-
+                    backgroundTb1.Text = "History: Criminal"
+                       + Environment.NewLine + "Trinket: a set of loaded dice"
+                       + Environment.NewLine + "Personality: Happy-go-lucky"
+                       + Environment.NewLine + "Mannerisms: you whistle songs when in thought.";
                     List<string> rogueWeapons = Cleric.gettingWeapons("martial");
                     List<string> rogueFeats = Fighter.gettingFeats();
 
@@ -331,7 +344,11 @@ namespace M_A_G_I_C_K
                     break;
                 case 5:
                     //Bard
-                     playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
+                    playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
+                    backgroundTb1.Text = "History: Charlatan"
+                       + Environment.NewLine + "Trinket: a set of three cups and rubber ball."
+                       + Environment.NewLine + "Personality: Daring."
+                       + Environment.NewLine + "Mannerisms: you talk to the air ";
                     List<string> bardWeapons = Bard.gettingWeapons("simple");
                     List<string> bardFeats = Bard.gettingFeats();
 
@@ -390,6 +407,10 @@ namespace M_A_G_I_C_K
                 default:
                     //nothing change nothing
                     playerIcon.Image = Image.FromFile(linkToImagine + "Default.png");
+                    backgroundTb1.Text = "History:         [only the gods know]"
+                        + Environment.NewLine + "Trinket:         [who is to say what is valuable]"
+                        + Environment.NewLine + "Personality:   [good or ill, you turn heads]"
+                        + Environment.NewLine + "Mannerisms: [everyone has their quirks]";
                     break;
             }
 
