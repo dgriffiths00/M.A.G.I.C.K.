@@ -61,7 +61,7 @@ namespace M_A_G_I_C_K
             switch (RaceDropBox.SelectedIndex)
             {
                 case 1:
-                    //Human
+                    //human
 
                     break;
                 case 2:
@@ -1210,6 +1210,87 @@ namespace M_A_G_I_C_K
             if (e.NewValue == CheckState.Checked && SpellCheckBox.CheckedItems.Count >= spellCaster.SpellAmountAllowed)
             {
                 e.NewValue = CheckState.Unchecked;
+            }
+        }
+
+        
+        //For Random Name Generator
+        //this was oddly painful to make happen ~ Duncan
+        private void RanNameBtn_Click(object sender, EventArgs e)
+        {
+            //connection string to pull names from database
+            string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
+
+            List<string> firstNameList = new List<string>();
+            List<string> secondNameList = new List<string>();
+            Random rng = new Random();
+
+            //for getting race specific for query
+            string currentRace = RaceDropBox.Text.ToLower();
+           
+            //variables to store official selection in case of need to reuse post-connection close
+            string randomFname = "";
+            string randomLname = "";
+
+            //queries for pulling from db, $ allows to insert variable
+            string fnameQuery = $"SELECT name FROM Names WHERE nameType = 'fname' AND race = '{currentRace}'";
+            string lnameQuery = $"SELECT name FROM Names WHERE nameType = 'lname' AND race = '{currentRace}'";
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                //query connection for first name
+                using (SQLiteCommand command = new SQLiteCommand(fnameQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("name"));
+
+                            firstNameList.Add(name);
+                        }
+                    }
+                }
+                //query connection for last name
+                using (SQLiteCommand command = new SQLiteCommand(lnameQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("name"));
+
+                            secondNameList.Add(name);
+                        }
+                    }
+                }
+
+                //checks to see if lists are empty jic users are dumb and click the button w/o a class
+                if (firstNameList.Count == 0 || secondNameList.Count == 0)
+                {
+                    // message box to tell users to check their race selection >:(
+                    MessageBox.Show("No names found? Make sure you have selected a race!");  
+                    
+                    //so it doesnt explode the damn program
+                    return;  
+                }
+
+                //ints to store a randomly selected index              
+                int fnameRngSelection = rng.Next(firstNameList.Count);
+                int lnameRngSelection = rng.Next(secondNameList.Count);
+
+                //storing the name selected
+                randomFname = firstNameList[fnameRngSelection];
+                randomLname = secondNameList[lnameRngSelection];
+   
+                //assigning the data
+                FirstNameTxt.Text = randomFname;
+                SecondNameTxt.Text = randomLname;
+
+                conn.Close();
+        
             }
         }
     }
