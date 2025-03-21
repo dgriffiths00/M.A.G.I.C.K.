@@ -108,24 +108,9 @@ namespace M_A_G_I_C_K
                     _CharClass = new Fighter(Level);
 
                     break;
-                case 2:
-                    Console.WriteLine("selected cleric");
-                    _CharClass = new Cleric(Level);
-
-                    break;
-                case 3:
-                    Console.WriteLine("Selected Wizard");
-                    _CharClass = new Wizard(Level);
-
-                    break;
                 case 4:
                     Console.WriteLine("Selected Rouge");
                     _CharClass = new Rouge(Level);
-
-                    break;
-                case 5:
-                    Console.WriteLine("Selected Bard");
-                    _CharClass = new Bard(Level);
 
                     break;
                 default:
@@ -174,6 +159,137 @@ namespace M_A_G_I_C_K
             _background = Background;
         }
 
+        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background, string[] Cantrips, string[] Spells)
+        {
+
+            /*RaceDropDown
+             * Human
+                Elf
+                Dwarf
+                Orc
+                DragonBorn
+
+                Class DropDown
+                Fighter
+                Cleric
+                Wizard
+                Rogue
+                Bard
+            */
+
+            switch (SelectedRace)
+            {
+                case 1:
+                    Console.WriteLine("Selected Human");
+
+                    _CharRace = new Human();
+
+                    break;
+                case 2:
+                    Console.WriteLine("Selected Elf");
+                    _CharRace = new Elf();
+
+                    break;
+                case 3:
+                    Console.WriteLine("Selected Dwarf");
+                    _CharRace = new Dwarf();
+
+
+                    break;
+                case 4:
+                    Console.WriteLine("Selected Orc");
+                    _CharRace = new Orc();
+
+                    break;
+                case 5:
+                    Console.WriteLine("Selected Dragonborn");
+                    _CharRace = new Dragonborn();
+
+                    break;
+
+                default:
+                    Console.WriteLine("Selected Nothing");
+                    //begin randomly generated stuff
+
+
+
+                    break;
+            }
+
+            switch (SelectedClass)
+            {
+                case 2:
+                    Console.WriteLine("selected cleric");
+                    _CharClass = new Cleric(Level, Cantrips, Spells);
+
+                    break;
+                case 3:
+                    Console.WriteLine("Selected Wizard");
+                    _CharClass = new Wizard(Level, Cantrips, Spells);
+
+                    break;
+                case 5:
+                    Console.WriteLine("Selected Bard");
+                    _CharClass = new Bard(Level, Cantrips, Spells);
+
+                    break;
+                default:
+                    Console.WriteLine("Selected Nothing");
+                    //start random generation here
+
+
+                    break;
+            }
+
+            //Both the Class and race has been selected this will then go into calculating the other shit
+
+            //if the name is not just a space (if blank)
+            if (Name != " ")
+            {
+                Console.WriteLine("Putting Name Info");
+
+                _name = Name;
+            }
+            else
+            {
+                Console.WriteLine("Generating Name");
+                //run the ran generator
+
+                _name = "TestingPDF";
+            }
+
+
+            /*
+             * 
+             * Stats[0] = STR;
+                Stats[1] = DEX
+                Stats[2] = SMRT
+                Stats[3] = CON;
+                Stats[4] = CHA;
+                Stats[5] = WIS;
+             * 
+             */
+
+            _STR = stats[0];
+            _DEX = stats[1];
+            _SMRT = stats[2];
+            _CON = stats[3];
+            _CHA = stats[4];
+            _WIS = stats[5];
+
+            _background = Background;
+        }
+
+        //get methods, we will need to add get methods to everything
+        public DndClass CharClass
+        {
+            get { return _CharClass; }
+        }
+        
+
+
+        
+        
         private void calculatingStats()
         {
             //ac, hitpoints, etc
@@ -299,7 +415,7 @@ namespace M_A_G_I_C_K
             }
         }
 
-        public void fillingSpellsPdf(IDictionary<String, PdfFormField> fields)
+        private void fillingSpellsPdf(IDictionary<String, PdfFormField> fields)
         {
             //top section
             fields["Spellcasting Class 2"].SetValue(_CharClass.CharClass);
@@ -314,7 +430,7 @@ namespace M_A_G_I_C_K
     }
 
 
-    abstract class DndClass
+    public abstract class DndClass
     {
         //this will be inhearented by all the classes
         protected int _Level, _hitpoints;
@@ -340,6 +456,9 @@ namespace M_A_G_I_C_K
         public static List<string> gettingWeapons(string WeaponType)
         {
             List<string> currentWeapon = new List<string>();
+            string weaponQuery = "";
+
+
             string weaponQuery = "";
 
 
@@ -472,18 +591,15 @@ namespace M_A_G_I_C_K
 
     }
 
-
-
-    abstract class spellCaster : DndClass
+    public abstract class spellCaster : DndClass
     {
         protected string _spellAbility, _spellSaveDC, _spellAtkBonus;
-        protected string[] SelectedSpells;
-        
+        protected string[] _SelectedSpells, _SelectedCantrip;
 
-        //this will also constain an array of object spells, then a get/set method for that array
+        //this is the variable to be modified for the spells/cantrips
+        public static int SpellAmountAllowed;
 
-
-        public spellCaster()
+        public spellCaster() : base()
         {
             _spellCaster = true;
         }
@@ -519,11 +635,13 @@ namespace M_A_G_I_C_K
 
     class Cleric : spellCaster 
     {
-        public Cleric(int Level) : base()
+        public Cleric(int Level, string[] Cantrips, string[] Spells) : base()
         {
             _Level = Level;
             _CharClass = "Cleric";
             _hitpointDice = "D8";
+            _SelectedCantrip = Cantrips;
+            _SelectedSpells = Spells;
 
         }
         public static List<string> gettingSpells(int level)
@@ -564,11 +682,13 @@ namespace M_A_G_I_C_K
     class Wizard : spellCaster 
     {
 
-        public Wizard(int Level) : base()
+        public Wizard(int Level, string[] Cantrips, string[] Spells) : base()
         {
             _Level = Level;
             _CharClass = "Wizard";
             _hitpointDice = "D6";
+            _SelectedCantrip = Cantrips;
+            _SelectedSpells = Spells;
 
         }
         public static List<string> gettingSpells(int level)
@@ -620,11 +740,13 @@ namespace M_A_G_I_C_K
 
     class Bard : spellCaster 
     {
-        public Bard(int Level) : base()
+        public Bard(int Level, string[] Cantrips, string[] Spells) : base()
         {
             _Level = Level;
             _CharClass = "Bard";
             _hitpointDice = "D8";
+            _SelectedCantrip = Cantrips;
+            _SelectedSpells = Spells;
         }
 
         public static List<string> gettingSpells(int level)
@@ -662,7 +784,7 @@ namespace M_A_G_I_C_K
     }
 
     //for races
-    abstract class DndRace
+    public abstract class DndRace
     {
         //this will be inherented by all the races
         protected int _speed;
