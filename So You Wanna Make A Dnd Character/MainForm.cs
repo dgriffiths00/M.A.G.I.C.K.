@@ -174,7 +174,7 @@ namespace M_A_G_I_C_K
 
                     foreach (string armour in clericArmour)
                     {
-                        FeatCheckBox.Items.Add(armour);
+                        ArmCheckbox.Items.Add(armour);
                     }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
