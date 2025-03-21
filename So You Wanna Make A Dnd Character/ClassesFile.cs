@@ -25,7 +25,6 @@ using static iText.Signatures.LtvVerification;
 
 namespace M_A_G_I_C_K
 {
-
     public class Character
     {
         //this will have all the info for the character
@@ -281,7 +280,16 @@ namespace M_A_G_I_C_K
             _background = Background;
         }
 
+        //get methods, we will need to add get methods to everything
+        public DndClass CharClass
+        {
+            get { return _CharClass; }
+        }
+        
 
+
+        
+        
         private void calculatingStats()
         {
             //ac, hitpoints, etc
@@ -418,7 +426,6 @@ namespace M_A_G_I_C_K
 
             //loop for cantrips
         }
-
         
     }
 
@@ -484,7 +491,7 @@ namespace M_A_G_I_C_K
 
         public static List<string> gettingFeats()
         {
-            List<string> currentWeapon = new List<string>();
+            List<string> currentFeats = new List<string>();
 
             using (var conn = new SQLiteConnection(connectionString))
             {
@@ -500,11 +507,11 @@ namespace M_A_G_I_C_K
                         {
                             string name = reader.GetString(reader.GetOrdinal("Name"));
 
-                            currentWeapon.Add(name);
+                            currentFeats.Add(name);
                         }
                     }
                 }
-                return currentWeapon;
+                return currentFeats;
             }
 
         }
@@ -552,10 +559,33 @@ namespace M_A_G_I_C_K
             }
         }
 
+        public static List<string> gettingEquipment()
+        {
+            List<string> currentEquipment = new List<string>();
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                string featquery = "SELECT Name FROM GenEquipment";
+
+                using (SQLiteCommand command = new SQLiteCommand(featquery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentEquipment.Add(name);
+                        }
+                    }
+                }
+                return currentEquipment;
+            }
+        }
 
     }
-
-
 
     public abstract class spellCaster : DndClass
     {
