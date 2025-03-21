@@ -308,7 +308,7 @@ namespace M_A_G_I_C_K
                        + Environment.NewLine + "Trinket: a set of loaded dice"
                        + Environment.NewLine + "Personality: Happy-go-lucky"
                        + Environment.NewLine + "Mannerisms: you whistle songs when in thought.";
-                    this.BackColor = ColorTranslator.FromHtml("#7BC96F");
+                    this.BackColor = ColorTranslator.FromHtml("#A0A5AA");
                     List<string> rogueWeapons = Cleric.gettingWeapons("martial");
                     List<string> rogueFeats = Fighter.gettingFeats();
 
