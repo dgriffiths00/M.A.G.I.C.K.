@@ -94,6 +94,7 @@ namespace M_A_G_I_C_K
             EquipmentCheckBox.Items.Clear();
             FeatCheckBox.Items.Clear();
             SpellCheckBox.Items.Clear();
+            ArmCheckbox.Items.Clear();
 
             string linkToImagine = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Resources\";
 
