@@ -82,6 +82,7 @@
             this.CantripList = new System.Windows.Forms.CheckedListBox();
             this.ProgressBarBtn = new System.Windows.Forms.Button();
             this.cantripsLbl = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -587,7 +588,7 @@
             // backgroundTb
             // 
             this.backgroundTb.AutoSize = true;
-            this.backgroundTb.Location = new System.Drawing.Point(209, 98);
+            this.backgroundTb.Location = new System.Drawing.Point(209, 102);
             this.backgroundTb.Name = "backgroundTb";
             this.backgroundTb.Size = new System.Drawing.Size(80, 16);
             this.backgroundTb.TabIndex = 48;
@@ -595,7 +596,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 119);
+            this.textBox1.Location = new System.Drawing.Point(209, 126);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(301, 85);
@@ -641,7 +642,7 @@
             // playerIcon
             // 
             this.playerIcon.Image = global::So_You_Wanna_Make_A_Dnd_Character.Properties.Resources.Default;
-            this.playerIcon.Location = new System.Drawing.Point(11, 12);
+            this.playerIcon.Location = new System.Drawing.Point(11, 19);
             this.playerIcon.Name = "playerIcon";
             this.playerIcon.Size = new System.Drawing.Size(192, 192);
             this.playerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -720,11 +721,20 @@
             this.cantripsLbl.TabIndex = 74;
             this.cantripsLbl.Text = "Cantrips";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(337, 99);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(117, 24);
+            this.comboBox1.TabIndex = 75;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 684);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.cantripsLbl);
             this.Controls.Add(this.ProgressBarBtn);
             this.Controls.Add(this.CantripList);
@@ -852,6 +862,7 @@
         private System.Windows.Forms.CheckedListBox CantripList;
         private System.Windows.Forms.Button ProgressBarBtn;
         private System.Windows.Forms.Label cantripsLbl;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

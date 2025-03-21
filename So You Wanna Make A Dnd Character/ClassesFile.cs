@@ -25,7 +25,6 @@ using static iText.Signatures.LtvVerification;
 
 namespace M_A_G_I_C_K
 {
-
     public class Character
     {
         //this will have all the info for the character
@@ -313,6 +312,7 @@ namespace M_A_G_I_C_K
         }
 
         
+        
     }
 
 
@@ -378,7 +378,7 @@ namespace M_A_G_I_C_K
 
         public static List<string> gettingFeats()
         {
-            List<string> currentWeapon = new List<string>();
+            List<string> currentFeats = new List<string>();
 
             using (var conn = new SQLiteConnection(connectionString))
             {
@@ -394,11 +394,11 @@ namespace M_A_G_I_C_K
                         {
                             string name = reader.GetString(reader.GetOrdinal("Name"));
 
-                            currentWeapon.Add(name);
+                            currentFeats.Add(name);
                         }
                     }
                 }
-                return currentWeapon;
+                return currentFeats;
             }
 
         }
