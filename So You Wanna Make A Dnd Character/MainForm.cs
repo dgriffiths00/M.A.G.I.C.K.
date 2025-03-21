@@ -1070,14 +1070,41 @@ namespace M_A_G_I_C_K
             Stats[5] = Convert.ToInt32(WISstats.Value);
 
             string Background = "testing string!! uwu";
-  
-            Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background);
 
-            //Opening Form
-            this.Hide();
-            CharacterShow show = new CharacterShow(createdChar);
-            show.Show();
-            show.Closed += (s, args) => this.Close();
+
+            CharacterShow show = null;
+
+            //final switch statment desciding if it's a spellcaster or not to decide what constructor it is using
+            switch (SelectedClass)
+            {
+                case 2:
+                case 3:
+                case 5:
+                    //adding spells and cantrips
+                    string[] cantrips = CantripList.CheckedItems.OfType<string>().ToArray();
+                    string[] Spells = CantripList.CheckedItems.OfType<string>().ToArray();
+
+                    Character createdCharSpell = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background, cantrips, Spells);
+
+                    //opneing form 
+                    this.Hide();
+                    show = new CharacterShow(createdCharSpell);
+                    show.Show();
+                    show.Closed += (s, args) => this.Close();
+
+                    break;
+
+                default:
+                    Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background);
+
+                    //Opening Form
+                    this.Hide();
+                    show = new CharacterShow(createdChar);
+                    show.Show();
+                    show.Closed += (s, args) => this.Close();
+
+                    break;
+            }
         }
 
         //these will limit the number of the checked boxes you can click
