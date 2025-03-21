@@ -31,8 +31,7 @@ namespace M_A_G_I_C_K
             InitializeComponent();
         }
 
-        protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
-        private void MainForm_Load(object sender, EventArgs e)
+         private void MainForm_Load(object sender, EventArgs e)
         {
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
             RaceDropBox.SelectedIndex = 0;
@@ -116,7 +115,7 @@ namespace M_A_G_I_C_K
                     SpellCheckBox.Items.Add("Fighters do not get spells");
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
                     List<string> fighterFeats = Fighter.gettingFeats();
-
+                    List<string> fighterArmour = Fighter.gettingArmours("heavy");
 
                     foreach (string weapon in fighterWeapons)
                     {
@@ -126,6 +125,10 @@ namespace M_A_G_I_C_K
                     foreach (string feat in fighterFeats)
                     {
                          FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach (string armour in fighterArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
                     }
 
                     ////second switch statment for each level
@@ -156,8 +159,9 @@ namespace M_A_G_I_C_K
 
                     List<string> clericWeapons = Cleric.gettingWeapons("simple");
                     List<string> clericFeats = Cleric.gettingFeats();
+                    List<string> clericArmour = Cleric.gettingArmours("heavy");
 
-                    foreach(string weapon in clericWeapons)
+                    foreach (string weapon in clericWeapons)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
                     }
@@ -165,6 +169,11 @@ namespace M_A_G_I_C_K
                     foreach (string feat in clericFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+
+                    foreach (string armour in clericArmour)
+                    {
+                        FeatCheckBox.Items.Add(armour);
                     }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
@@ -213,6 +222,8 @@ namespace M_A_G_I_C_K
 
                     List<string> wizardWeapon = Wizard.gettingWeapons("simple");
                     List<string> wizardFeats = Wizard.gettingFeats();
+                    List<string> wizardArmour = Wizard.gettingArmours("light");
+
 
                     foreach (string weapon in wizardWeapon)
                     {
@@ -221,6 +232,10 @@ namespace M_A_G_I_C_K
                     foreach (string feat in wizardFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach (string armour in wizardArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
                     }
 
                     List<string> WizCantrip = Wizard.gettingSpells(0);
@@ -267,9 +282,9 @@ namespace M_A_G_I_C_K
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
 
-                    List<string> rogueWeapons = Cleric.gettingWeapons("martial");
-                    List<string> rogueFeats = Fighter.gettingFeats();
-
+                    List<string> rogueWeapons = Rouge.gettingWeapons("martial");
+                    List<string> rogueFeats = Rouge.gettingFeats();
+                    List<string> rogueArmour = Rouge.gettingArmours("medium");
 
                     foreach (string weapon in rogueWeapons)
                     {
@@ -279,6 +294,10 @@ namespace M_A_G_I_C_K
                     foreach (string feat in rogueFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach(string armour in rogueArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
                     }
 
 
@@ -310,6 +329,8 @@ namespace M_A_G_I_C_K
                      playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
                     List<string> bardWeapons = Bard.gettingWeapons("simple");
                     List<string> bardFeats = Bard.gettingFeats();
+                    List<string> bardArmour = Bard.gettingArmours("light");
+
 
                     foreach (string weapon in bardWeapons)
                     {
@@ -320,6 +341,11 @@ namespace M_A_G_I_C_K
                     {
                         FeatCheckBox.Items.Add(feat);
                     }
+                    foreach(string armour in bardArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+
                     //getting the names of all the bard spells
                     List<string> BardCantrips = Bard.gettingSpells(0);
                     List<string> BardLevelOne = Bard.gettingSpells(1);

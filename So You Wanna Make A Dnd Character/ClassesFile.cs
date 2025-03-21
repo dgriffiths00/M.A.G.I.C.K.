@@ -175,7 +175,6 @@ namespace M_A_G_I_C_K
             _background = Background;
         }
 
-
         private void calculatingStats()
         {
             //ac, hitpoints, etc
@@ -324,7 +323,6 @@ namespace M_A_G_I_C_K
         protected string _CharClass, _hitpointDice;
         protected Boolean _spellCaster;
         protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
-        public static string weaponQuery;
 
         public string CharClass
         {
@@ -344,6 +342,8 @@ namespace M_A_G_I_C_K
         public static List<string> gettingWeapons(string WeaponType)
         {
             List<string> currentWeapon = new List<string>();
+            string weaponQuery = "";
+
 
             using (var conn = new SQLiteConnection(connectionString))
             {
@@ -403,7 +403,53 @@ namespace M_A_G_I_C_K
 
         }
 
+        public static List<string> gettingArmours(string ArmorType)
+        {
+            List<string> currentArmour = new List<string>();
+            string armourQuery = "";
+
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                if (ArmorType == "light")
+                {
+                    armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' ";
+
+                }
+                else if (ArmorType == "medium")
+                {
+                    armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' OR ArmorType = 'Medium' OR ArmorType= 'All'";
+
+                }
+                else if (ArmorType == "heavy")
+                {
+                    armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' OR ArmorType = 'Medium' OR ArmorType= 'Heavy' OR ArmorType= 'All'";
+
+                }
+
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(armourQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentArmour.Add(name);
+                        }
+                    }
+                }
+                return currentArmour;
+            }
+        }
+
+
     }
+
+
 
     abstract class spellCaster : DndClass
     {
