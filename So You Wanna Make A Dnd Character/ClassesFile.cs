@@ -458,10 +458,6 @@ namespace M_A_G_I_C_K
             List<string> currentWeapon = new List<string>();
             string weaponQuery = "";
 
-
-            string weaponQuery = "";
-
-
             using (var conn = new SQLiteConnection(connectionString))
             {
                 if (WeaponType == "simple")
