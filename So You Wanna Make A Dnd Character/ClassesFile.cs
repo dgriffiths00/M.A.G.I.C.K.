@@ -324,9 +324,6 @@ namespace M_A_G_I_C_K
         protected string _CharClass, _hitpointDice;
         protected Boolean _spellCaster;
         protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
-        public static string weaponQuery;
-
-
 
         public string CharClass
         {
@@ -346,6 +343,9 @@ namespace M_A_G_I_C_K
         public static List<string> gettingWeapons(string WeaponType)
         {
             List<string> currentWeapon = new List<string>();
+
+            string weaponQuery = "";
+
 
             using (var conn = new SQLiteConnection(connectionString))
             {
