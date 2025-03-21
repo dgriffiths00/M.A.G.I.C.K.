@@ -31,6 +31,7 @@ namespace M_A_G_I_C_K
             InitializeComponent();
         }
 
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
@@ -95,6 +96,7 @@ namespace M_A_G_I_C_K
             EquipmentCheckBox.Items.Clear();
             FeatCheckBox.Items.Clear();
             SpellCheckBox.Items.Clear();
+            ArmCheckbox.Items.Clear();
 
             string linkToImagine = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Resources\";
 
@@ -121,8 +123,9 @@ namespace M_A_G_I_C_K
                     SpellCheckBox.Items.Add("Fighters do not get spells");
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
                     List<string> fighterFeats = Fighter.gettingFeats();
-
-
+                    List<string> fighterArmour = Fighter.gettingArmours("heavy");
+                    List<string> fighterEquipment = Fighter.gettingEquipment();
+ 
                     foreach (string weapon in fighterWeapons)
                     {
                          EquipmentCheckBox.Items.Add(weapon);
@@ -132,25 +135,33 @@ namespace M_A_G_I_C_K
                     {
                          FeatCheckBox.Items.Add(feat);
                     }
-
+                    foreach (string armour in fighterArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    
+                    foreach (string trinket in fighterEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
+                    }
                     /*second switch statment for each level
 
                     ////commented out jic you want it for a reason, I currently see this code as defunct at the moment
                     ////
                     ////regarding feats, we should have a counter that displays selections available, upon threshold (counter reaching zero), user should be blocked from selecting more
                     ////we could use this statement for updating selection choices and limitations for feats/lvl
- 
+
                     //switch (LevelPicker.Value)
                     //{
                     //    case 1:
 
                     //        break;
                     //    case 2:
-                         
+
 
                     //        break;
                     //    case 3:
-                            
+
 
                     //        break;
                     }*/
@@ -166,8 +177,11 @@ namespace M_A_G_I_C_K
 
                     List<string> clericWeapons = Cleric.gettingWeapons("simple");
                     List<string> clericFeats = Cleric.gettingFeats();
+                    List<string> clericArmour = Cleric.gettingArmours("heavy");
+                    List<string> clericEquipment = Cleric.gettingEquipment();
 
-                    foreach(string weapon in clericWeapons)
+
+                    foreach (string weapon in clericWeapons)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
                     }
@@ -175,6 +189,15 @@ namespace M_A_G_I_C_K
                     foreach (string feat in clericFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+
+                    foreach (string armour in clericArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in clericEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
                     }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
@@ -260,6 +283,10 @@ namespace M_A_G_I_C_K
                     this.BackColor = ColorTranslator.FromHtml("#B085E9");
                     List<string> wizardWeapon = Wizard.gettingWeapons("simple");
                     List<string> wizardFeats = Wizard.gettingFeats();
+                    List<string> wizardArmour = Wizard.gettingArmours("light");
+                    List<string> wizardEquipment = Wizard.gettingEquipment();
+
+
 
                     foreach (string weapon in wizardWeapon)
                     {
@@ -268,6 +295,14 @@ namespace M_A_G_I_C_K
                     foreach (string feat in wizardFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach (string armour in wizardArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in wizardEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
                     }
 
                     List<string> WizCantrip = Wizard.gettingSpells(0);
@@ -346,13 +381,17 @@ namespace M_A_G_I_C_K
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
+
+                    List<string> rogueWeapons = Rouge.gettingWeapons("martial");
+                    List<string> rogueFeats = Rouge.gettingFeats();
+                    List<string> rogueArmour = Rouge.gettingArmours("medium");
+                    List<string> rogueEquipment = Rouge.gettingEquipment();
+
                     backgroundTb1.Text = "History: Criminal"
                        + Environment.NewLine + "Trinket: a set of loaded dice"
                        + Environment.NewLine + "Personality: Happy-go-lucky"
                        + Environment.NewLine + "Mannerisms: you whistle songs when in thought.";
                     this.BackColor = ColorTranslator.FromHtml("#A0A5AA");
-                    List<string> rogueWeapons = Cleric.gettingWeapons("martial");
-                    List<string> rogueFeats = Fighter.gettingFeats();
 
 
                     foreach (string weapon in rogueWeapons)
@@ -363,6 +402,14 @@ namespace M_A_G_I_C_K
                     foreach (string feat in rogueFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach(string armour in rogueArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in rogueEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
                     }
 
 
@@ -399,6 +446,10 @@ namespace M_A_G_I_C_K
                     this.BackColor = ColorTranslator.FromHtml("#F4A261");
                     List<string> bardWeapons = Bard.gettingWeapons("simple");
                     List<string> bardFeats = Bard.gettingFeats();
+                    List<string> bardArmour = Bard.gettingArmours("light");
+                    List<string> bardEquipment = Bard.gettingEquipment();
+
+
 
                     foreach (string weapon in bardWeapons)
                     {
@@ -409,6 +460,15 @@ namespace M_A_G_I_C_K
                     {
                         FeatCheckBox.Items.Add(feat);
                     }
+                    foreach(string armour in bardArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in bardEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
+                    }
+
                     //getting the names of all the bard spells
                     List<string> BardCantrips = Bard.gettingSpells(0);
                     List<string> BardLevelOne = Bard.gettingSpells(1);

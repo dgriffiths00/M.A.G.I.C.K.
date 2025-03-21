@@ -25,7 +25,6 @@ using static iText.Signatures.LtvVerification;
 
 namespace M_A_G_I_C_K
 {
-
     public class Character
     {
         //this will have all the info for the character
@@ -291,7 +290,6 @@ namespace M_A_G_I_C_K
 
         
         
-
         private void calculatingStats()
         {
             //ac, hitpoints, etc
@@ -428,7 +426,6 @@ namespace M_A_G_I_C_K
 
             //loop for cantrips
         }
-
         
     }
 
@@ -459,6 +456,8 @@ namespace M_A_G_I_C_K
         public static List<string> gettingWeapons(string WeaponType)
         {
             List<string> currentWeapon = new List<string>();
+            string weaponQuery = "";
+
 
             string weaponQuery = "";
 
@@ -496,7 +495,7 @@ namespace M_A_G_I_C_K
 
         public static List<string> gettingFeats()
         {
-            List<string> currentWeapon = new List<string>();
+            List<string> currentFeats = new List<string>();
 
             using (var conn = new SQLiteConnection(connectionString))
             {
@@ -512,13 +511,82 @@ namespace M_A_G_I_C_K
                         {
                             string name = reader.GetString(reader.GetOrdinal("Name"));
 
-                            currentWeapon.Add(name);
+                            currentFeats.Add(name);
                         }
                     }
                 }
-                return currentWeapon;
+                return currentFeats;
             }
 
+        }
+
+        public static List<string> gettingArmours(string ArmorType)
+        {
+            List<string> currentArmour = new List<string>();
+            string armourQuery = "";
+
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                if (ArmorType == "light")
+                {
+                    armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' ";
+
+                }
+                else if (ArmorType == "medium")
+                {
+                    armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' OR ArmorType = 'Medium' OR ArmorType= 'All'";
+
+                }
+                else if (ArmorType == "heavy")
+                {
+                    armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' OR ArmorType = 'Medium' OR ArmorType= 'Heavy' OR ArmorType= 'All'";
+
+                }
+
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(armourQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentArmour.Add(name);
+                        }
+                    }
+                }
+                return currentArmour;
+            }
+        }
+
+        public static List<string> gettingEquipment()
+        {
+            List<string> currentEquipment = new List<string>();
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                string featquery = "SELECT Name FROM GenEquipment";
+
+                using (SQLiteCommand command = new SQLiteCommand(featquery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("Name"));
+
+                            currentEquipment.Add(name);
+                        }
+                    }
+                }
+                return currentEquipment;
+            }
         }
 
     }

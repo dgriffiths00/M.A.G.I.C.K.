@@ -593,7 +593,7 @@
             // backgroundTb
             // 
             this.backgroundTb.AutoSize = true;
-            this.backgroundTb.Location = new System.Drawing.Point(209, 98);
+            this.backgroundTb.Location = new System.Drawing.Point(209, 102);
             this.backgroundTb.Name = "backgroundTb";
             this.backgroundTb.Size = new System.Drawing.Size(80, 16);
             this.backgroundTb.TabIndex = 48;
@@ -647,7 +647,7 @@
             // playerIcon
             // 
             this.playerIcon.Image = global::So_You_Wanna_Make_A_Dnd_Character.Properties.Resources.Default;
-            this.playerIcon.Location = new System.Drawing.Point(11, 12);
+            this.playerIcon.Location = new System.Drawing.Point(11, 19);
             this.playerIcon.Name = "playerIcon";
             this.playerIcon.Size = new System.Drawing.Size(192, 192);
             this.playerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
