@@ -117,6 +117,7 @@ namespace M_A_G_I_C_K
                         + Environment.NewLine + "Trinket: a small, bronze sword necklace."
                         + Environment.NewLine + "Personality: Pragmatic"
                         + Environment.NewLine + "Mannerisms: you fidget with your equipement.";
+                    this.BackColor = ColorTranslator.FromHtml("#E57373");
                     SpellCheckBox.Items.Add("Fighters do not get spells");
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
                     List<string> fighterFeats = Fighter.gettingFeats();
@@ -161,6 +162,8 @@ namespace M_A_G_I_C_K
                        + Environment.NewLine + "Trinket: an ornate box inscribed with verse."
                        + Environment.NewLine + "Personality: Diligent"
                        + Environment.NewLine + "Mannerisms: you collect trinkets from whereever you go.";
+                    this.BackColor = ColorTranslator.FromHtml("#5A9BD4");
+
                     List<string> clericWeapons = Cleric.gettingWeapons("simple");
                     List<string> clericFeats = Cleric.gettingFeats();
 
@@ -245,6 +248,7 @@ namespace M_A_G_I_C_K
                        + Environment.NewLine + "Trinket: a set of used writing quills."
                        + Environment.NewLine + "Personality: Observant"
                        + Environment.NewLine + "Mannerisms: you like to eat colourful food.";
+                    this.BackColor = ColorTranslator.FromHtml("#B085E9");
                     List<string> wizardWeapon = Wizard.gettingWeapons("simple");
                     List<string> wizardFeats = Wizard.gettingFeats();
 
@@ -304,6 +308,7 @@ namespace M_A_G_I_C_K
                        + Environment.NewLine + "Trinket: a set of loaded dice"
                        + Environment.NewLine + "Personality: Happy-go-lucky"
                        + Environment.NewLine + "Mannerisms: you whistle songs when in thought.";
+                    this.BackColor = ColorTranslator.FromHtml("#7BC96F");
                     List<string> rogueWeapons = Cleric.gettingWeapons("martial");
                     List<string> rogueFeats = Fighter.gettingFeats();
 
@@ -349,6 +354,7 @@ namespace M_A_G_I_C_K
                        + Environment.NewLine + "Trinket: a set of three cups and rubber ball."
                        + Environment.NewLine + "Personality: Daring."
                        + Environment.NewLine + "Mannerisms: you talk to the air ";
+                    this.BackColor = ColorTranslator.FromHtml("#F4A261");
                     List<string> bardWeapons = Bard.gettingWeapons("simple");
                     List<string> bardFeats = Bard.gettingFeats();
 
@@ -411,6 +417,7 @@ namespace M_A_G_I_C_K
                         + Environment.NewLine + "Trinket:         [who is to say what is valuable]"
                         + Environment.NewLine + "Personality:   [good or ill, you turn heads]"
                         + Environment.NewLine + "Mannerisms: [everyone has their quirks]";
+                    this.BackColor = ColorTranslator.FromHtml("#A67C52");
                     break;
             }
 
