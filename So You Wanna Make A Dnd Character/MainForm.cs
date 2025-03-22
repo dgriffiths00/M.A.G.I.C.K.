@@ -113,8 +113,8 @@ namespace M_A_G_I_C_K
                     // +1 to INT   (went w/ high elf bc idk)
                     try
                     {
-                        SMRTCheck.Items.Add("+2 Racial Bonus");
-                        SMRTStats.Value = SMRTStats.Value + 2;
+                        SMRTCheck.Items.Add("+1 Racial Bonus");
+                        SMRTStats.Value = SMRTStats.Value + 1;
                     }
                     catch
                     {
