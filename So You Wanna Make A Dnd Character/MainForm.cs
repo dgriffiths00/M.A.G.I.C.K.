@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web.Routing;
 using System.Windows.Forms;
 using static iText.Signatures.LtvVerification;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace M_A_G_I_C_K
 {
@@ -60,27 +61,129 @@ namespace M_A_G_I_C_K
 
             switch (RaceDropBox.SelectedIndex)
             {
-                case 1:
-                    //human
+                case 1: //human
+                //--- I didn't know what to do so i gave +1 to 3 stats, same ASI just different.
+                    // +1 to STR
+                    STRCheck.Items.Add("+1 Racial Bonus");
+                    try
+                    {
+                        STRstats.Value = STRstats.Value + 1;
+                    }
+                    catch
+                    {
+                        STRstats.Value = 20;
+                        STRCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to INT
+                    try
+                    {
+                        SMRTCheck.Items.Add("+1 Racial Bonus");
+                        SMRTStats.Value = SMRTStats.Value + 1;
+                    }
+                    catch
+                    {
+                        SMRTStats.Value = 20;
+                        SMRTCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to WIS
+                    try
+                    {
+                        WISCheck.Items.Add("+1 Racial Bonus");
+                        WISstats.Value = WISstats.Value + 1;
+                    }
+                    catch
+                    {
+                        WISstats.Value = 20;
+                        WISCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    break;
+                case 2: //elf
+                    // +2 to DEX
+                    DEXCheck.Items.Add("+2 Racial Bonus");
+                    try
+                    {
+                        DEXCheck.Items.Add("+2 Racial Bonus");
+                        DEXStats.Value = DEXStats.Value + 2;
+                    }
+                    catch
+                    {
+                        DEXStats.Value = 20;
+                        DEXCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to INT   (went w/ high elf bc idk)
+                    try
+                    {
+                        SMRTCheck.Items.Add("+2 Racial Bonus");
+                        SMRTStats.Value = SMRTStats.Value + 2;
+                    }
+                    catch
+                    {
+                        SMRTStats.Value = 20;
+                        SMRTCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    break;
+                case 3: //Dwarf
+                    //+2 to CON
+                    try
+                    {
+                        CONCheck.Items.Add("+2 Racial Bonus");
+                        CONStats.Value = CONStats.Value + 2;
+                    }
+                    catch
+                    {
+                        CONStats.Value = 20;
+                        CONCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
 
                     break;
-                case 2:
-                    //elf
+                case 4: //orc
 
+                    // +2 to STR
+                    try
+                    {                    
+                        STRCheck.Items.Add("+2 Racial Bonus");
+                        STRstats.Value = STRstats.Value + 2;
+                    }
+                    catch
+                    {
+                        STRstats.Value = 20;
+                        STRCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to CON
+                     try
+                    {
+                        CONCheck.Items.Add("+1 Racial Bonus");
+                        CONStats.Value = CONStats.Value + 1;
+                    }
+                    catch
+                    {
+                        CONStats.Value = 20;
+                        CONCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
                     break;
-
-                case 3:
-                    //Dwarf
-
-                    break;
-
-                case 4:
-                    //orc
-                    STRCheck.Items.Add("+1 by Orc");
-                    break;
-
-                case 5:
-                    //DragonBorn
+                case 5: //DragonBorn
+                    // +2 to STR
+                    STRCheck.Items.Add("+2 Racial Bonus");
+                    try
+                    {
+                        STRstats.Value = STRstats.Value + 2;
+                    }
+                    catch
+                    {
+                        STRstats.Value = 20;
+                        STRCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to CHA
+                    try
+                    {                    
+                        CHACheck.Items.Add("+1 Racial Bonus");
+                        CHAStats.Value = CHAStats.Value + 1;
+                    }
+                    catch
+                    {
+                        CHAStats.Value = 20;
+                        CHACheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
 
                     break;
 

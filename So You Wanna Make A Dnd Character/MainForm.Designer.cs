@@ -201,7 +201,7 @@
             this.runBtn.Location = new System.Drawing.Point(532, 630);
             this.runBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.runBtn.Name = "runBtn";
-            this.runBtn.Size = new System.Drawing.Size(259, 37);
+            this.runBtn.Size = new System.Drawing.Size(281, 37);
             this.runBtn.TabIndex = 9;
             this.runBtn.Text = "Print Character";
             this.runBtn.UseVisualStyleBackColor = true;
@@ -320,7 +320,7 @@
             this.STRCheck.FormattingEnabled = true;
             this.STRCheck.Location = new System.Drawing.Point(639, 56);
             this.STRCheck.Name = "STRCheck";
-            this.STRCheck.Size = new System.Drawing.Size(146, 38);
+            this.STRCheck.Size = new System.Drawing.Size(174, 38);
             this.STRCheck.TabIndex = 26;
             // 
             // DEXCheck
@@ -328,7 +328,7 @@
             this.DEXCheck.FormattingEnabled = true;
             this.DEXCheck.Location = new System.Drawing.Point(639, 115);
             this.DEXCheck.Name = "DEXCheck";
-            this.DEXCheck.Size = new System.Drawing.Size(146, 38);
+            this.DEXCheck.Size = new System.Drawing.Size(174, 38);
             this.DEXCheck.TabIndex = 27;
             // 
             // CONCheck
@@ -336,7 +336,7 @@
             this.CONCheck.FormattingEnabled = true;
             this.CONCheck.Location = new System.Drawing.Point(639, 175);
             this.CONCheck.Name = "CONCheck";
-            this.CONCheck.Size = new System.Drawing.Size(146, 38);
+            this.CONCheck.Size = new System.Drawing.Size(174, 38);
             this.CONCheck.TabIndex = 28;
             // 
             // SMRTCheck
@@ -344,7 +344,7 @@
             this.SMRTCheck.FormattingEnabled = true;
             this.SMRTCheck.Location = new System.Drawing.Point(639, 237);
             this.SMRTCheck.Name = "SMRTCheck";
-            this.SMRTCheck.Size = new System.Drawing.Size(146, 38);
+            this.SMRTCheck.Size = new System.Drawing.Size(174, 38);
             this.SMRTCheck.TabIndex = 29;
             // 
             // WISCheck
@@ -352,7 +352,7 @@
             this.WISCheck.FormattingEnabled = true;
             this.WISCheck.Location = new System.Drawing.Point(639, 297);
             this.WISCheck.Name = "WISCheck";
-            this.WISCheck.Size = new System.Drawing.Size(146, 38);
+            this.WISCheck.Size = new System.Drawing.Size(174, 38);
             this.WISCheck.TabIndex = 30;
             // 
             // CHACheck
@@ -360,14 +360,14 @@
             this.CHACheck.FormattingEnabled = true;
             this.CHACheck.Location = new System.Drawing.Point(639, 357);
             this.CHACheck.Name = "CHACheck";
-            this.CHACheck.Size = new System.Drawing.Size(146, 38);
+            this.CHACheck.Size = new System.Drawing.Size(174, 38);
             this.CHACheck.TabIndex = 31;
             // 
             // StatRoll
             // 
             this.StatRoll.Location = new System.Drawing.Point(530, 406);
             this.StatRoll.Name = "StatRoll";
-            this.StatRoll.Size = new System.Drawing.Size(259, 39);
+            this.StatRoll.Size = new System.Drawing.Size(283, 39);
             this.StatRoll.TabIndex = 32;
             this.StatRoll.Text = "Stat Randomizer";
             this.StatRoll.UseVisualStyleBackColor = true;
@@ -712,7 +712,7 @@
             // 
             this.ProgressBarBtn.Location = new System.Drawing.Point(532, 599);
             this.ProgressBarBtn.Name = "ProgressBarBtn";
-            this.ProgressBarBtn.Size = new System.Drawing.Size(259, 26);
+            this.ProgressBarBtn.Size = new System.Drawing.Size(281, 26);
             this.ProgressBarBtn.TabIndex = 73;
             this.ProgressBarBtn.Text = "PROGRESS BAR SIZING";
             this.ProgressBarBtn.UseVisualStyleBackColor = true;
@@ -767,7 +767,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 684);
+            this.ClientSize = new System.Drawing.Size(825, 684);
             this.Controls.Add(this.randomNameLbl);
             this.Controls.Add(this.RanNameBtn);
             this.Controls.Add(this.spellbookLblCount);
