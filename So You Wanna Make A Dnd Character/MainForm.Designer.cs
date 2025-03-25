@@ -604,7 +604,7 @@
             this.backgroundTb1.Location = new System.Drawing.Point(209, 119);
             this.backgroundTb1.Multiline = true;
             this.backgroundTb1.Name = "backgroundTb1";
-            this.backgroundTb1.Size = new System.Drawing.Size(301, 94);
+            this.backgroundTb1.Size = new System.Drawing.Size(301, 89);
             this.backgroundTb1.TabIndex = 49;
             // 
             // spellbookLbl
