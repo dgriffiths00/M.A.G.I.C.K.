@@ -86,6 +86,7 @@
             this.spellbookLblCount = new System.Windows.Forms.Label();
             this.RanNameBtn = new System.Windows.Forms.Button();
             this.randomNameLbl = new System.Windows.Forms.Label();
+            this.randomAllBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -369,7 +370,7 @@
             this.StatRoll.Name = "StatRoll";
             this.StatRoll.Size = new System.Drawing.Size(283, 39);
             this.StatRoll.TabIndex = 32;
-            this.StatRoll.Text = "Stat Randomizer";
+            this.StatRoll.Text = "Attribute Randomizer";
             this.StatRoll.UseVisualStyleBackColor = true;
             this.StatRoll.Click += new System.EventHandler(this.StatRoll_Click);
             // 
@@ -639,9 +640,9 @@
             this.statsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statsLbl.Location = new System.Drawing.Point(538, 9);
             this.statsLbl.Name = "statsLbl";
-            this.statsLbl.Size = new System.Drawing.Size(233, 29);
+            this.statsLbl.Size = new System.Drawing.Size(237, 29);
             this.statsLbl.TabIndex = 53;
-            this.statsLbl.Text = "Character Statistics";
+            this.statsLbl.Text = "Character Attributes";
             // 
             // playerIcon
             // 
@@ -763,11 +764,21 @@
             this.randomNameLbl.TabIndex = 79;
             this.randomNameLbl.Text = "Random Name";
             // 
+            // randomAllBtn
+            // 
+            this.randomAllBtn.Location = new System.Drawing.Point(532, 451);
+            this.randomAllBtn.Name = "randomAllBtn";
+            this.randomAllBtn.Size = new System.Drawing.Size(283, 39);
+            this.randomAllBtn.TabIndex = 80;
+            this.randomAllBtn.Text = "Randomize All Fields";
+            this.randomAllBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 684);
+            this.Controls.Add(this.randomAllBtn);
             this.Controls.Add(this.randomNameLbl);
             this.Controls.Add(this.RanNameBtn);
             this.Controls.Add(this.spellbookLblCount);
@@ -903,6 +914,7 @@
         private System.Windows.Forms.Label spellbookLblCount;
         private System.Windows.Forms.Button RanNameBtn;
         private System.Windows.Forms.Label randomNameLbl;
+        private System.Windows.Forms.Button randomAllBtn;
     }
 }
 
