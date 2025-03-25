@@ -1147,10 +1147,14 @@ namespace M_A_G_I_C_K
             {
                 e.NewValue = CheckState.Unchecked;
             }
-
-            cantripLblCount.Text = "( "+ (CantripList.CheckedItems.Count + 1)+ " / 4 )";
-
-               
+            else if (e.NewValue == CheckState.Checked)
+            {
+                cantripLblCount.Text = "( " + (CantripList.CheckedItems.Count + 1) + " / 4 )";
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                cantripLblCount.Text = "( " + (CantripList.CheckedItems.Count - 1) + " / 4 )";
+            }
         }
 
         private void SpellCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -1159,8 +1163,14 @@ namespace M_A_G_I_C_K
             {
                 e.NewValue = CheckState.Unchecked;
             }
-
-            spellbookLblCount.Text = "( " + (SpellCheckBox.CheckedItems.Count + 1) + " / " + spellCaster.SpellAmountAllowed + " )";
+            else if (e.NewValue == CheckState.Checked)
+            {
+                spellbookLblCount.Text = "( " + (SpellCheckBox.CheckedItems.Count + 1) + " / " + spellCaster.SpellAmountAllowed + " )";
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                spellbookLblCount.Text = "( " + (SpellCheckBox.CheckedItems.Count - 1) + " / " + spellCaster.SpellAmountAllowed + " )";
+            }
 
         }
     }
