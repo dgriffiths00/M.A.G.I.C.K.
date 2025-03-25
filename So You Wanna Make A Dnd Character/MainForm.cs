@@ -1382,7 +1382,10 @@ namespace M_A_G_I_C_K
         }
         private void FeatCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-
+            if (e.NewValue == CheckState.Checked && ArmCheckbox.CheckedItems.Count == 3)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
         }
 
 

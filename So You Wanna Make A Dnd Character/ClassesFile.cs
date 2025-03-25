@@ -376,7 +376,7 @@ namespace M_A_G_I_C_K
             }
             else
             {
-                fillingPdf.RemovePage(1);
+                fillingPdf.RemovePage(2);
             }
 
             //all the fields to fill in are here
@@ -418,7 +418,7 @@ namespace M_A_G_I_C_K
             {
                 allFeats += thing + ", ";
             }
-            fields["Features And Traits"].SetValue(allFeats);
+            fields["Features and Traits"].SetValue(allFeats);
            
             string fullInventory = "";
             foreach (string item in _Equipment)
@@ -426,7 +426,7 @@ namespace M_A_G_I_C_K
                 fullInventory += item + ", ";
             }
             fields["Equipment"].SetValue(fullInventory);
-            fields["GD"].SetValue("150");
+            fields["GP"].SetValue("150");
 
 
             //weapons, sql query for that
@@ -447,12 +447,16 @@ namespace M_A_G_I_C_K
             //managing results
             if (result == DialogResult.Yes)
             {
-                //moving the stuff to desktop
 
+                string movementPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + _name + "CharacterSheet.pdf";
+
+                //moving the stuff to desktop
+                File.Move(CreationPath, movementPath);
+                MessageBox.Show("File Moved");
             }
             else 
-            { 
-
+            {
+                MessageBox.Show("File kept in application Storage");
             }
         }
         
