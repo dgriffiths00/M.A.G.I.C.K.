@@ -1,3 +1,4 @@
+using Org.BouncyCastle.Bcpg;
 using So_You_Wanna_Make_A_Dnd_Character;
 using System;
 using System.Collections.Generic;
@@ -997,12 +998,12 @@ namespace M_A_G_I_C_K
             int[] stats = new int[6];
 
             //change forloop to make more efficant
-            stats[0] = ran.Next(6, 21);
-            stats[1] = ran.Next(6, 21);
-            stats[2] = ran.Next(6, 21);
-            stats[3] = ran.Next(6, 21);
-            stats[4] = ran.Next(6, 21);
-            stats[5] = ran.Next(6, 21);
+            stats[0] = ran.Next(6, 18);
+            stats[1] = ran.Next(6, 18);
+            stats[2] = ran.Next(6, 18);
+            stats[3] = ran.Next(6, 18);
+            stats[4] = ran.Next(6, 18);
+            stats[5] = ran.Next(6, 18);
 
 
             
@@ -1019,7 +1020,6 @@ namespace M_A_G_I_C_K
         //will add value changed for all the stat nums, to update the profis bounus thingy        
         private void STRstats_ValueChanged(object sender, EventArgs e)
         {
-
             switch (STRstats.Value)
             {
                 case 6: case 7:
@@ -1287,7 +1287,29 @@ namespace M_A_G_I_C_K
             string Background = "testing string!! uwu";
 
 
+            //equipment will be all stored in one variable, the [0] will be weapon, [1] armor and everything afterwards equipment
+            List<string> inventory = EquipmentCheckBox.CheckedItems.Cast<string>().ToList();
+            //adding armor should always be only one
+            foreach(string Arm in ArmCheckbox.CheckedItems)
+            {
+                inventory.Add(Arm);
+            }
+
+            //adding everythign else
+            foreach (string item in InventoryCheckbox.CheckedItems)
+            {
+                inventory.Add(item);
+            }
+
+            //getting all the feats
+            string[] feats = FeatCheckBox.CheckedItems.OfType<string>().ToArray(); 
+
+            //creating the confermaintion box
             CharacterShow show = null;
+            string message = "Are you done creating your character?";
+            string title = "Confirm Character?";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
 
             //final switch statment desciding if it's a spellcaster or not to decide what constructor it is using
             switch (SelectedClass)
@@ -1299,27 +1321,33 @@ namespace M_A_G_I_C_K
                     string[] cantrips = CantripList.CheckedItems.OfType<string>().ToArray();
                     string[] Spells = CantripList.CheckedItems.OfType<string>().ToArray();
 
-                    Character createdCharSpell = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background, cantrips, Spells);
+                    Character createdCharSpell = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background, cantrips, Spells, inventory, feats);
 
-                    //opneing form 
-                    this.Hide();
-                    show = new CharacterShow(createdCharSpell);
-                    show.Show();
-                    show.Closed += (s, args) => this.Close();
-
+                    if (result == DialogResult.Yes)
+                    {
+                        //opening new form
+                        this.Hide();
+                        show = new CharacterShow(createdCharSpell);
+                        show.Show();
+                        show.Closed += (s, args) => this.Close();
+                    }
+                    
                     break;
 
                 default:
-                    Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background);
+                    Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background, inventory, feats);
 
-                    //Opening Form
-                    this.Hide();
-                    show = new CharacterShow(createdChar);
-                    show.Show();
-                    show.Closed += (s, args) => this.Close();
+                    if (result == DialogResult.Yes)
+                    {
+                        //opening new form
+                        this.Hide();
+                        show = new CharacterShow(createdChar);
+                        show.Show();
+                        show.Closed += (s, args) => this.Close();
+                    }
 
                     break;
-            }
+            }            
         }
 
         //these will limit the number of the checked boxes you can click
@@ -1353,10 +1381,32 @@ namespace M_A_G_I_C_K
             {
                 spellbookLblCount.Text = "( " + (SpellCheckBox.CheckedItems.Count - 1) + " / " + spellCaster.SpellAmountAllowed + " )";
             }
-
+        }
+        
+        private void EquipmentCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && EquipmentCheckBox.CheckedItems.Count == 1)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
         }
 
-        
+        private void ArmCheckbox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && ArmCheckbox.CheckedItems.Count == 1)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
+        }
+        private void FeatCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && ArmCheckbox.CheckedItems.Count == 3)
+            {
+                e.NewValue = CheckState.Unchecked;
+            }
+        }
+
+
         //For Random Name Generator
         //this was oddly painful to make happen ~ Duncan
         private void RanNameBtn_Click(object sender, EventArgs e)
@@ -1436,5 +1486,7 @@ namespace M_A_G_I_C_K
         
             }
         }
+
+        
     }
 }
