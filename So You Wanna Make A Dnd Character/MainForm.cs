@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web.Routing;
 using System.Windows.Forms;
 using static iText.Signatures.LtvVerification;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace M_A_G_I_C_K
 {
@@ -30,6 +31,7 @@ namespace M_A_G_I_C_K
         {
             InitializeComponent();
         }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -60,27 +62,129 @@ namespace M_A_G_I_C_K
 
             switch (RaceDropBox.SelectedIndex)
             {
-                case 1:
-                    //Human
+                case 1: //human
+                //--- I didn't know what to do so i gave +1 to 3 stats, same ASI just different.
+                    // +1 to STR
+                    STRCheck.Items.Add("+1 Racial Bonus");
+                    try
+                    {
+                        STRstats.Value = STRstats.Value + 1;
+                    }
+                    catch
+                    {
+                        STRstats.Value = 20;
+                        STRCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to INT
+                    try
+                    {
+                        SMRTCheck.Items.Add("+1 Racial Bonus");
+                        SMRTStats.Value = SMRTStats.Value + 1;
+                    }
+                    catch
+                    {
+                        SMRTStats.Value = 20;
+                        SMRTCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to WIS
+                    try
+                    {
+                        WISCheck.Items.Add("+1 Racial Bonus");
+                        WISstats.Value = WISstats.Value + 1;
+                    }
+                    catch
+                    {
+                        WISstats.Value = 20;
+                        WISCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    break;
+                case 2: //elf
+                    // +2 to DEX
+                    DEXCheck.Items.Add("+2 Racial Bonus");
+                    try
+                    {
+                        DEXCheck.Items.Add("+2 Racial Bonus");
+                        DEXStats.Value = DEXStats.Value + 2;
+                    }
+                    catch
+                    {
+                        DEXStats.Value = 20;
+                        DEXCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to INT   (went w/ high elf bc idk)
+                    try
+                    {
+                        SMRTCheck.Items.Add("+1 Racial Bonus");
+                        SMRTStats.Value = SMRTStats.Value + 1;
+                    }
+                    catch
+                    {
+                        SMRTStats.Value = 20;
+                        SMRTCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    break;
+                case 3: //Dwarf
+                    //+2 to CON
+                    try
+                    {
+                        CONCheck.Items.Add("+2 Racial Bonus");
+                        CONStats.Value = CONStats.Value + 2;
+                    }
+                    catch
+                    {
+                        CONStats.Value = 20;
+                        CONCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
 
                     break;
-                case 2:
-                    //elf
+                case 4: //orc
 
+                    // +2 to STR
+                    try
+                    {                    
+                        STRCheck.Items.Add("+2 Racial Bonus");
+                        STRstats.Value = STRstats.Value + 2;
+                    }
+                    catch
+                    {
+                        STRstats.Value = 20;
+                        STRCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to CON
+                     try
+                    {
+                        CONCheck.Items.Add("+1 Racial Bonus");
+                        CONStats.Value = CONStats.Value + 1;
+                    }
+                    catch
+                    {
+                        CONStats.Value = 20;
+                        CONCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
                     break;
-
-                case 3:
-                    //Dwarf
-
-                    break;
-
-                case 4:
-                    //orc
-                    STRCheck.Items.Add("+1 by Orc");
-                    break;
-
-                case 5:
-                    //DragonBorn
+                case 5: //DragonBorn
+                    // +2 to STR
+                    STRCheck.Items.Add("+2 Racial Bonus");
+                    try
+                    {
+                        STRstats.Value = STRstats.Value + 2;
+                    }
+                    catch
+                    {
+                        STRstats.Value = 20;
+                        STRCheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
+                    // +1 to CHA
+                    try
+                    {                    
+                        CHACheck.Items.Add("+1 Racial Bonus");
+                        CHAStats.Value = CHAStats.Value + 1;
+                    }
+                    catch
+                    {
+                        CHAStats.Value = 20;
+                        CHACheck.Items.Add("Racial bonus not applied, natural score may not exceed 20");
+                    }
 
                     break;
 
@@ -97,6 +201,7 @@ namespace M_A_G_I_C_K
             FeatCheckBox.Items.Clear();
             SpellCheckBox.Items.Clear();
             CantripList.Items.Clear();
+            ArmCheckbox.Items.Clear();
 
             string linkToImagine = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Resources\";
 
@@ -123,11 +228,12 @@ namespace M_A_G_I_C_K
 
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
                     List<string> fighterFeats = Fighter.gettingFeats();
+                    List<string> fighterArmour = Fighter.gettingArmours("heavy");
+                    List<string> fighterEquipment = Fighter.gettingEquipment();
 
                     //removing cantrip label since it is now seen
                     cantripLblCount.Visible = false;
-                    spellbookLblCount.Visible = false;
-
+                    spellbookLblCount.Visible = false;     
 
                     foreach (string weapon in fighterWeapons)
                     {
@@ -138,25 +244,33 @@ namespace M_A_G_I_C_K
                     {
                          FeatCheckBox.Items.Add(feat);
                     }
-
+                    foreach (string armour in fighterArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    
+                    foreach (string trinket in fighterEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
+                    }
                     /*second switch statment for each level
 
                     ////commented out jic you want it for a reason, I currently see this code as defunct at the moment
                     ////
                     ////regarding feats, we should have a counter that displays selections available, upon threshold (counter reaching zero), user should be blocked from selecting more
                     ////we could use this statement for updating selection choices and limitations for feats/lvl
- 
+
                     //switch (LevelPicker.Value)
                     //{
                     //    case 1:
 
                     //        break;
                     //    case 2:
-                         
+
 
                     //        break;
                     //    case 3:
-                            
+
 
                     //        break;
                     }*/
@@ -172,12 +286,16 @@ namespace M_A_G_I_C_K
 
                     List<string> clericWeapons = Cleric.gettingWeapons("simple");
                     List<string> clericFeats = Cleric.gettingFeats();
+                    List<string> clericArmour = Cleric.gettingArmours("heavy");
+                    List<string> clericEquipment = Cleric.gettingEquipment();
+
 
                     //displaying the counter for spells
                     cantripLblCount.Visible = true;
                     spellbookLblCount.Visible = true;
 
-                    foreach(string weapon in clericWeapons)
+  
+                    foreach (string weapon in clericWeapons)
                     {
                         EquipmentCheckBox.Items.Add(weapon);
                     }
@@ -185,6 +303,15 @@ namespace M_A_G_I_C_K
                     foreach (string feat in clericFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+
+                    foreach (string armour in clericArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in clericEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
                     }
 
                     List<string> ClericCantrip = Cleric.gettingSpells(0);
@@ -267,6 +394,10 @@ namespace M_A_G_I_C_K
                     this.BackColor = ColorTranslator.FromHtml("#B085E9");
                     List<string> wizardWeapon = Wizard.gettingWeapons("simple");
                     List<string> wizardFeats = Wizard.gettingFeats();
+                    List<string> wizardArmour = Wizard.gettingArmours("light");
+                    List<string> wizardEquipment = Wizard.gettingEquipment();
+
+
 
                     //displaying the counter for spells
                     cantripLblCount.Visible = true;
@@ -279,6 +410,14 @@ namespace M_A_G_I_C_K
                     foreach (string feat in wizardFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach (string armour in wizardArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in wizardEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
                     }
 
                     List<string> WizCantrip = Wizard.gettingSpells(0);
@@ -354,13 +493,17 @@ namespace M_A_G_I_C_K
                     //Rouge
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
+
+                    List<string> rogueWeapons = Rouge.gettingWeapons("martial");
+                    List<string> rogueFeats = Rouge.gettingFeats();
+                    List<string> rogueArmour = Rouge.gettingArmours("medium");
+                    List<string> rogueEquipment = Rouge.gettingEquipment();
+
                     backgroundTb1.Text = "History: Criminal"
                        + Environment.NewLine + "Trinket: a set of loaded dice"
                        + Environment.NewLine + "Personality: Happy-go-lucky"
                        + Environment.NewLine + "Mannerisms: you whistle songs when in thought.";
                     this.BackColor = ColorTranslator.FromHtml("#A0A5AA");
-                    List<string> rogueWeapons = Cleric.gettingWeapons("martial");
-                    List<string> rogueFeats = Fighter.gettingFeats();
 
                     //removing cantrip
                     cantripLblCount.Visible = false;
@@ -375,6 +518,14 @@ namespace M_A_G_I_C_K
                     foreach (string feat in rogueFeats)
                     {
                         FeatCheckBox.Items.Add(feat);
+                    }
+                    foreach(string armour in rogueArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in rogueEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
                     }
 
 
@@ -411,6 +562,10 @@ namespace M_A_G_I_C_K
                     this.BackColor = ColorTranslator.FromHtml("#F4A261");
                     List<string> bardWeapons = Bard.gettingWeapons("simple");
                     List<string> bardFeats = Bard.gettingFeats();
+                    List<string> bardArmour = Bard.gettingArmours("light");
+                    List<string> bardEquipment = Bard.gettingEquipment();
+
+
 
                     //displaying the counter for spells
                     cantripLblCount.Visible = true;
@@ -425,6 +580,15 @@ namespace M_A_G_I_C_K
                     {
                         FeatCheckBox.Items.Add(feat);
                     }
+                    foreach(string armour in bardArmour)
+                    {
+                        ArmCheckbox.Items.Add(armour);
+                    }
+                    foreach (string trinket in bardEquipment)
+                    {
+                        InventoryCheckbox.Items.Add(trinket);
+                    }
+
                     //getting the names of all the bard spells
                     List<string> BardCantrips = Bard.gettingSpells(0);
                     List<string> BardLevelOne = Bard.gettingSpells(1);
@@ -1172,6 +1336,87 @@ namespace M_A_G_I_C_K
                 spellbookLblCount.Text = "( " + (SpellCheckBox.CheckedItems.Count - 1) + " / " + spellCaster.SpellAmountAllowed + " )";
             }
 
+        }
+
+        
+        //For Random Name Generator
+        //this was oddly painful to make happen ~ Duncan
+        private void RanNameBtn_Click(object sender, EventArgs e)
+        {
+            //connection string to pull names from database
+            string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
+
+            List<string> firstNameList = new List<string>();
+            List<string> secondNameList = new List<string>();
+            Random rng = new Random();
+
+            //for getting race specific for query
+            string currentRace = RaceDropBox.Text.ToLower();
+           
+            //variables to store official selection in case of need to reuse post-connection close
+            string randomFname = "";
+            string randomLname = "";
+
+            //queries for pulling from db, $ allows to insert variable
+            string fnameQuery = $"SELECT name FROM Names WHERE nameType = 'fname' AND race = '{currentRace}'";
+            string lnameQuery = $"SELECT name FROM Names WHERE nameType = 'lname' AND race = '{currentRace}'";
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                //query connection for first name
+                using (SQLiteCommand command = new SQLiteCommand(fnameQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("name"));
+
+                            firstNameList.Add(name);
+                        }
+                    }
+                }
+                //query connection for last name
+                using (SQLiteCommand command = new SQLiteCommand(lnameQuery, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(reader.GetOrdinal("name"));
+
+                            secondNameList.Add(name);
+                        }
+                    }
+                }
+
+                //checks to see if lists are empty jic users are dumb and click the button w/o a class
+                if (firstNameList.Count == 0 || secondNameList.Count == 0)
+                {
+                    // message box to tell users to check their race selection >:(
+                    MessageBox.Show("No names found? Make sure you have selected a race!");  
+                    
+                    //so it doesnt explode the damn program
+                    return;  
+                }
+
+                //ints to store a randomly selected index              
+                int fnameRngSelection = rng.Next(firstNameList.Count);
+                int lnameRngSelection = rng.Next(secondNameList.Count);
+
+                //storing the name selected
+                randomFname = firstNameList[fnameRngSelection];
+                randomLname = secondNameList[lnameRngSelection];
+   
+                //assigning the data
+                FirstNameTxt.Text = randomFname;
+                SecondNameTxt.Text = randomLname;
+
+                conn.Close();
+        
+            }
         }
     }
 }
