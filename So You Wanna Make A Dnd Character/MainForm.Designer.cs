@@ -731,9 +731,9 @@
             this.cantripLblCount.AutoSize = true;
             this.cantripLblCount.Location = new System.Drawing.Point(103, 220);
             this.cantripLblCount.Name = "cantripLblCount";
-            this.cantripLblCount.Size = new System.Drawing.Size(48, 16);
+            this.cantripLblCount.Size = new System.Drawing.Size(45, 16);
             this.cantripLblCount.TabIndex = 75;
-            this.cantripLblCount.Text = "( X / Y )";
+            this.cantripLblCount.Text = "( 0 / 4 )";
             // 
             // spellbookLblCount
             // 
