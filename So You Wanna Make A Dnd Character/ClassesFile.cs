@@ -38,13 +38,19 @@ namespace M_A_G_I_C_K
         private string _name, _background;
         //created via inherented class
         private DndClass _CharClass;
+        private spellCaster _SpellCaster;
         //created via inherented class
         private DndRace _CharRace;
+        //equitment
+        private string _armor, _weapon;
+        private List<string> _Equipment = new List<string>();
+        //feats
+        private string[] _feats;
         
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
-        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background) 
+        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background, List<string> inventory, string[] feats) 
         {
             
             /*RaceDropDown
@@ -137,6 +143,18 @@ namespace M_A_G_I_C_K
                 _name = "TestingPDF";
             }
 
+            //adding all inventory stuff
+            _weapon = inventory[0];
+            _armor = inventory[1];
+
+            foreach (string iteam in inventory)
+            {
+                _Equipment.Add(iteam);
+            }
+
+            //feats
+            _feats = feats;
+
 
             /*
              * 
@@ -159,7 +177,7 @@ namespace M_A_G_I_C_K
             _background = Background;
         }
 
-        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background, string[] Cantrips, string[] Spells)
+        public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background, string[] Cantrips, string[] Spells, List<string> inventory, string[] feats)
         {
 
             /*RaceDropDown
@@ -220,17 +238,17 @@ namespace M_A_G_I_C_K
             {
                 case 2:
                     Console.WriteLine("selected cleric");
-                    _CharClass = new Cleric(Level, Cantrips, Spells);
+                    _SpellCaster = new Cleric(Level, Cantrips, Spells);
 
                     break;
                 case 3:
                     Console.WriteLine("Selected Wizard");
-                    _CharClass = new Wizard(Level, Cantrips, Spells);
+                    _SpellCaster = new Wizard(Level, Cantrips, Spells);
 
                     break;
                 case 5:
                     Console.WriteLine("Selected Bard");
-                    _CharClass = new Bard(Level, Cantrips, Spells);
+                    _SpellCaster = new Bard(Level, Cantrips, Spells);
 
                     break;
                 default:
@@ -258,6 +276,17 @@ namespace M_A_G_I_C_K
                 _name = "TestingPDF";
             }
 
+            //adding all inventory stuff
+            _weapon = inventory[0];
+            _armor = inventory[1];
+
+            foreach (string iteam in inventory)
+            {
+                _Equipment.Add(iteam);
+            }
+
+            //feats
+            _feats = feats;
 
             /*
              * 
@@ -343,7 +372,7 @@ namespace M_A_G_I_C_K
             if (_CharClass.spellCaster == true)
             {
                 //this will link to the fillingspells pdf
-                fillingSpellsPdf(fields);
+                _SpellCaster.fillingSpellsPdf(fields);
             }
             else
             {
@@ -356,7 +385,7 @@ namespace M_A_G_I_C_K
             fields["CharacterName"].SetValue(_name);
             fields["ClassLevel"].SetValue(_CharClass.CharClass + " " + _CharClass.Level);
             fields["Race"].SetValue(_CharRace.CharRace);
-            fields["Background"].SetValue(_background); //might need to change later dpeneding on how we do that backgrounds
+            fields["Background"].SetValue(_background); //might need to change later depeneding on how we do that backgrounds
 
             //side table for values
             fields["STR"].SetValue(_STR.ToString());
@@ -373,7 +402,7 @@ namespace M_A_G_I_C_K
             fields["WISmod"].SetValue(_StatBonus[4].ToString());
             fields["CHAmod"].SetValue(_StatBonus[5].ToString());
 
-            fields["Passive"].SetValue("");
+            fields["Passive"].SetValue(_WIS.ToString());
 
             //center thingy
             fields["AC"].SetValue("");
@@ -384,11 +413,23 @@ namespace M_A_G_I_C_K
             fields["HD"].SetValue("");
 
             //might need to concat a bunch of shit before inputting it
-            fields["Features And Traits"].SetValue("");
-            fields["Equipment"].SetValue("");
-            fields["GD"].SetValue("");
+            string allFeats = "";
+            foreach(string thing in _feats)
+            {
+                allFeats += thing + ", ";
+            }
+            fields["Features And Traits"].SetValue(allFeats);
+           
+            string fullInventory = "";
+            foreach (string item in _Equipment)
+            {
+                fullInventory += item + ", ";
+            }
+            fields["Equipment"].SetValue(fullInventory);
+            fields["GD"].SetValue("150");
 
-            //weapons
+
+            //weapons, sql query for that
             fields["Wpn Name"].SetValue("");
             fields["Wpn1 AtkBonus"].SetValue("");
             fields["Wpn1 Damage"].SetValue("");
@@ -398,7 +439,7 @@ namespace M_A_G_I_C_K
 
             //finally asking via pop up if you would like to move the file to your desktop
             //creating the message box
-            string message = "Would you like to move the new pdf to your desktop";
+            string message = "Would you like to move the new pdf to your desktop?";
             string title = "Move Pdf?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
@@ -413,18 +454,6 @@ namespace M_A_G_I_C_K
             { 
 
             }
-        }
-
-        private void fillingSpellsPdf(IDictionary<String, PdfFormField> fields)
-        {
-            //top section
-            fields["Spellcasting Class 2"].SetValue(_CharClass.CharClass);
-            fields["SpellcastingAbility 2"].SetValue("");
-            fields["SpellSaveDC  2"].SetValue("");
-            fields["SpellAtkBonus 2"].SetValue("");
-
-
-            //loop for cantrips
         }
         
     }
@@ -613,6 +642,19 @@ namespace M_A_G_I_C_K
         public string SpellAtkBonus
         {
             get { return _spellAtkBonus; }
+        }
+
+        public void fillingSpellsPdf(IDictionary<String, PdfFormField> fields)
+        {
+            //top section
+            fields["Spellcasting Class 2"].SetValue(_CharClass);
+            fields["SpellcastingAbility 2"].SetValue(_spellAbility);
+            fields["SpellSaveDC 2"].SetValue(_spellSaveDC);
+            fields["SpellAtkBonus 2"].SetValue(_spellAtkBonus);
+
+
+            //loop for cantrips
+
         }
 
     }
