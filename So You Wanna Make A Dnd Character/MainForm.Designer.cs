@@ -48,12 +48,6 @@
             this.SecondNameTxt = new System.Windows.Forms.TextBox();
             this.LevelPicker = new System.Windows.Forms.NumericUpDown();
             this.LevelLabel = new System.Windows.Forms.Label();
-            this.STRCheck = new System.Windows.Forms.CheckedListBox();
-            this.DEXCheck = new System.Windows.Forms.CheckedListBox();
-            this.CONCheck = new System.Windows.Forms.CheckedListBox();
-            this.SMRTCheck = new System.Windows.Forms.CheckedListBox();
-            this.WISCheck = new System.Windows.Forms.CheckedListBox();
-            this.CHACheck = new System.Windows.Forms.CheckedListBox();
             this.StatRoll = new System.Windows.Forms.Button();
             this.STRstats = new System.Windows.Forms.NumericUpDown();
             this.DEXStats = new System.Windows.Forms.NumericUpDown();
@@ -87,6 +81,12 @@
             this.RanNameBtn = new System.Windows.Forms.Button();
             this.randomNameLbl = new System.Windows.Forms.Label();
             this.randomAllBtn = new System.Windows.Forms.Button();
+            this.STRtbx = new System.Windows.Forms.RichTextBox();
+            this.DEXtbx = new System.Windows.Forms.RichTextBox();
+            this.CONtbx = new System.Windows.Forms.RichTextBox();
+            this.SMRTtbx = new System.Windows.Forms.RichTextBox();
+            this.WIStbx = new System.Windows.Forms.RichTextBox();
+            this.CHAtbx = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.LevelPicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.STRstats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DEXStats)).BeginInit();
@@ -298,7 +298,7 @@
             0});
             this.LevelPicker.Name = "LevelPicker";
             this.LevelPicker.ReadOnly = true;
-            this.LevelPicker.Size = new System.Drawing.Size(50, 44);
+            this.LevelPicker.Size = new System.Drawing.Size(50, 45);
             this.LevelPicker.TabIndex = 24;
             this.LevelPicker.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.LevelPicker.Value = new decimal(new int[] {
@@ -316,54 +316,6 @@
             this.LevelLabel.Size = new System.Drawing.Size(40, 16);
             this.LevelLabel.TabIndex = 25;
             this.LevelLabel.Text = "Level";
-            // 
-            // STRCheck
-            // 
-            this.STRCheck.FormattingEnabled = true;
-            this.STRCheck.Location = new System.Drawing.Point(639, 56);
-            this.STRCheck.Name = "STRCheck";
-            this.STRCheck.Size = new System.Drawing.Size(174, 38);
-            this.STRCheck.TabIndex = 26;
-            // 
-            // DEXCheck
-            // 
-            this.DEXCheck.FormattingEnabled = true;
-            this.DEXCheck.Location = new System.Drawing.Point(639, 115);
-            this.DEXCheck.Name = "DEXCheck";
-            this.DEXCheck.Size = new System.Drawing.Size(174, 38);
-            this.DEXCheck.TabIndex = 27;
-            // 
-            // CONCheck
-            // 
-            this.CONCheck.FormattingEnabled = true;
-            this.CONCheck.Location = new System.Drawing.Point(639, 175);
-            this.CONCheck.Name = "CONCheck";
-            this.CONCheck.Size = new System.Drawing.Size(174, 38);
-            this.CONCheck.TabIndex = 28;
-            // 
-            // SMRTCheck
-            // 
-            this.SMRTCheck.FormattingEnabled = true;
-            this.SMRTCheck.Location = new System.Drawing.Point(639, 237);
-            this.SMRTCheck.Name = "SMRTCheck";
-            this.SMRTCheck.Size = new System.Drawing.Size(174, 38);
-            this.SMRTCheck.TabIndex = 29;
-            // 
-            // WISCheck
-            // 
-            this.WISCheck.FormattingEnabled = true;
-            this.WISCheck.Location = new System.Drawing.Point(639, 297);
-            this.WISCheck.Name = "WISCheck";
-            this.WISCheck.Size = new System.Drawing.Size(174, 38);
-            this.WISCheck.TabIndex = 30;
-            // 
-            // CHACheck
-            // 
-            this.CHACheck.FormattingEnabled = true;
-            this.CHACheck.Location = new System.Drawing.Point(639, 357);
-            this.CHACheck.Name = "CHACheck";
-            this.CHACheck.Size = new System.Drawing.Size(174, 38);
-            this.CHACheck.TabIndex = 31;
             // 
             // StatRoll
             // 
@@ -391,7 +343,7 @@
             0});
             this.STRstats.Name = "STRstats";
             this.STRstats.ReadOnly = true;
-            this.STRstats.Size = new System.Drawing.Size(62, 35);
+            this.STRstats.Size = new System.Drawing.Size(62, 36);
             this.STRstats.TabIndex = 35;
             this.STRstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.STRstats.Value = new decimal(new int[] {
@@ -417,7 +369,7 @@
             0});
             this.DEXStats.Name = "DEXStats";
             this.DEXStats.ReadOnly = true;
-            this.DEXStats.Size = new System.Drawing.Size(62, 35);
+            this.DEXStats.Size = new System.Drawing.Size(62, 36);
             this.DEXStats.TabIndex = 36;
             this.DEXStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DEXStats.Value = new decimal(new int[] {
@@ -443,7 +395,7 @@
             0});
             this.CONStats.Name = "CONStats";
             this.CONStats.ReadOnly = true;
-            this.CONStats.Size = new System.Drawing.Size(62, 35);
+            this.CONStats.Size = new System.Drawing.Size(62, 36);
             this.CONStats.TabIndex = 37;
             this.CONStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CONStats.Value = new decimal(new int[] {
@@ -469,7 +421,7 @@
             0});
             this.SMRTStats.Name = "SMRTStats";
             this.SMRTStats.ReadOnly = true;
-            this.SMRTStats.Size = new System.Drawing.Size(62, 35);
+            this.SMRTStats.Size = new System.Drawing.Size(62, 36);
             this.SMRTStats.TabIndex = 38;
             this.SMRTStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SMRTStats.Value = new decimal(new int[] {
@@ -495,7 +447,7 @@
             0});
             this.WISstats.Name = "WISstats";
             this.WISstats.ReadOnly = true;
-            this.WISstats.Size = new System.Drawing.Size(62, 35);
+            this.WISstats.Size = new System.Drawing.Size(62, 36);
             this.WISstats.TabIndex = 39;
             this.WISstats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WISstats.Value = new decimal(new int[] {
@@ -521,7 +473,7 @@
             0});
             this.CHAStats.Name = "CHAStats";
             this.CHAStats.ReadOnly = true;
-            this.CHAStats.Size = new System.Drawing.Size(62, 35);
+            this.CHAStats.Size = new System.Drawing.Size(62, 36);
             this.CHAStats.TabIndex = 40;
             this.CHAStats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CHAStats.Value = new decimal(new int[] {
@@ -641,7 +593,7 @@
             this.statsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statsLbl.Location = new System.Drawing.Point(538, 9);
             this.statsLbl.Name = "statsLbl";
-            this.statsLbl.Size = new System.Drawing.Size(218, 29);
+            this.statsLbl.Size = new System.Drawing.Size(237, 29);
             this.statsLbl.TabIndex = 53;
             this.statsLbl.Text = "Character Attributes";
             // 
@@ -775,11 +727,65 @@
             this.randomAllBtn.Text = "Randomize All Fields";
             this.randomAllBtn.UseVisualStyleBackColor = true;
             // 
+            // STRtbx
+            // 
+            this.STRtbx.Location = new System.Drawing.Point(641, 56);
+            this.STRtbx.Name = "STRtbx";
+            this.STRtbx.Size = new System.Drawing.Size(174, 38);
+            this.STRtbx.TabIndex = 81;
+            this.STRtbx.Text = "";
+            // 
+            // DEXtbx
+            // 
+            this.DEXtbx.Location = new System.Drawing.Point(641, 117);
+            this.DEXtbx.Name = "DEXtbx";
+            this.DEXtbx.Size = new System.Drawing.Size(174, 38);
+            this.DEXtbx.TabIndex = 82;
+            this.DEXtbx.Text = "";
+            // 
+            // CONtbx
+            // 
+            this.CONtbx.Location = new System.Drawing.Point(641, 175);
+            this.CONtbx.Name = "CONtbx";
+            this.CONtbx.Size = new System.Drawing.Size(174, 38);
+            this.CONtbx.TabIndex = 83;
+            this.CONtbx.Text = "";
+            // 
+            // SMRTtbx
+            // 
+            this.SMRTtbx.Location = new System.Drawing.Point(641, 240);
+            this.SMRTtbx.Name = "SMRTtbx";
+            this.SMRTtbx.Size = new System.Drawing.Size(174, 38);
+            this.SMRTtbx.TabIndex = 84;
+            this.SMRTtbx.Text = "";
+            // 
+            // WIStbx
+            // 
+            this.WIStbx.Location = new System.Drawing.Point(641, 297);
+            this.WIStbx.Name = "WIStbx";
+            this.WIStbx.Size = new System.Drawing.Size(174, 38);
+            this.WIStbx.TabIndex = 85;
+            this.WIStbx.Text = "";
+            // 
+            // CHAtbx
+            // 
+            this.CHAtbx.Location = new System.Drawing.Point(641, 353);
+            this.CHAtbx.Name = "CHAtbx";
+            this.CHAtbx.Size = new System.Drawing.Size(174, 38);
+            this.CHAtbx.TabIndex = 86;
+            this.CHAtbx.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 684);
+            this.Controls.Add(this.CHAtbx);
+            this.Controls.Add(this.WIStbx);
+            this.Controls.Add(this.SMRTtbx);
+            this.Controls.Add(this.CONtbx);
+            this.Controls.Add(this.DEXtbx);
+            this.Controls.Add(this.STRtbx);
             this.Controls.Add(this.randomAllBtn);
             this.Controls.Add(this.randomNameLbl);
             this.Controls.Add(this.RanNameBtn);
@@ -813,12 +819,6 @@
             this.Controls.Add(this.DEXStats);
             this.Controls.Add(this.STRstats);
             this.Controls.Add(this.StatRoll);
-            this.Controls.Add(this.CHACheck);
-            this.Controls.Add(this.WISCheck);
-            this.Controls.Add(this.SMRTCheck);
-            this.Controls.Add(this.CONCheck);
-            this.Controls.Add(this.DEXCheck);
-            this.Controls.Add(this.STRCheck);
             this.Controls.Add(this.LevelLabel);
             this.Controls.Add(this.LevelPicker);
             this.Controls.Add(this.NameSLabel);
@@ -878,12 +878,6 @@
         private System.Windows.Forms.TextBox SecondNameTxt;
         private System.Windows.Forms.NumericUpDown LevelPicker;
         private System.Windows.Forms.Label LevelLabel;
-        private System.Windows.Forms.CheckedListBox STRCheck;
-        private System.Windows.Forms.CheckedListBox DEXCheck;
-        private System.Windows.Forms.CheckedListBox CONCheck;
-        private System.Windows.Forms.CheckedListBox SMRTCheck;
-        private System.Windows.Forms.CheckedListBox WISCheck;
-        private System.Windows.Forms.CheckedListBox CHACheck;
         private System.Windows.Forms.Button StatRoll;
         private System.Windows.Forms.NumericUpDown STRstats;
         private System.Windows.Forms.NumericUpDown DEXStats;
@@ -917,6 +911,12 @@
         private System.Windows.Forms.Button RanNameBtn;
         private System.Windows.Forms.Label randomNameLbl;
         private System.Windows.Forms.Button randomAllBtn;
+        private System.Windows.Forms.RichTextBox STRtbx;
+        private System.Windows.Forms.RichTextBox DEXtbx;
+        private System.Windows.Forms.RichTextBox CONtbx;
+        private System.Windows.Forms.RichTextBox SMRTtbx;
+        private System.Windows.Forms.RichTextBox WIStbx;
+        private System.Windows.Forms.RichTextBox CHAtbx;
     }
 }
 
