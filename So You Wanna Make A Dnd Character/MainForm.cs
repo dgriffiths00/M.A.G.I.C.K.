@@ -1301,7 +1301,7 @@ namespace M_A_G_I_C_K
                 case 5:
                     //adding spells and cantrips
                     string[] cantrips = CantripList.CheckedItems.OfType<string>().ToArray();
-                    string[] Spells = CantripList.CheckedItems.OfType<string>().ToArray();
+                    string[] Spells = SpellCheckBox.CheckedItems.OfType<string>().ToArray();
 
                     Character createdCharSpell = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background, cantrips, Spells, inventory, feats);
 

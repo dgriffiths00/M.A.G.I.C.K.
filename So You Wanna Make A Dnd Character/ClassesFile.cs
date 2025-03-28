@@ -39,6 +39,7 @@ namespace M_A_G_I_C_K
         //created via inherented class
         private DndClass _CharClass;
         private spellCaster _SpellCaster;
+        protected Boolean _spellCaster;
         //created via inherented class
         private DndRace _CharRace;
         //equitment
@@ -46,6 +47,7 @@ namespace M_A_G_I_C_K
         private List<string> _Equipment = new List<string>();
         //feats
         private string[] _feats;
+
         
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
@@ -126,6 +128,9 @@ namespace M_A_G_I_C_K
 
                     break;
             }
+
+            //setting the spellcaster
+            _spellCaster = false;
 
             //Both the Class and race has been selected this will then go into calculating the other shit
 
@@ -239,16 +244,19 @@ namespace M_A_G_I_C_K
                 case 2:
                     Console.WriteLine("selected cleric");
                     _SpellCaster = new Cleric(Level, Cantrips, Spells);
+                    _CharClass = new Cleric(Level, Cantrips, Spells);
 
                     break;
                 case 3:
                     Console.WriteLine("Selected Wizard");
                     _SpellCaster = new Wizard(Level, Cantrips, Spells);
+                    _CharClass = new Cleric(Level, Cantrips, Spells);
 
                     break;
                 case 5:
                     Console.WriteLine("Selected Bard");
                     _SpellCaster = new Bard(Level, Cantrips, Spells);
+                    _CharClass = new Cleric(Level, Cantrips, Spells);
 
                     break;
                 default:
@@ -258,6 +266,9 @@ namespace M_A_G_I_C_K
 
                     break;
             }
+
+            //setting the spellcaster
+            _spellCaster = true;
 
             //Both the Class and race has been selected this will then go into calculating the other shit
 
@@ -348,6 +359,9 @@ namespace M_A_G_I_C_K
 
             string basePath = pathToPDFFolder + "DnD_BaseSheet.pdf";
 
+            //sql
+            string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
+
             //creating a file at this location
             using (FileStream fs = File.Create(CreationPath));
             
@@ -369,21 +383,23 @@ namespace M_A_G_I_C_K
             PdfAcroForm form = PdfFormCreator.GetAcroForm(fillingPdf, true);
             IDictionary<String, PdfFormField> fields = form.GetAllFormFields();
 
-            if (_CharClass.spellCaster == true)
+            if (_spellCaster == true)
             {
                 //this will link to the fillingspells pdf
                 _SpellCaster.fillingSpellsPdf(fields);
+
             }
             else
             {
                 fillingPdf.RemovePage(2);
+
             }
 
             //all the fields to fill in are here
             //using this fields[""].SetValue("");
             //sections on the top
             fields["CharacterName"].SetValue(_name);
-            fields["ClassLevel"].SetValue(_CharClass.CharClass + " " + _CharClass.Level);
+            fields["ClassLevel"].SetValue(_CharClass.CharClassName + " " + _CharClass.Level);
             fields["Race"].SetValue(_CharRace.CharRace);
             fields["Background"].SetValue(_background); //might need to change later depeneding on how we do that backgrounds
 
@@ -408,7 +424,7 @@ namespace M_A_G_I_C_K
             fields["AC"].SetValue("");
             fields["Speed"].SetValue(_CharRace.Speed);
             fields["HPMax"].SetValue("");
-            fields["Initiative"].SetValue("");
+            fields["Initiative"].SetValue(_StatBonus[1].ToString());
             fields["HDTotal"].SetValue("");
             fields["HD"].SetValue("");
 
@@ -429,10 +445,35 @@ namespace M_A_G_I_C_K
             fields["GP"].SetValue("150");
 
 
-            //weapons, sql query for that
-            fields["Wpn Name"].SetValue("");
+            //weapon, sql query for that
+            string damage = null;
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                //finally a query
+                string query = @"
+                         SELECT Damage
+                         FROM Weapons
+                         Where Name = '" + _weapon + "'";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            damage = reader.GetString(reader.GetOrdinal("Damage"));
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+
+            fields["Wpn Name"].SetValue(_weapon);
             fields["Wpn1 AtkBonus"].SetValue("");
-            fields["Wpn1 Damage"].SetValue("");
+            fields["Wpn1 Damage"].SetValue(damage);
 
 
             fillingPdf.Close();
@@ -451,7 +492,7 @@ namespace M_A_G_I_C_K
                 string movementPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + _name + "CharacterSheet.pdf";
 
                 //moving the stuff to desktop
-                File.Move(CreationPath, movementPath);
+                //File.Move(CreationPath, movementPath);
                 MessageBox.Show("File Moved");
             }
             else 
@@ -467,23 +508,17 @@ namespace M_A_G_I_C_K
     {
         //this will be inhearented by all the classes
         protected int _Level, _hitpoints;
-        protected string _CharClass, _hitpointDice;
-        protected Boolean _spellCaster;
+        protected string _CharClassName, _hitpointDice;
         protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
 
-        public string CharClass
+        public string CharClassName
         {
-            get { return _CharClass; }
+            get { return _CharClassName; }
         }
 
         public int Level
         {
             get { return _Level; }
-        }
-
-        public Boolean spellCaster 
-        {
-            get { return _spellCaster; }
         }
 
         public static List<string> gettingWeapons(string WeaponType)
@@ -630,7 +665,6 @@ namespace M_A_G_I_C_K
 
         public spellCaster() : base()
         {
-            _spellCaster = true;
         }
 
         public string spellAbility
@@ -650,14 +684,76 @@ namespace M_A_G_I_C_K
 
         public void fillingSpellsPdf(IDictionary<String, PdfFormField> fields)
         {
+            //setting these to defaults just to avoid errors from empty, will need to be updated later
+            _spellSaveDC = "Null";
+            _spellAtkBonus = "Null";
+
             //top section
-            fields["Spellcasting Class 2"].SetValue(_CharClass);
+            fields["Spellcasting Class 2"].SetValue(_CharClassName);
             fields["SpellcastingAbility 2"].SetValue(_spellAbility);
             fields["SpellSaveDC 2"].SetValue(_spellSaveDC);
             fields["SpellAtkBonus 2"].SetValue(_spellAtkBonus);
 
 
             //loop for cantrips
+            int currentSpell = 1;
+            foreach(string cantrip in _SelectedCantrip)
+            {
+                fields["C" + currentSpell].SetValue(cantrip);
+                currentSpell++;
+            }
+
+            //nums to keep track of the spell level
+            int numOfOne = 1;
+            int numOfTwo = 1;
+            int numOfThree = 1; 
+
+            //loop for spells
+            foreach (string spell in _SelectedSpells)
+            {
+                int level = 1;
+
+                using (var connection = new SQLiteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    //finally a query
+                    string query = @"
+                         SELECT Level
+                         FROM " + _CharClassName + "SpellBook \n" +
+                         "WHERE Name = '" + spell + "'";
+                         
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                level = (int)reader.GetInt32(reader.GetOrdinal("Level"));
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+
+                switch (level)
+                {
+                    case 1:
+                        fields["F" + numOfOne].SetValue(spell);
+                        numOfOne++;
+                        break;
+                    case 2:
+                        fields["S" + numOfThree].SetValue(spell);
+                        numOfTwo++;
+                        break;
+                    case 3:
+                        fields["T" + numOfThree].SetValue(spell);
+                        numOfThree++;
+                        break;
+                }
+
+            }
 
         }
 
@@ -669,8 +765,7 @@ namespace M_A_G_I_C_K
         public Fighter(int Level) : base()
         { 
             _Level = Level;
-            _CharClass = "Fighter";
-            _spellCaster = false;
+            _CharClassName = "Fighter";
             _hitpointDice = "D10";
         }
     }
@@ -680,11 +775,11 @@ namespace M_A_G_I_C_K
         public Cleric(int Level, string[] Cantrips, string[] Spells) : base()
         {
             _Level = Level;
-            _CharClass = "Cleric";
+            _CharClassName = "Cleric";
             _hitpointDice = "D8";
             _SelectedCantrip = Cantrips;
             _SelectedSpells = Spells;
-
+            _spellAbility = "Wisdom";
         }
         public static List<string> gettingSpells(int level)
         {
@@ -698,7 +793,7 @@ namespace M_A_G_I_C_K
                 string query = @"
                          SELECT Name
                          FROM ClericSpellbook
-                        WHERE Level=" + level;
+                         WHERE Level=" + level;
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
@@ -727,10 +822,11 @@ namespace M_A_G_I_C_K
         public Wizard(int Level, string[] Cantrips, string[] Spells) : base()
         {
             _Level = Level;
-            _CharClass = "Wizard";
+            _CharClassName = "Wizard";
             _hitpointDice = "D6";
             _SelectedCantrip = Cantrips;
             _SelectedSpells = Spells;
+            _spellAbility = "intelligence";
 
         }
         public static List<string> gettingSpells(int level)
@@ -773,8 +869,7 @@ namespace M_A_G_I_C_K
         public Rouge(int Level) : base()
         {
             _Level = Level;
-            _CharClass = "Rouge";
-            _spellCaster = false;
+            _CharClassName = "Rouge";
             _hitpointDice = "D8";
 
         }
@@ -785,10 +880,11 @@ namespace M_A_G_I_C_K
         public Bard(int Level, string[] Cantrips, string[] Spells) : base()
         {
             _Level = Level;
-            _CharClass = "Bard";
+            _CharClassName = "Bard";
             _hitpointDice = "D8";
             _SelectedCantrip = Cantrips;
             _SelectedSpells = Spells;
+            _spellAbility = "Charisma";
         }
 
         public static List<string> gettingSpells(int level)
