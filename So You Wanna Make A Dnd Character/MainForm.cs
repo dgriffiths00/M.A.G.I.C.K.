@@ -215,16 +215,31 @@ namespace M_A_G_I_C_K
                 Bard
             */
 
+            /*Build Arrays here?
+            Backgrounds[]
+            Personalities[]
+            Ideals[]
+            Flaws[]
+            Bonds[]
+             */
+
+
             //these will all be updates to a linq statments to filter by class then level, and then a loop to create all the items.add for each thing
             switch (ClassDropBox.SelectedIndex)
             {
                 case 1:
                     //Fighter
                     playerIcon.Image = Image.FromFile(linkToImagine + "Fighter.png");
-                    backgroundTb1.Text = "History: Soldier"
-                        + Environment.NewLine + "Trinket: a small, bronze sword necklace."
-                        + Environment.NewLine + "Personality: Pragmatic"
-                        + Environment.NewLine + "Mannerisms: you fidget with your equipement.";
+                    /* Being rewritten
+                     * backgroundTb1.Text = "History: [variable]"
+                     */
+                    backgroundTb1.Text = "Background: Fighter"
+                        + Environment.NewLine + "Personality: Fighter"
+                        + Environment.NewLine + "Ideal: Fighter"
+                        + Environment.NewLine + "Flaw: Fighter"
+                        + Environment.NewLine + "Bond: Fighter";
+
+
                     this.BackColor = ColorTranslator.FromHtml("#E57373");
 
                     List<string> fighterWeapons = Fighter.gettingWeapons("martial");
@@ -279,10 +294,11 @@ namespace M_A_G_I_C_K
                 case 2:
                     //Cleric
                      playerIcon.Image = Image.FromFile(linkToImagine + "Cleric.png");
-                    backgroundTb1.Text = "History: Cloistered Scholar"
-                       + Environment.NewLine + "Trinket: an ornate box inscribed with verse."
-                       + Environment.NewLine + "Personality: Diligent"
-                       + Environment.NewLine + "Mannerisms: you collect trinkets from whereever you go.";
+                    backgroundTb1.Text = "Background: Cleric"
+                        + Environment.NewLine + "Personality: Cleric"
+                        + Environment.NewLine + "Ideal: Cleric"
+                        + Environment.NewLine + "Flaw: Cleric"
+                        + Environment.NewLine + "Bond: Cleric";
                     this.BackColor = ColorTranslator.FromHtml("#5A9BD4");
 
                     List<string> clericWeapons = Cleric.gettingWeapons("simple");
@@ -388,17 +404,17 @@ namespace M_A_G_I_C_K
                 case 3:
                     //Wizard
                     playerIcon.Image = Image.FromFile(linkToImagine +  "Wizard.png");
-                    backgroundTb1.Text = "History: Hermit"
-                       + Environment.NewLine + "Trinket: a set of used writing quills."
-                       + Environment.NewLine + "Personality: Observant"
-                       + Environment.NewLine + "Mannerisms: you like to eat colourful food.";
+                    backgroundTb1.Text = "Background: Wizard"
+                        + Environment.NewLine + "Personality: Wizard"
+                        + Environment.NewLine + "Ideal: Wizard"
+                        + Environment.NewLine + "Flaw: Wizard"
+                        + Environment.NewLine + "Bond: Wizard";
                     this.BackColor = ColorTranslator.FromHtml("#B085E9");
+
                     List<string> wizardWeapon = Wizard.gettingWeapons("simple");
                     List<string> wizardFeats = Wizard.gettingFeats();
                     List<string> wizardArmour = Wizard.gettingArmours("light");
                     List<string> wizardEquipment = Wizard.gettingEquipment();
-
-
 
                     //displaying the counter for spells
                     cantripLblCount.Visible = true;
@@ -491,7 +507,7 @@ namespace M_A_G_I_C_K
 
                     break;
                 case 4:
-                    //Rouge
+                    //Rogue
                     EquipmentCheckBox.Items.Add("Items for Rouge");
                     playerIcon.Image = Image.FromFile(linkToImagine + "Rogue.png");
 
@@ -500,10 +516,11 @@ namespace M_A_G_I_C_K
                     List<string> rogueArmour = Rouge.gettingArmours("medium");
                     List<string> rogueEquipment = Rouge.gettingEquipment();
 
-                    backgroundTb1.Text = "History: Criminal"
-                       + Environment.NewLine + "Trinket: a set of loaded dice"
-                       + Environment.NewLine + "Personality: Happy-go-lucky"
-                       + Environment.NewLine + "Mannerisms: you whistle songs when in thought.";
+                    backgroundTb1.Text = "Background: Bard"
+                        + Environment.NewLine + "Personality: Rogue"
+                        + Environment.NewLine + "Ideal: Rogue"
+                        + Environment.NewLine + "Flaw: Rogue"
+                        + Environment.NewLine + "Bond: Rogue";
                     this.BackColor = ColorTranslator.FromHtml("#A0A5AA");
 
                     //removing cantrip
@@ -556,17 +573,17 @@ namespace M_A_G_I_C_K
                 case 5:
                     //Bard
                     playerIcon.Image = Image.FromFile(linkToImagine + "Bard.png");
-                    backgroundTb1.Text = "History: Charlatan"
-                       + Environment.NewLine + "Trinket: a set of three cups and rubber ball."
-                       + Environment.NewLine + "Personality: Daring."
-                       + Environment.NewLine + "Mannerisms: you talk to the air ";
+                    backgroundTb1.Text = "Background: Bard"
+                        + Environment.NewLine + "Personality: Bard"
+                        + Environment.NewLine + "Ideal: Bard"
+                        + Environment.NewLine + "Flaw: Bard"
+                        + Environment.NewLine + "Bond: Bard";
                     this.BackColor = ColorTranslator.FromHtml("#F4A261");
+
                     List<string> bardWeapons = Bard.gettingWeapons("simple");
                     List<string> bardFeats = Bard.gettingFeats();
                     List<string> bardArmour = Bard.gettingArmours("light");
                     List<string> bardEquipment = Bard.gettingEquipment();
-
-
 
                     //displaying the counter for spells
                     cantripLblCount.Visible = true;
@@ -666,10 +683,11 @@ namespace M_A_G_I_C_K
                 default:
                     //nothing change nothing
                     playerIcon.Image = Image.FromFile(linkToImagine + "Default.png");
-                    backgroundTb1.Text = "History:         [only the gods know]"
-                        + Environment.NewLine + "Trinket:         [who is to say what is valuable]"
-                        + Environment.NewLine + "Personality:   [good or ill, you turn heads]"
-                        + Environment.NewLine + "Mannerisms: [everyone has their quirks]";
+                    backgroundTb1.Text = "Background: Where did you come from?"
+                        + Environment.NewLine + "Personality: What are you like?"
+                        + Environment.NewLine + "Ideal: To what do you aspire?"
+                        + Environment.NewLine + "Flaw: With what do you struggle?"
+                        + Environment.NewLine + "Bond: What drives you?";
                     this.BackColor = ColorTranslator.FromHtml("#A67C52");
                     break;
             }
