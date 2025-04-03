@@ -32,6 +32,7 @@ namespace M_A_G_I_C_K
         public MainForm()
         {
             InitializeComponent();
+            
         }
 
 
@@ -1323,7 +1324,7 @@ namespace M_A_G_I_C_K
 
                 default:
                     Character createdChar = new Character(SelectedRace, SelectedClass, Name, Level, Stats, Background, inventory, feats);
-
+                    createdChar.calculatingStats();
                     if (result == DialogResult.Yes)
                     {
                         //opening new form

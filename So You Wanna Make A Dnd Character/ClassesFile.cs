@@ -47,6 +47,9 @@ namespace M_A_G_I_C_K
         private List<string> _Equipment = new List<string>();
         //feats
         private string[] _feats;
+        private int _AC;
+        private int _spellSaveDC;
+        private int _spellAttackMod;
 
         
         //constructors will one for full and one for completely empty
@@ -180,6 +183,8 @@ namespace M_A_G_I_C_K
             _WIS = stats[5];
 
             _background = Background;
+
+            //CALCULATING STATS GOES HERE
         }
 
         public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background, string[] Cantrips, string[] Spells, List<string> inventory, string[] feats)
@@ -262,8 +267,6 @@ namespace M_A_G_I_C_K
                 default:
                     Console.WriteLine("Selected Nothing");
                     //start random generation here
-
-
                     break;
             }
 
@@ -318,6 +321,8 @@ namespace M_A_G_I_C_K
             _WIS = stats[5];
 
             _background = Background;
+
+            //CALCULATING STATS GO HERE
         }
 
         //get methods, we will need to add get methods to everything
@@ -325,16 +330,61 @@ namespace M_A_G_I_C_K
         {
             get { return _CharClass; }
         }
-        
 
 
-        
-        
-        private void calculatingStats()
+
+        //stat calculator
+        public void calculatingStats()
         {
-            //ac, hitpoints, etc
+            //ARMOR CLASS
+            //---------------------------------------------------------------------
+            //math.round didn't work, found an alternative
+            //math.ceiling documention https://learn.microsoft.com/en-us/dotnet/api/system.math.ceiling?view=net-9.0
+            // 
+            //proficiency bonus  =  charlevel /4 rounded up +1
 
+
+            string connectionString = @"Data Source=" +
+                Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName,
+                @"\Databases\Primary Database.db");
+
+            using (var conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string query = $"SELECT ArmorClass FROM Armors WHERE Name = '{_armor}'";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            _AC = reader.GetInt32(reader.GetOrdinal("ArmorClass"));
+                        }
+                        else
+                        {
+                            _AC = 10; // Default armourclass in case user decides to hate armor for w/e reason
+                        }
+                    }
+                }
+            }
+
+            //HITPOINTS
+
+            //get hitdie from class
+            //this won't work because it's calling a int structured as "D(num)" Parse the string to remove all instances of D
+            int hitdie = int.Parse(_CharClass.HitpointDice.Replace("D", ""));
             
+            //use hitdie to calculate hp + con bonus * level
+            _CharClass.Hitpoints = (hitdie + _StatBonus[2]) * _CharClass.Level;
+        }
+
+        //this things are located within the spellcaster class, should be moved into there, and called in the constructor via _spellCaster.CalculatingSpellCastingStats
+        public void calculateSpellcastingStats(int casterStatMod)
+        {
+            _spellSaveDC = (8 + _ProfisBonus + casterStatMod);
+            _spellAttackMod = (_ProfisBonus + casterStatMod);
         }
 
         public void creatingPdf()
@@ -503,7 +553,6 @@ namespace M_A_G_I_C_K
         
     }
 
-
     public abstract class DndClass
     {
         //this will be inhearented by all the classes
@@ -515,12 +564,20 @@ namespace M_A_G_I_C_K
         {
             get { return _CharClassName; }
         }
-
         public int Level
         {
             get { return _Level; }
         }
+        //in case you really really wanted _hitpoints to be protected...this way im not destroying your encapsulation
+        //would make my life easier to have done so though lol
+        public string HitpointDice => _hitpointDice;
 
+        //constructor for hitpoints as I couldnt find one
+        public int Hitpoints
+        {
+            get => _hitpoints;
+            set => _hitpoints = value;
+        }
         public static List<string> gettingWeapons(string WeaponType)
         {
             List<string> currentWeapon = new List<string>();
@@ -654,7 +711,6 @@ namespace M_A_G_I_C_K
         }
 
     }
-
     public abstract class spellCaster : DndClass
     {
         protected string _spellAbility, _spellSaveDC, _spellAtkBonus;
@@ -759,7 +815,6 @@ namespace M_A_G_I_C_K
 
     }
 
-
     class Fighter : DndClass
     {
         public Fighter(int Level) : base()
@@ -807,7 +862,6 @@ namespace M_A_G_I_C_K
                         }
                     }
                 }
-
                 connection.Close();
             }
 
