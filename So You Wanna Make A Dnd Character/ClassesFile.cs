@@ -212,7 +212,7 @@ namespace M_A_G_I_C_K
             Console.WriteLine("HP: " + _CharClass.Hitpoints);
             Console.WriteLine("CON " + _StatBonus[2]);
             Console.WriteLine("Dex " + _StatBonus[1]);
-            if (_spellCaster)
+            if (_SpellCaster != null)
             {
 
                 Console.WriteLine("Spellcasting Modifier (Save): " + _SpellCaster.spellSaveDC);
@@ -293,13 +293,13 @@ namespace M_A_G_I_C_K
                 case 3:
                     Console.WriteLine("Selected Wizard");
                     _SpellCaster = new Wizard(Level, Cantrips, Spells);
-                    _CharClass = new Cleric(Level, Cantrips, Spells);
+                    _CharClass = new Wizard(Level, Cantrips, Spells);
 
                     break;
                 case 5:
                     Console.WriteLine("Selected Bard");
                     _SpellCaster = new Bard(Level, Cantrips, Spells);
-                    _CharClass = new Cleric(Level, Cantrips, Spells);
+                    _CharClass = new Bard(Level, Cantrips, Spells);
 
                     break;
                 default:
