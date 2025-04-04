@@ -155,26 +155,26 @@ namespace M_A_G_I_C_K
             //adding all inventory stuff
             try
             {
+
                 _weapon = inventory[0];
-
-            }
-            catch //if no weapon is selected, assigning default
-            {
-                _weapon = "Unarmed";
-            }
-            try
-            {
-                _armor = inventory[0];
-
             }
             catch
             {
-                _armor = "Unarmored";
+                Console.WriteLine("No weapon selected, travelling unarmed!");
+            }
+            try
+            {
+
+                _weapon = inventory[0];
+            }
+            catch
+            {
+                Console.WriteLine("No armor selected, travelling unarmored!");
             }
 
-            foreach (string iteam in inventory)
+            foreach (string item in inventory)
             {
-                _Equipment.Add(iteam);
+                _Equipment.Add(item);
             }
 
             //feats
@@ -212,6 +212,15 @@ namespace M_A_G_I_C_K
             Console.WriteLine("HP: " + _CharClass.Hitpoints);
             Console.WriteLine("CON " + _StatBonus[2]);
             Console.WriteLine("Dex " + _StatBonus[1]);
+            if (_spellCaster)
+            {
+
+                Console.WriteLine("Spellcasting Modifier (Save): " + _SpellCaster.spellSaveDC);
+                Console.WriteLine("Spellcasting Modifier (Attack Bonus): " + _SpellCaster.SpellAtkBonus);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("-----------------");
+
 
 
         }
@@ -320,29 +329,13 @@ namespace M_A_G_I_C_K
             }
 
             //adding all inventory stuff
-            try
-            {
-                _weapon = inventory[0];
-
-            }
-            catch
-            {
-                _weapon = "Unarmed";
-            }
-            try
-            {
-                _armor = inventory[0];
-
-            }
-            catch
-            {
-                _armor = "Unarmored";
-            }
+            
+            _weapon = inventory[0];
             _armor = inventory[1];
 
-            foreach (string iteam in inventory)
+            foreach (string item in inventory)
             {
-                _Equipment.Add(iteam);
+                _Equipment.Add(item);
             }
 
             //feats
@@ -369,7 +362,8 @@ namespace M_A_G_I_C_K
             _background = Background;
 
             //CALCULATING STATS GO HERE
-        }
+            calculatingStats();
+         }
 
         //get methods, we will need to add get methods to everything
         public DndClass CharClass
@@ -437,9 +431,22 @@ namespace M_A_G_I_C_K
             {
                 MessageBox.Show("Remember to select a class!");
             }
-        }
 
-        
+            if (_spellCaster == true)
+            {
+                switch (_SpellCaster.spellAbility.ToLower()){
+                    case "wisdom":
+                        _SpellCaster.calculateSpellStats(_StatBonus[4]);
+                        break;
+                    case "intelligence":
+                        _SpellCaster.calculateSpellStats(_StatBonus[3]);
+                        break;
+                    case "charisma":
+                        _SpellCaster.calculateSpellStats(_StatBonus[5]);
+                        break;
+                }
+            }
+        }
         public void creatingPdf()
         {
             Console.WriteLine("getting into pdf editing");
@@ -863,7 +870,7 @@ namespace M_A_G_I_C_K
         }
 
         //this things are located within the spellcaster class, should be moved into there, and called in the constructor via _spellCaster.CalculatingSpellCastingStats
-        public void calculateSpellcastingStats(int casterStatMod)
+        public void calculateSpellStats(int casterStatMod)
         {
             _spellSaveDC = (8 + _ProfisBonus + casterStatMod).ToString() ;
             _spellAtkBonus = (_ProfisBonus + casterStatMod).ToString();
