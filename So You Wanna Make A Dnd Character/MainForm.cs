@@ -28,21 +28,44 @@ namespace M_A_G_I_C_K
 
     public partial class MainForm : Form
     {
+        //declared here so it can be used in multiple methods, possibly a better way, idk
+        //used to hold the racial bonus for the stats
+        private int[] _racialBonus = new int[6];
+        private int[] _baseStats = new int[6];
+        
 
         public MainForm()
         {
             InitializeComponent();
-            
+
         }
 
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
             //making the drop boxes default to the select please.. to allow for reselection of nothing after a selected option
             RaceDropBox.SelectedIndex = 0;
             ClassDropBox.SelectedIndex = 0;
             cantripLblCount.Visible = false;
             spellbookLblCount.Visible = false;
+
+            //loading the txtbox with values manually as apparently the program doesnt recognize the design values
+            STRstats.Value = 6;
+            DEXStats.Value = 6;
+            CONStats.Value = 6;
+            SMRTStats.Value = 6;
+            WISstats.Value = 6;
+            CHAStats.Value = 6;
+
+            //load the base stats with pre existing values
+            _baseStats[0] = Convert.ToInt32(STRstats.Value);            
+            _baseStats[1] = Convert.ToInt32(DEXStats.Value);            
+            _baseStats[2] = Convert.ToInt32(CONStats.Value);            
+            _baseStats[3] = Convert.ToInt32(SMRTStats.Value);            
+            _baseStats[4] = Convert.ToInt32(WISstats.Value);            
+            _baseStats[5] = Convert.ToInt32(CHAStats.Value);
+             
         }
 
         //this will change the spells you can pick etc etc based on what you pick
@@ -55,6 +78,7 @@ namespace M_A_G_I_C_K
                 Orc
                 DragonBorn
             */
+
             STRtbx.Clear();
             DEXtbx.Clear();
             SMRTtbx.Clear();
@@ -62,142 +86,82 @@ namespace M_A_G_I_C_K
             CONtbx.Clear();
             WIStbx.Clear();
 
+            _racialBonus = new int[6];
+            try
+            {
+                resetStats();
+
+            }
+            catch
+            {
+                Console.WriteLine("Nothing to reset");
+            }
 
             switch (RaceDropBox.SelectedIndex)
             {
-                case 1: //human
-                        //--- I didn't know what to do so i gave +1 to 3 stats, same ASI just different.
-                        // +1 to STR
-                    STRtbx.AppendText("+1 Racial Bonus");
-                    try
-                    {
-                        STRstats.Value = STRstats.Value + 1;
-                    }
-                    catch
-                    {
-                        STRstats.Value = 20;
-                        STRtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-                    // +1 to INT
-                    try
-                    {
-                        SMRTtbx.AppendText("+1 Racial Bonus");
-                        SMRTStats.Value = SMRTStats.Value + 1;
-                    }
-                    catch
-                    {
-                        SMRTStats.Value = 20;
-                        SMRTtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-                    // +1 to WIS
-                    try
-                    {
-                        WIStbx.AppendText("+1 Racial Bonus");
-                        WISstats.Value = WISstats.Value + 1;
-                    }
-                    catch
-                    {
-                        WISstats.Value = 20;
-                        WIStbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
+                case 1: // Human
+                    _racialBonus[0] = 1; // STR
+                    _racialBonus[3] = 1; // INT
+                    _racialBonus[4] = 1; // WIS
                     break;
-                case 2: //elf
-                    // +2 to DEX
-                    DEXtbx.AppendText("+2 Racial Bonus");
-                    try
-                    {
-                        DEXtbx.AppendText("+2 Racial Bonus");
-                        DEXStats.Value = DEXStats.Value + 2;
-                    }
-                    catch
-                    {
-                        DEXStats.Value = 20;
-                        DEXtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-                    // +1 to INT   (went w/ high elf bc idk)
-                    try
-                    {
-                        SMRTtbx.AppendText("+1 Racial Bonus");
-                        SMRTStats.Value = SMRTStats.Value + 1;
-                    }
-                    catch
-                    {
-                        SMRTStats.Value = 20;
-                        SMRTtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
+                case 2: // Elf
+                    _racialBonus[1] = 2; // DEX
+                    _racialBonus[3] = 1; // INT
                     break;
-                case 3: //Dwarf
-                    //+2 to CON
-                    try
-                    {
-                        CONtbx.AppendText("+2 Racial Bonus");
-                        CONStats.Value = CONStats.Value + 2;
-                    }
-                    catch
-                    {
-                        CONStats.Value = 20;
-                        CONtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-
+                case 3: // Dwarf
+                    _racialBonus[2] = 2; // CON
                     break;
-                case 4: //orc
-
-                    // +2 to STR
-                    try
-                    {
-                        STRtbx.AppendText("+2 Racial Bonus");
-                        STRstats.Value = STRstats.Value + 2;
-                    }
-                    catch
-                    {
-                        STRstats.Value = 20;
-                        STRtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-                    // +1 to CON
-                    try
-                    {
-                        CONtbx.AppendText("+1 Racial Bonus");
-                        CONStats.Value = CONStats.Value + 1;
-                    }
-                    catch
-                    {
-                        CONStats.Value = 20;
-                        CONtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
+                case 4: // Orc
+                    _racialBonus[0] = 2; // STR
+                    _racialBonus[2] = 1; // CON
                     break;
-                case 5: //DragonBorn
-                    // +2 to STR
-                    STRtbx.AppendText("+2 Racial Bonus");
-                    try
-                    {
-                        STRstats.Value = STRstats.Value + 2;
-                    }
-                    catch
-                    {
-                        STRstats.Value = 20;
-                        STRtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-                    // +1 to CHA
-                    try
-                    {
-                        CHAtbx.AppendText("+1 Racial Bonus");
-                        CHAStats.Value = CHAStats.Value + 1;
-                    }
-                    catch
-                    {
-                        CHAStats.Value = 20;
-                        CHAtbx.AppendText("Racial bonus not applied, natural score may not exceed 20");
-                    }
-
+                case 5: // Dragonborn
+                    _racialBonus[0] = 2; // STR
+                    _racialBonus[5] = 1; // CHA
                     break;
-
                 default:
-                    //nothing change nothing
-
                     break;
             }
-        }
+            STRtbx.Text = $"+{_racialBonus[0]} Racial Bonus";
+            DEXtbx.Text = $"+{_racialBonus[1]} Racial Bonus";
+            CONtbx.Text = $"+{_racialBonus[2]} Racial Bonus";
+            SMRTtbx.Text = $"+{_racialBonus[3]} Racial Bonus";
+            WIStbx.Text = $"+{_racialBonus[4]} Racial Bonus";
+            CHAtbx.Text = $"+{_racialBonus[5]} Racial Bonus";
+            try
+            {
+                updateStats();
 
+            }
+            catch 
+            { 
+                Console.WriteLine("Nothing to calculate yet."); 
+            }
+        }
+        private void updateStats()
+        {
+            STRstats.Value = _baseStats[0] + _racialBonus[0];
+            DEXStats.Value = _baseStats[1] + _racialBonus[1];
+            CONStats.Value = _baseStats[2] + _racialBonus[2];
+            SMRTStats.Value = _baseStats[3] + _racialBonus[3];
+            WISstats.Value = _baseStats[4] + _racialBonus[4];
+            CHAStats.Value = _baseStats[5] + _racialBonus[5];
+        }
+        private void resetStats()
+        {
+            STRtbx.Clear();
+            DEXtbx.Clear();
+            SMRTtbx.Clear();
+            CHAtbx.Clear();
+            CONtbx.Clear();
+            WIStbx.Clear();
+            STRstats.Value = _baseStats[0];
+            DEXStats.Value = _baseStats[1];
+            CONStats.Value = _baseStats[2];
+            SMRTStats.Value = _baseStats[3];
+            WISstats.Value = _baseStats[4];
+            CHAStats.Value = _baseStats[5];
+        }
         private void ClassDropBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             EquipmentCheckBox.Items.Clear();
@@ -1034,7 +998,9 @@ namespace M_A_G_I_C_K
                 case 20:
                     STRbonusTxt.Text = "+5";
                     break;
+
             }
+            _baseStats[0] = Convert.ToInt32(STRstats.Value);
 
         }
 
@@ -1075,6 +1041,8 @@ namespace M_A_G_I_C_K
                     DEXbonusTxt.Text = "+5";
                     break;
             }
+            _baseStats[1] = Convert.ToInt32(DEXStats.Value);
+
         }
 
         private void CONStats_ValueChanged(object sender, EventArgs e)
@@ -1114,6 +1082,8 @@ namespace M_A_G_I_C_K
                     CONbonusTxt.Text = "+5";
                     break;
             }
+            _baseStats[2] = Convert.ToInt32(CONStats.Value);
+
         }
 
         private void SMRTStats_ValueChanged(object sender, EventArgs e)
@@ -1153,6 +1123,8 @@ namespace M_A_G_I_C_K
                     SMRTbonusTxt.Text = "+5";
                     break;
             }
+            _baseStats[3] = Convert.ToInt32(SMRTStats.Value);
+
         }
 
         private void WISstats_ValueChanged(object sender, EventArgs e)
@@ -1192,6 +1164,8 @@ namespace M_A_G_I_C_K
                     WISbonusTxt.Text = "+5";
                     break;
             }
+            _baseStats[4] = Convert.ToInt32(WISstats.Value);
+
         }
 
         private void CHAStats_ValueChanged(object sender, EventArgs e)
@@ -1231,6 +1205,8 @@ namespace M_A_G_I_C_K
                     CHAbonusTxt.Text = "+5";
                     break;
             }
+            _baseStats[5] = Convert.ToInt32(CHAStats.Value);
+
 
         }
 

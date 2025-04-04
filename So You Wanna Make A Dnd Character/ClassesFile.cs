@@ -468,13 +468,11 @@ namespace M_A_G_I_C_K
             //Console.WriteLine("");
             //Console.WriteLine("AC: " + _AC);
             //Console.WriteLine("HP: " + _CharClass.Hitpoints);
-            //Console.WriteLine("CON " + _StatBonus[2]);
-            //Console.WriteLine("Dex " + _StatBonus[1]);
+             
             //if (_SpellCaster != null)
             //{
-
             //    Console.WriteLine("Spellcasting Modifier (Save): " + _SpellCaster.spellSaveDC);
-            //    Console.WriteLine("Spellcasting Modifier (Attack Bonus): " + _SpellCaster.SpellAtkBonus);
+            //Console.WriteLine("Spellcasting Modifier (Attack Bonus): " + _SpellCaster.SpellAtkBonus);
             //}
             //Console.WriteLine("");
             //Console.WriteLine("-----------------");
