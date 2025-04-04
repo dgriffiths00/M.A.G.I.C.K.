@@ -204,11 +204,15 @@ namespace M_A_G_I_C_K
             //CALCULATING STATS GOES HERE
             calculatingStats();
 
+
+            //testing lines
             Console.WriteLine("-----------------");
             Console.WriteLine("");
             Console.WriteLine("AC: " + _AC);
             Console.WriteLine("HP: " + _CharClass.Hitpoints);
-            Console.WriteLine(_StatBonus[2]);
+            Console.WriteLine("CON " + _StatBonus[2]);
+            Console.WriteLine("Dex " + _StatBonus[1]);
+
 
         }
 
@@ -391,12 +395,10 @@ namespace M_A_G_I_C_K
             // 
             //proficiency bonus  =  charlevel /4 rounded up +1
 
-
-
             using (var conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
-                string query = $"SELECT ArmorClass FROM Armors WHERE Name = '{_armor}'";
+                string query = $"SELECT ArmorClass, ArmorType FROM Armors WHERE Name = '{_armor}'";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                 {
@@ -406,21 +408,35 @@ namespace M_A_G_I_C_K
                         if (reader.Read())
                         {
                             _AC = Convert.ToInt32(reader.GetString(reader.GetOrdinal("ArmorClass")));
+                            string armorType = reader.GetString(reader.GetOrdinal("ArmorType"));
+
+                            //check for if the armor is light or medium, if so add dex bonus
+                            if (armorType == "Light" || armorType == "Medium")
+                            {
+                                _AC += _StatBonus[1];
+                            } 
                         }
                         else
                         {
-                            _AC = 10; // Default armourclass in case user decides to hate armor for w/e reason
-                        }
+                            _AC = 10 + _StatBonus[1];
+                        }    
                     }
                 }
             }
-                //HITPOINTS
 
-                //get hitdie from class
+            //HITPOINTS
+
+            //get hitdie from class
+            try
+            {
                 int hitdie = int.Parse(_CharClass.HitpointDice.Replace("D", ""));
-            
-            //use hitdie to calculate hp + con bonus * level
-            _CharClass.Hitpoints = (hitdie + _StatBonus[2]) * _CharClass.Level;
+                //use hitdie to calculate hp + con bonus * level
+                _CharClass.Hitpoints = (hitdie + _StatBonus[2]) * _CharClass.Level;
+            }
+            catch
+            {
+                MessageBox.Show("Remember to select a class!");
+            }
         }
 
         
