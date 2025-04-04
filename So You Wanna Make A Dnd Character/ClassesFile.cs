@@ -156,14 +156,22 @@ namespace M_A_G_I_C_K
             try
             {
                 _weapon = inventory[0];
-                _armor = inventory[1];
 
             }
-            catch //if no weapon or armor is selected, assigning default
+            catch //if no weapon is selected, assigning default
             {
                 _weapon = "Unarmed";
+            }
+            try
+            {
+                _armor = inventory[0];
+
+            }
+            catch
+            {
                 _armor = "Unarmored";
             }
+
             foreach (string iteam in inventory)
             {
                 _Equipment.Add(iteam);
@@ -308,7 +316,24 @@ namespace M_A_G_I_C_K
             }
 
             //adding all inventory stuff
-            _weapon = inventory[0];
+            try
+            {
+                _weapon = inventory[0];
+
+            }
+            catch
+            {
+                _weapon = "Unarmed";
+            }
+            try
+            {
+                _armor = inventory[0];
+
+            }
+            catch
+            {
+                _armor = "Unarmored";
+            }
             _armor = inventory[1];
 
             foreach (string iteam in inventory)
