@@ -42,16 +42,17 @@ namespace M_A_G_I_C_K
         protected Boolean _spellCaster;
         //created via inherented class
         private DndRace _CharRace;
-        //equitment
+        //equipment
         private string _armor, _weapon;
         private List<string> _Equipment = new List<string>();
         //feats
         private string[] _feats;
         private int _AC;
-        private int _spellSaveDC;
-        private int _spellAttackMod;
+        private int ProfisBonus => _ProfisBonus;
+        protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
 
-        
+
+
         //constructors will one for full and one for completely empty
         //the one for all constructor will also have options to fill in blank ones, and if == null then blank
 
@@ -152,9 +153,17 @@ namespace M_A_G_I_C_K
             }
 
             //adding all inventory stuff
-            _weapon = inventory[0];
-            _armor = inventory[1];
+            try
+            {
+                _weapon = inventory[0];
+                _armor = inventory[1];
 
+            }
+            catch //if no weapon or armor is selected, assigning default
+            {
+                _weapon = "Unarmed";
+                _armor = "Unarmored";
+            }
             foreach (string iteam in inventory)
             {
                 _Equipment.Add(iteam);
@@ -185,6 +194,14 @@ namespace M_A_G_I_C_K
             _background = Background;
 
             //CALCULATING STATS GOES HERE
+            calculatingStats();
+
+            Console.WriteLine("-----------------");
+            Console.WriteLine("");
+            Console.WriteLine("AC: " + _AC);
+            Console.WriteLine("HP: " + _CharClass.Hitpoints);
+            Console.WriteLine(_StatBonus[2]);
+
         }
 
         public Character(int SelectedRace, int SelectedClass, string Name, int Level, int[] stats, string Background, string[] Cantrips, string[] Spells, List<string> inventory, string[] feats)
@@ -331,11 +348,17 @@ namespace M_A_G_I_C_K
             get { return _CharClass; }
         }
 
-
-
         //stat calculator
         public void calculatingStats()
         {
+            //Stat bonuses
+            _StatBonus[0] = (_STR- 10) / 2;
+            _StatBonus[1] = (_DEX - 10) / 2;
+            _StatBonus[2] = (_CON - 10) / 2;
+            _StatBonus[3] = (_SMRT - 10) / 2;
+            _StatBonus[4] = (_WIS - 10) / 2;
+            _StatBonus[5] = (_CHA - 10) / 2;
+
             //ARMOR CLASS
             //---------------------------------------------------------------------
             //math.round didn't work, found an alternative
@@ -344,9 +367,6 @@ namespace M_A_G_I_C_K
             //proficiency bonus  =  charlevel /4 rounded up +1
 
 
-            string connectionString = @"Data Source=" +
-                Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName,
-                @"\Databases\Primary Database.db");
 
             using (var conn = new SQLiteConnection(connectionString))
             {
@@ -360,7 +380,7 @@ namespace M_A_G_I_C_K
                     {
                         if (reader.Read())
                         {
-                            _AC = reader.GetInt32(reader.GetOrdinal("ArmorClass"));
+                            _AC = Convert.ToInt32(reader.GetString(reader.GetOrdinal("ArmorClass")));
                         }
                         else
                         {
@@ -369,24 +389,16 @@ namespace M_A_G_I_C_K
                     }
                 }
             }
+                //HITPOINTS
 
-            //HITPOINTS
-
-            //get hitdie from class
-            //this won't work because it's calling a int structured as "D(num)" Parse the string to remove all instances of D
-            int hitdie = int.Parse(_CharClass.HitpointDice.Replace("D", ""));
+                //get hitdie from class
+                int hitdie = int.Parse(_CharClass.HitpointDice.Replace("D", ""));
             
             //use hitdie to calculate hp + con bonus * level
             _CharClass.Hitpoints = (hitdie + _StatBonus[2]) * _CharClass.Level;
         }
 
-        //this things are located within the spellcaster class, should be moved into there, and called in the constructor via _spellCaster.CalculatingSpellCastingStats
-        public void calculateSpellcastingStats(int casterStatMod)
-        {
-            _spellSaveDC = (8 + _ProfisBonus + casterStatMod);
-            _spellAttackMod = (_ProfisBonus + casterStatMod);
-        }
-
+        
         public void creatingPdf()
         {
             Console.WriteLine("getting into pdf editing");
@@ -556,7 +568,7 @@ namespace M_A_G_I_C_K
     public abstract class DndClass
     {
         //this will be inhearented by all the classes
-        protected int _Level, _hitpoints;
+        protected int _Level, _hitpoints, _ProfisBonus;
         protected string _CharClassName, _hitpointDice;
         protected static string connectionString = @"Data Source=" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName) + @"\Databases\Primary Database.db";
 
@@ -652,20 +664,15 @@ namespace M_A_G_I_C_K
                 if (ArmorType == "light")
                 {
                     armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' ";
-
                 }
                 else if (ArmorType == "medium")
                 {
                     armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' OR ArmorType = 'Medium' OR ArmorType= 'All'";
-
                 }
                 else if (ArmorType == "heavy")
                 {
                     armourQuery = "SELECT Name FROM Armors WHERE ArmorType = 'Light' OR ArmorType = 'Medium' OR ArmorType= 'Heavy' OR ArmorType= 'All'";
-
                 }
-
-
                 conn.Open();
 
                 using (SQLiteCommand command = new SQLiteCommand(armourQuery, conn))
@@ -721,6 +728,7 @@ namespace M_A_G_I_C_K
 
         public spellCaster() : base()
         {
+
         }
 
         public string spellAbility
@@ -813,6 +821,13 @@ namespace M_A_G_I_C_K
 
         }
 
+        //this things are located within the spellcaster class, should be moved into there, and called in the constructor via _spellCaster.CalculatingSpellCastingStats
+        public void calculateSpellcastingStats(int casterStatMod)
+        {
+            _spellSaveDC = (8 + _ProfisBonus + casterStatMod).ToString() ;
+            _spellAtkBonus = (_ProfisBonus + casterStatMod).ToString();
+
+        }
     }
 
     class Fighter : DndClass
@@ -822,6 +837,7 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClassName = "Fighter";
             _hitpointDice = "D10";
+            _ProfisBonus = 2;
         }
     }
 
@@ -835,6 +851,7 @@ namespace M_A_G_I_C_K
             _SelectedCantrip = Cantrips;
             _SelectedSpells = Spells;
             _spellAbility = "Wisdom";
+            _ProfisBonus = 2;
         }
         public static List<string> gettingSpells(int level)
         {
@@ -881,6 +898,8 @@ namespace M_A_G_I_C_K
             _SelectedCantrip = Cantrips;
             _SelectedSpells = Spells;
             _spellAbility = "intelligence";
+            _ProfisBonus = 2;
+         
 
         }
         public static List<string> gettingSpells(int level)
@@ -925,7 +944,7 @@ namespace M_A_G_I_C_K
             _Level = Level;
             _CharClassName = "Rouge";
             _hitpointDice = "D8";
-
+            _ProfisBonus = 2;
         }
     }
 
@@ -939,6 +958,7 @@ namespace M_A_G_I_C_K
             _SelectedCantrip = Cantrips;
             _SelectedSpells = Spells;
             _spellAbility = "Charisma";
+            _ProfisBonus = 2;
         }
 
         public static List<string> gettingSpells(int level)
@@ -970,7 +990,6 @@ namespace M_A_G_I_C_K
 
                 connection.Close();
             }
-
             return currentSpells;
         }
     }
@@ -981,7 +1000,6 @@ namespace M_A_G_I_C_K
         //this will be inherented by all the races
         protected int _speed;
         protected string _size, _CharRace;
-        
 
         public DndRace()
         {
@@ -1014,8 +1032,6 @@ namespace M_A_G_I_C_K
 
     class Human : DndRace
     {
-
-
         public Human(): base()
         {
             _CharRace = "Human";
@@ -1024,11 +1040,10 @@ namespace M_A_G_I_C_K
 
     class Elf : DndRace
     {
-
-
         public Elf() : base()
         {
-            _CharRace = "Elf";        }
+            _CharRace = "Elf";        
+        }
     }
 
     class Dwarf : DndRace
