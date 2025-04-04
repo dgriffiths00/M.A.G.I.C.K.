@@ -329,9 +329,25 @@ namespace M_A_G_I_C_K
             }
 
             //adding all inventory stuff
-            
-            _weapon = inventory[0];
-            _armor = inventory[1];
+
+            try
+            {
+
+                _weapon = inventory[0];
+            }
+            catch
+            {
+                Console.WriteLine("No weapon selected, travelling unarmed!");
+            }
+            try
+            {
+
+                _weapon = inventory[0];
+            }
+            catch
+            {
+                Console.WriteLine("No armor selected, travelling unarmored!");
+            }
 
             foreach (string item in inventory)
             {
